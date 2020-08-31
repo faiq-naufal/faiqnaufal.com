@@ -1,11 +1,20 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Faiq Naufal | Web Developer Specialized in Front-End Development`,
+    description: `I am Faiq Naufal. Web Developer specialize in Front-End Development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
+    keyword: `Faiq Naufal, Portfolio, Personal Website, Front-End, Developer, Web Developer`,
+    author: `Faiq Naufal`,
+    url: `https://www.faiqnaufal.com/`,
+    lang: `en`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
