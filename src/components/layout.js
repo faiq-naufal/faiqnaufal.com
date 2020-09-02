@@ -6,9 +6,10 @@ import Theme from "./Theme"
 const Layout = ({ children }) => {
   return (
     <Theme>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      {/* <Header /> */}
+      {children}
+      {/* <main></main> */}
+      {/* <Footer /> */}
     </Theme>
   )
 }

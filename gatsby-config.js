@@ -2,13 +2,21 @@ module.exports = {
   siteMetadata: {
     title: `Faiq Naufal | Web Developer Specialized in Front-End Development`,
     description: `I am Faiq Naufal. Web Developer specialize in Front-End Development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
-    keyword: `Faiq Naufal, Portfolio, Personal Website, Front-End, Developer, Web Developer`,
+    keyword: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
     author: `Faiq Naufal`,
     url: `https://www.faiqnaufal.com/`,
     lang: `en`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-emotion`,
       options: {
@@ -27,13 +35,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Faiq Naufal Website`,
+        short_name: `Faiq Naufal`,
+        description: `A personal website of Faiq Naufal. This website is considered as Faiq Naufal's portfolio`,
+        lang: `en`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `src/images/faiq-naufal-icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

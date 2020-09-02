@@ -34,17 +34,6 @@ const GlobalStyle = () => (
         font-family: "Merriweather", serif;
       }
 
-      /* html,
-      body,
-      #__next {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        min-height: 100%;
-        height: auto;
-        position: relative;
-      } */
-
       body {
         font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
       }
@@ -97,7 +86,7 @@ export default function Theme({ children }) {
   return (
     <ThemeProvider theme={{}}>
       <GlobalStyle />
-      <ProgressPage scroll={`${stateScrollPosition}%`} />
+      {/* <ProgressPage scroll={`${stateScrollPosition}%`} /> */}
       {children}
     </ThemeProvider>
   )
