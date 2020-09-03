@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { ThemeProvider } from "emotion-theming"
 import { Global, css } from "@emotion/core"
+import { Helmet } from "react-helmet"
 import "typeface-inter"
 import "typeface-merriweather"
 import "normalize.css"
-import ProgressPage from "./ProgressPage"
 import { calculateScrollDistance } from "../utils/utils"
 
 const GlobalStyle = () => (
@@ -26,6 +26,16 @@ const GlobalStyle = () => (
         box-sizing: inherit;
       }
 
+      html,
+      body,
+      #___gatsby,
+      #gatsby-focus-wrapper {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 100%;
+        height: auto;
+      }
       .Inter {
         font-family: "Inter", sans-serif;
       }
@@ -85,6 +95,29 @@ export default function Theme({ children }) {
 
   return (
     <ThemeProvider theme={{}}>
+      <Helmet>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#2d89ef" />
+        <meta name="theme-color" content="#ffffff" />
+      </Helmet>
       <GlobalStyle />
       {/* <ProgressPage scroll={`${stateScrollPosition}%`} /> */}
       {children}
