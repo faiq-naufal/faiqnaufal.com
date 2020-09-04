@@ -21,8 +21,6 @@ const MainLayout = ({ children }) => (
 
 const Layout = ({ children, pageContext }) => {
   if (pageContext.layout === "home") {
-    console.log("layout 1")
-
     return (
       <StaticQuery
         query={graphql`
@@ -46,8 +44,6 @@ const Layout = ({ children, pageContext }) => {
       />
     )
   }
-
-  console.log("layout 2")
 
   return (
     <Theme>

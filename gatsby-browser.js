@@ -1,3 +1,6 @@
+require("typeface-inter")
+require("typeface-merriweather")
+
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
     `This website has been updated. Reload to display the latest version?`
