@@ -91,6 +91,8 @@ module.exports = {
         prefix: `assets-faiqnaufal.com/`,
       },
     },
+    //Netlify
+    `gatsby-plugin-netlify`,
     //PWA
     {
       resolve: `gatsby-plugin-manifest`,
