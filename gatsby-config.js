@@ -99,7 +99,7 @@ module.exports = {
       options: {
         name: `Faiq Naufal Website`,
         short_name: `Faiq Naufal`,
-        description: `A personal website of Faiq Naufal. This website is considered as Faiq Naufal's portfolio`,
+        description: `A personal website of Faiq Naufal`,
         lang: `en`,
         start_url: `/`,
         background_color: `#ffffff`,

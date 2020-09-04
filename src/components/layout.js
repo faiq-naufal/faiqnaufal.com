@@ -27,7 +27,7 @@ const Layout = ({ children, pageContext }) => {
           query HomeQuery {
             bgHomeData: file(relativePath: { eq: "bg-home.png" }) {
               childImageSharp {
-                fluid(quality: 90, maxWidth: 2160) {
+                fluid(quality: 90) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
