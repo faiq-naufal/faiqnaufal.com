@@ -93,7 +93,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-preload-fonts`,
-    `gatsby-plugin-netlify`, //Netlify
+    //Netlify
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "https://www.dev.faiqnaufal.com/*": ["X-Robots-Tag: noindex"],
+          "https://dev-faiqnaufal.netlify.app/*": ["X-Robots-Tag: noindex"],
+        },
+      },
+    },
     //PWA
     {
       resolve: `gatsby-plugin-manifest`,
