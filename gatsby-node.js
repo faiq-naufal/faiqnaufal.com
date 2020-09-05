@@ -1,3 +1,5 @@
+const path = require("path")
+
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("develop")) {
     actions.setWebpackConfig({
