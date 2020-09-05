@@ -92,7 +92,6 @@ module.exports = {
         prefix: `assets-faiqnaufal.com/`,
       },
     },
-    `gatsby-plugin-preload-fonts`,
     //Netlify
     {
       resolve: `gatsby-plugin-netlify`,

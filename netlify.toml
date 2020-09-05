@@ -1,0 +1,44 @@
+[build]
+  command = "gatsby build"
+  publish = "public/"
+  functions = "functions/"
+[dev]
+  command = "gatsby develop"
+
+[[headers]]
+  for = "https://www.dev.faiqnaufal.com/*"
+  [headers.values]
+    X-Robots-Tag = noindex
+
+  for =  https://dev-faiqnaufal.netlify.app/*
+  [headers.values]
+    X-Robots-Tag = noindex
+
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+    # Multi-key header rules are expressed with multi-line strings.
+    cache-control = '''
+      max-age=31557600,
+      no-cache,
+      no-store,
+      must-revalidate'''
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
+# Asset optimization
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
