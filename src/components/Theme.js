@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { ThemeProvider } from "emotion-theming"
 import { Global, css } from "@emotion/core"
 import { Helmet } from "react-helmet"
-import { calculateScrollDistance } from "../utils/utils"
 
 const GlobalStyle = () => (
   <Global
@@ -75,21 +74,6 @@ const GlobalStyle = () => (
 )
 
 export default function Theme({ children }) {
-  const [stateScrollPosition, setStateScrollPosition] = useState(0)
-
-  const handleScroll = () => {
-    requestAnimationFrame(() => {
-      setStateScrollPosition(() => calculateScrollDistance())
-    })
-  }
-
-  useEffect(() => {
-    document.addEventListener("scroll", handleScroll)
-    return () => {
-      document.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
   return (
     <ThemeProvider theme={{}}>
       <Helmet>
@@ -116,7 +100,6 @@ export default function Theme({ children }) {
         <meta name="theme-color" content="#ffffff" />
       </Helmet>
       <GlobalStyle />
-      {/* <ProgressPage scroll={`${stateScrollPosition}%`} /> */}
       {children}
     </ThemeProvider>
   )
