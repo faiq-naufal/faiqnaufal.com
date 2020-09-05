@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react"
 import { ThemeProvider } from "emotion-theming"
 import { Global, css } from "@emotion/core"
 import { Helmet } from "react-helmet"
-import "typeface-inter"
-import "typeface-merriweather"
-import "normalize.css"
 import { calculateScrollDistance } from "../utils/utils"
 
 const GlobalStyle = () => (

@@ -22,6 +22,7 @@
     "gatsby-plugin-netlify": "^2.3.13",
     "gatsby-plugin-nprogress": "^2.3.10",
     "gatsby-plugin-offline": "^3.2.26",
+    "gatsby-plugin-preload-fonts": "^1.2.23",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.6.30",
@@ -50,6 +51,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "preload-fonts": "gatsby-preload-fonts",
     "build": "gatsby build",
     "develop": "GATSBY_HOT_LOADER=fast-refresh gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
