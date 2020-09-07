@@ -60,6 +60,11 @@ const GlobalStyle = () => (
         touch-action: manipulation;
       }
 
+      ::selection {
+        background: #e24f41;
+        color: #fff;
+      }
+
       button {
         border: none;
         outline: none;

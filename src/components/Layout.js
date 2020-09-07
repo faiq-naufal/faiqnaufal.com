@@ -8,17 +8,6 @@ import Theme from "./Theme"
 import Container from "./Container"
 import BackgroundImage from "gatsby-background-image"
 
-const MainLayout = ({ children }) => (
-  <StyledContainer>
-    <Main>
-      <Header className="header" />
-      <Sidebar className="sidebar" />
-      <div className="content">{children}</div>
-      <Footer className="footer" />
-    </Main>
-  </StyledContainer>
-)
-
 const Layout = ({ children, pageContext }) => {
   if (pageContext.layout === "home") {
     return (
@@ -53,6 +42,17 @@ const Layout = ({ children, pageContext }) => {
 }
 
 export default Layout
+
+const MainLayout = ({ children }) => (
+  <StyledContainer>
+    <Main>
+      <Header className="header" />
+      <Sidebar className="sidebar" />
+      <div className="content">{children}</div>
+      <Footer className="footer" />
+    </Main>
+  </StyledContainer>
+)
 
 const Background = styled(BackgroundImage)`
   flex: 1;

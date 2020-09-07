@@ -3,13 +3,14 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
+import { BiSitemap } from "react-icons/bi"
 import logo from "../images/small-logo.png"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>
     <NavTop>
       <div className="logo">
-        <Link to="/">
+        <Link to="/" aria-label="Logo">
           <img src={logo} alt="Logo" />
         </Link>
       </div>
@@ -31,6 +32,15 @@ const Header = ({ children, ...others }) => (
         >
           <FaLinkedin />
           <span>LinkedIn</span>
+        </a>
+        <a
+          href="/sitemap.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sitemap"
+        >
+          <BiSitemap />
+          <span>Sitemap</span>
         </a>
       </div>
     </NavTop>

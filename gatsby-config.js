@@ -22,6 +22,7 @@ module.exports = {
     lang: `en`,
   },
   plugins: [
+    `gatsby-plugin-loadable-components-ssr`,
     //SEO
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,

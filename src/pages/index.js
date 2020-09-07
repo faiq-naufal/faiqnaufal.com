@@ -8,11 +8,11 @@ const IndexPage = () => {
       <ContentWrapper>
         <Content>
           <h1 className="Merriweather">Faiq Naufal</h1>
-          <p className="job-alias">
+          <h2 className="job-alias">
             <strong> Web Enthusiast</strong>
             <strong>&nbsp;| Front End Web Developer |&nbsp;</strong>
             <strong> UI Crafter</strong>
-          </p>
+          </h2>
 
           <p className="heading-label">
             Passionate in crafting <strong>innovational</strong>,{" "}
@@ -73,7 +73,7 @@ const Content = styled.div`
     }
   }
 
-  .job-alias {
+  h2.job-alias {
     strong {
       font-weight: 500;
       font-size: 1.25rem;

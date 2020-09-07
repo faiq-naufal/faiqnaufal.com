@@ -7,6 +7,7 @@ import {
   AiOutlineMail,
 } from "react-icons/ai"
 import { BsBriefcase } from "react-icons/bs"
+import { VscNote } from "react-icons/vsc"
 
 export default function Sidebar({ children, ...others }) {
   const isActiveLink = ({ isCurrent }) => {
@@ -25,11 +26,14 @@ export default function Sidebar({ children, ...others }) {
       <Link to="/about" getProps={isPartiallyActiveLink}>
         <AiOutlineInfoCircle size={24} /> <span>About</span>
       </Link>
-      <Link to="/portfolio" getProps={isPartiallyActiveLink}>
-        <BsBriefcase size={24} /> <span>Portfolio</span>
+      <Link to="/showcase" getProps={isPartiallyActiveLink}>
+        <BsBriefcase size={24} /> <span>Showcase</span>
       </Link>
       <Link to="/contact" getProps={isPartiallyActiveLink}>
-        <AiOutlineMail size={24} /> <span>Contact Me</span>
+        <AiOutlineMail size={24} /> <span>Contact</span>
+      </Link>
+      <Link to="/note" getProps={isPartiallyActiveLink}>
+        <VscNote size={24} /> <span>Note</span>
       </Link>
     </StyledSidebar>
   )
