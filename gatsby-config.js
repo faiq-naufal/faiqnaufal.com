@@ -97,8 +97,12 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
-          "https://www.dev.faiqnaufal.com/*": ["X-Robots-Tag: noindex"],
-          "https://dev-faiqnaufal.netlify.app/*": ["X-Robots-Tag: noindex"],
+          "https://www.dev.faiqnaufal.com/*": [
+            "X-Robots-Tag: noindex, nofollow",
+          ],
+          "https://dev-faiqnaufal.netlify.app/*": [
+            "X-Robots-Tag: noindex, nofollow",
+          ],
         },
       },
     },

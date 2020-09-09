@@ -6,10 +6,6 @@
   command = "gatsby develop"
 
 [[headers]]
-  for = ["https://www.dev.faiqnaufal.com/*", "https://dev-faiqnaufal.netlify.app/*"]
-  [headers.values]
-    "X-Robots-Tag: noindex, nofollow" = true
-
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
