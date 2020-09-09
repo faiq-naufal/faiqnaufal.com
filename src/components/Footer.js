@@ -18,7 +18,7 @@ export default function Footer({ children, ...others }) {
 const StyledFooter = styled.footer`
   display: flex;
   align-items: flex-end;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
 
   p {
     width: 100%;

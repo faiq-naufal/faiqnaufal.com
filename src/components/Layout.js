@@ -41,6 +41,13 @@ const Background = styled.div`
   height: auto;
   background-color: #fdfbfb;
   background-image: url(${BgHome});
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  @media (min-width: 960px) {
+    background-position: center center;
+  }
 `
 
 const StyledContainer = styled(Container)`
@@ -54,7 +61,6 @@ const StyledContainer = styled(Container)`
 const Main = styled.main`
   width: 100%;
   position: relative;
-  padding-bottom: 56px;
   flex: 1;
 
   display: grid;
@@ -65,15 +71,15 @@ const Main = styled.main`
     "sidebar sidebar sidebar";
 
   grid-template-columns: 1fr;
-  grid-template-rows: 80px calc(100% - 136px) 56px 56px;
+  grid-template-rows: 80px calc(100% - 192px) 56px 56px;
 
   @media (min-width: 960px) {
-    padding-bottom: 0;
     grid-template-areas:
       "header header header"
       "sidebar content content"
       "footer footer footer";
     grid-template-columns: 150px 1fr 150px;
+    grid-template-rows: 80px calc(100% - 136px) 56px;
     grid-column-gap: 24px;
   }
 
@@ -87,6 +93,10 @@ const Main = styled.main`
 
   .content {
     grid-area: content;
+
+    @media (min-width: 960px) {
+      padding-top: 32px;
+    }
   }
 
   .footer {
