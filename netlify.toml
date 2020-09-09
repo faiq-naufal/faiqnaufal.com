@@ -10,7 +10,7 @@
   [headers.values]
     X-Robots-Tag = noindex
 
-  for =  https://dev-faiqnaufal.netlify.app/*
+  for =  "https://dev-faiqnaufal.netlify.app/*"
   [headers.values]
     X-Robots-Tag = noindex
 
@@ -38,7 +38,5 @@
 [build.processing.js]
   bundle = true
   minify = true
-[build.processing.html]
-  pretty_urls = true
 [build.processing.images]
   compress = true
