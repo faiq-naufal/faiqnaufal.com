@@ -22,7 +22,7 @@ module.exports = {
     lang: `en`,
   },
   plugins: [
-    `gatsby-plugin-loadable-components-ssr`,
+    `gatsby-plugin-optimize-svgs`,
     //SEO
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
@@ -89,14 +89,7 @@ module.exports = {
         apiKey: process.env.CLOUDINARY_API_KEY,
         apiSecret: process.env.CLOUDINARY_API_SECRET,
         resourceType: `image`,
-      },
-    },
-    {
-      resolve: "gatsby-transformer-cloudinary",
-      options: {
-        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        prefix: `assets_faiqnaufal/`,
       },
     },
     //Netlify
@@ -121,7 +114,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `src/images/faiq-naufal-icon.png`,
+        icon: `./src/images/faiq_naufal_logo.svg`,
       },
     },
     `gatsby-plugin-offline`,

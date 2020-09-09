@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
-import logo from "../images/small-logo.png"
+import logo from "../images/faiq_naufal_logo.svg"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>

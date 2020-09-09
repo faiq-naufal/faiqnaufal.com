@@ -1,42 +1,22 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { graphql, StaticQuery } from "gatsby"
 import Header from "./Header"
 import Sidebar from "./Sidebar"
 import Footer from "./Footer"
 import Theme from "./Theme"
 import Container from "./Container"
-import BackgroundImage from "gatsby-background-image"
+import BgHome from "../images/bg_home.svg"
 
 const Layout = ({ children, pageContext }) => {
-  if (pageContext.layout === "home") {
-    return (
-      <StaticQuery
-        query={graphql`
-          query HomeQuery {
-            bgHomeData: file(relativePath: { eq: "bg-home.png" }) {
-              childImageSharp {
-                fluid(quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        `}
-        render={data => (
-          <Theme>
-            <Background fluid={data.bgHomeData.childImageSharp.fluid}>
-              <MainLayout children={children} />
-            </Background>
-          </Theme>
-        )}
-      />
-    )
-  }
-
   return (
     <Theme>
-      <MainLayout children={children} />
+      {pageContext.layout === "home" ? (
+        <Background>
+          <MainLayout children={children} />
+        </Background>
+      ) : (
+        <MainLayout children={children} />
+      )}
     </Theme>
   )
 }
@@ -54,12 +34,13 @@ const MainLayout = ({ children }) => (
   </StyledContainer>
 )
 
-const Background = styled(BackgroundImage)`
+const Background = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   height: auto;
   background-color: #fdfbfb;
+  background-image: url(${BgHome});
 `
 
 const StyledContainer = styled(Container)`
