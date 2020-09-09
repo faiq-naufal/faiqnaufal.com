@@ -8,11 +8,11 @@
 [[headers]]
   for = "https://www.dev.faiqnaufal.com/*"
   [headers.values]
-    X-Robots-Tag = noindex
+    X-Robots-Tag = "noindex"
 
   for =  "https://dev-faiqnaufal.netlify.app/*"
   [headers.values]
-    X-Robots-Tag = noindex
+    X-Robots-Tag = "noindex"
 
   for = "/*"
   [headers.values]
