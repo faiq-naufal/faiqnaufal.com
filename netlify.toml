@@ -6,8 +6,7 @@
   command = "gatsby develop"
 
 [[headers]]
-  for = "https://www.dev.faiqnaufal.com/*"
-  for = "https://dev-faiqnaufal.netlify.app/*"
+  for = ["https://www.dev.faiqnaufal.com/*", "https://dev-faiqnaufal.netlify.app/*"]
   [headers.values]
     X-Robots-Tag = "noindex"
 
