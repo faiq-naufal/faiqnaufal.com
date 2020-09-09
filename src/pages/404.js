@@ -66,6 +66,7 @@ const Section = styled.section`
 
     @media (min-width: 960px) {
       font-size: 2.5rem;
+      line-height: 3rem;
       text-align: center;
       margin: 0 auto 60px auto;
     }
