@@ -1,29 +1,38 @@
 import React from "react"
 import styled from "@emotion/styled"
-import Header from "./Header"
-import Sidebar from "./Sidebar"
-import Footer from "./Footer"
-import Theme from "./Theme"
-import Container from "./Container"
+import loadable from "@loadable/component"
 import BgHome from "../images/bg_home.svg"
+const Theme = loadable(() => import("./Theme"))
+const Container = loadable(() => import("./Container"))
+const Header = loadable(() => import("./Header"))
+const Sidebar = loadable(() => import("./Sidebar"))
+const Footer = loadable(() => import("./Footer"))
 
-const Layout = ({ children, pageContext }) => {
-  return (
-    <Theme>
-      {pageContext.layout === "home" ? (
-        <Background>
-          <MainLayout children={children} />
-        </Background>
-      ) : (
-        <MainLayout children={children} />
-      )}
-    </Theme>
-  )
-}
+const Layout = ({ children, pageContext }) => (
+  <Theme>
+    {pageContext.layout === "home" ? (
+      <Background>
+        <MainLayout
+          Header={Header}
+          Sidebar={Sidebar}
+          Footer={Footer}
+          children={children}
+        />
+      </Background>
+    ) : (
+      <MainLayout
+        Header={Header}
+        Sidebar={Sidebar}
+        Footer={Footer}
+        children={children}
+      />
+    )}
+  </Theme>
+)
 
 export default Layout
 
-const MainLayout = ({ children }) => (
+const MainLayout = ({ Header, Sidebar, Footer, children }) => (
   <StyledContainer>
     <Main>
       <Header className="header" />

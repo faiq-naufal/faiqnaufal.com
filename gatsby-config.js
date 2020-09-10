@@ -22,7 +22,6 @@ module.exports = {
     lang: `en`,
   },
   plugins: [
-    `gatsby-plugin-optimize-svgs`,
     //SEO
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
@@ -106,6 +105,23 @@ module.exports = {
         },
       },
     },
+    //Optimization
+    `gatsby-plugin-optimize-svgs`,
+    `gatsby-plugin-loadable-components-ssr`,
+    `netlify-plugin-gatsby-cache`,
+    `gatsby-plugin-preact`,
+    {
+      resolve: "gatsby-plugin-svgr",
+      options: {
+        dimensions: false,
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          removeViewBox: true,
+          cleanupIDs: true,
+        },
+      },
+    },
     //PWA
     {
       resolve: `gatsby-plugin-manifest`,
@@ -122,6 +138,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-preact`,
   ],
 }

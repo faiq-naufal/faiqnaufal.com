@@ -2,8 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import SEO from "../components/Seo"
-import SVG from "react-inlinesvg"
-import illust404 from "../images/404_page_not_found.svg"
+import { ReactComponent as Illust404 } from "../images/404_page_not_found.svg"
 
 const NotFoundPage = () => {
   return (
@@ -14,11 +13,9 @@ const NotFoundPage = () => {
           Awww... snap! You have found the edge of this website
         </h1>
         <div className="illust_container">
-          <SVG
-            src={illust404}
-            title="404"
+          <Illust404
+            title="404 Page Not Found"
             description="The 404 Page Not Found Illustration"
-            loader={<span>Loading...</span>}
           />
           <hr />
         </div>
