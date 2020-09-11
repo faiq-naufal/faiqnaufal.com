@@ -60,8 +60,8 @@ const StyledHeader = styled.header`
 
 const NavTop = styled.nav`
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
 
   .logo {

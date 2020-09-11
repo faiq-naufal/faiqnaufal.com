@@ -24,7 +24,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage } = actions
 
-  if (page.path.match(new RegExp("/"))) {
+  if (page.path.match(/^\/$/)) {
     page.context.layout = "home"
     createPage(page)
   }

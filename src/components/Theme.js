@@ -36,6 +36,7 @@ const GlobalStyle = () => (
       }
       body {
         font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
+        overflow-y: scroll;
       }
       img,
       button {

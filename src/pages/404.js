@@ -17,7 +17,6 @@ const NotFoundPage = () => {
             title="404 Page Not Found"
             description="The 404 Page Not Found Illustration"
           />
-          <hr />
         </div>
         <p className="maxw-720 page_not_found">
           The page you are looking for cannot be found
@@ -70,6 +69,7 @@ const Section = styled.section`
   }
   .illust_container {
     text-align: center;
+    border-bottom: solid 4px #000;
     svg {
       width: 100%;
       max-width: 240px;
@@ -78,10 +78,6 @@ const Section = styled.section`
       @media (min-width: 600px) {
         max-width: 400px;
       }
-    }
-
-    hr {
-      border: solid 4px #000;
     }
   }
 

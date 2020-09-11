@@ -65,8 +65,8 @@ const Content = styled.div`
   h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin-top: 0;
+    margin-bottom: 40px;
 
     @media (min-width: 600px) {
       font-size: 4.5rem;
@@ -106,6 +106,11 @@ const Content = styled.div`
     font-style: italic;
     line-height: 1.5rem;
     letter-spacing: 0.25px;
+
+    @media (min-width: 600px) {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
 
     strong {
       font-weight: 600;

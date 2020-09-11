@@ -1,29 +1,39 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { ReactComponent as IllustContact } from "../images/new_message.svg"
 
 export default function contact() {
   return (
     <>
-      <SectionTop>
-        <h1 className="Merriweather">
-          Don't just stay there Let’s exchange words
-        </h1>
-        <p>
-          Tell me something amazing or you can just hit me up! I would love to
-          see your stories and thought
-        </p>
-      </SectionTop>
-      <section>
-        <h1 className="Merriweather">
+      <Section>
+        <TopIllust>
+          <div className="col-flex">
+            <h1 className="Merriweather heading">
+              Don't just stay there! Let’s exchange words
+            </h1>
+            <h2 className="subheading">
+              Tell me something amazing or you can just hit me up! I would love
+              to see your stories and thought
+            </h2>
+          </div>
+          <div className="col-flex">
+            <StyledIllustContact />
+          </div>
+        </TopIllust>
+      </Section>
+      <Section>
+        <h1 className="Merriweather heading">
           Just a few inputs and your messages will be reaching out to me ~
         </h1>
-      </section>
-      <section>
-        <h1 className="Merriweather">Or you can reach me at social media</h1>
-        <p>
+      </Section>
+      <Section>
+        <h1 className="Merriweather heading">
+          Or you can reach me at social media
+        </h1>
+        <h2 className="subheading">
           That way we can be connected and have an opportunity to communicate
           our thought better
-        </p>
+        </h2>
 
         <nav>
           <ul>
@@ -70,10 +80,79 @@ export default function contact() {
             </li>
           </ul>
         </nav>
-      </section>
+      </Section>
     </>
   )
 }
+
+const Section = styled.div`
+  margin-bottom: 80px;
+  @media (min-width: 960px) {
+    margin-bottom: 120px;
+  }
+`
+
+const TopIllust = styled.div`
+  max-width: 480px;
+  margin: 0 auto;
+  border-bottom: solid 4px #000;
+
+  .col-flex {
+    text-align: center;
+  }
+
+  @media (min-width: 960px) {
+    max-width: unset;
+    margin: 0;
+    display: flex;
+
+    .col-flex {
+      flex: 1;
+    }
+
+    .col-flex:first-child {
+      text-align: left;
+    }
+
+    .col-flex:last-child {
+      text-align: right;
+      padding-right: 80px;
+    }
+  }
+
+  .heading {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1.875rem;
+    font-weight: 400;
+    text-align: center;
+
+    @media (min-width: 960px) {
+      font-size: 2rem;
+      line-height: 2.75rem;
+      text-align: left;
+    }
+  }
+
+  .subheading {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin-bottom: 24px;
+
+    @media (min-width: 960px) {
+      text-align: left;
+    }
+  }
+`
+
+const StyledIllustContact = styled(IllustContact)`
+  width: 100%;
+  max-width: 240px;
+  height: 100%;
+  margin-bottom: -4px;
+`
 
 const EmailCrypt = styled.button`
   background: none;
@@ -88,5 +167,3 @@ const EmailCrypt = styled.button`
     outline: none;
   }
 `
-
-const SectionTop = styled.section``
