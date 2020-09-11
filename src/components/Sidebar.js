@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import { styled } from "linaria/react"
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,

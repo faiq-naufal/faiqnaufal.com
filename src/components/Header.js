@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "@emotion/styled"
+import { styled } from "linaria/react"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
@@ -20,6 +20,7 @@ const Header = ({ children, ...others }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Github"
+          className="mr-16"
         >
           <GoMarkGithub />
           <span>Github</span>
@@ -29,6 +30,7 @@ const Header = ({ children, ...others }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          className="mr-16"
         >
           <FaLinkedin />
           <span>LinkedIn</span>
@@ -101,7 +103,7 @@ const NavTop = styled.nav`
       font-size: 1.5rem;
       text-decoration: none;
 
-      &:not(:last-of-type) {
+      &.mr-16 {
         margin-right: 16px;
       }
 

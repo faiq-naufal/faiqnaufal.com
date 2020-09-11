@@ -1,6 +1,6 @@
-require("typeface-inter")
-require("typeface-merriweather")
-require("normalize.css/normalize.css")
+import "typeface-inter"
+import "typeface-merriweather"
+import "normalize.css/normalize.css"
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

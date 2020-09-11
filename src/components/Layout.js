@@ -1,38 +1,27 @@
 import React from "react"
-import styled from "@emotion/styled"
-import loadable from "@loadable/component"
+import { styled } from "linaria/react"
 import BgHome from "../images/bg_home.svg"
-const Theme = loadable(() => import("./Theme"))
-const Container = loadable(() => import("./Container"))
-const Header = loadable(() => import("./Header"))
-const Sidebar = loadable(() => import("./Sidebar"))
-const Footer = loadable(() => import("./Footer"))
+import Theme from "./Theme"
+import Container from "./Container"
+import Header from "./Header"
+import Sidebar from "./Sidebar"
+import Footer from "./Footer"
 
 const Layout = ({ children, pageContext }) => (
   <Theme>
     {pageContext.layout === "home" ? (
       <Background>
-        <MainLayout
-          Header={Header}
-          Sidebar={Sidebar}
-          Footer={Footer}
-          children={children}
-        />
+        <MainLayout children={children} />
       </Background>
     ) : (
-      <MainLayout
-        Header={Header}
-        Sidebar={Sidebar}
-        Footer={Footer}
-        children={children}
-      />
+      <MainLayout children={children} />
     )}
   </Theme>
 )
 
 export default Layout
 
-const MainLayout = ({ Header, Sidebar, Footer, children }) => (
+const MainLayout = ({ children }) => (
   <StyledContainer>
     <Main>
       <Header className="header" />

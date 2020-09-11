@@ -26,6 +26,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
     {
+      resolve: `gatsby-plugin-webpack-bundle-analyzer`,
+      options: {
+        production: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         resolveEnv: () => NETLIFY_ENV,
@@ -47,6 +53,7 @@ module.exports = {
       },
     },
     //Theme & Layout
+    `gatsby-plugin-linaria`,
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -54,10 +61,6 @@ module.exports = {
           injectFirst: true,
         },
       },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {},
     },
     {
       resolve: `gatsby-plugin-layout`,
@@ -69,6 +72,7 @@ module.exports = {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `#e24f41`,
+        minimum: 0.08,
       },
     },
     //File

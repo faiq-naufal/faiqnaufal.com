@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "@emotion/styled"
+import { styled } from "linaria/react"
 import { Link } from "gatsby"
 import SEO from "../components/Seo"
 import { ReactComponent as Illust404 } from "../images/404_page_not_found.svg"
@@ -29,16 +29,16 @@ const NotFoundPage = () => {
         <hr />
         <NavLink>
           <ul>
-            <li>
+            <li className="need-mb">
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="need-mb">
               <Link to="/about">About</Link>
             </li>
-            <li>
+            <li className="need-mb">
               <Link to="/showcase">Showcase</Link>
             </li>
-            <li>
+            <li className="need-mb">
               <Link to="/contact">Contact</Link>
             </li>
             <li>
@@ -146,14 +146,14 @@ const NavLink = styled.nav`
       align-items: center;
       align-content: center;
 
-      &:not(:last-child) {
+      &.need-mb {
         margin-bottom: 24px;
       }
 
       @media (min-width: 600px) {
         justify-content: center;
 
-        &:not(:last-child) {
+        &.need-mb {
           margin-bottom: 0;
         }
       }
