@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { styled } from "linaria/react"
+import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"

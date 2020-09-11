@@ -1,5 +1,5 @@
 import React from "react"
-import { styled } from "linaria/react"
+import styled from "@emotion/styled"
 import BgHome from "../images/bg_home.svg"
 import Theme from "./Theme"
 import Container from "./Container"

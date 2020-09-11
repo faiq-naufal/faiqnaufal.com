@@ -53,7 +53,7 @@ module.exports = {
       },
     },
     //Theme & Layout
-    `gatsby-plugin-linaria`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {

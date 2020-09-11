@@ -1,6 +1,6 @@
 import React from "react"
 import Container from "@material-ui/core/Container"
-import { styled } from "linaria/react"
+import styled from "@emotion/styled"
 
 const StyledContainer = styled(Container)`
   padding-left: 16px;

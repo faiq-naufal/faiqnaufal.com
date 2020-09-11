@@ -1,5 +1,5 @@
 import React from "react"
-import { styled } from "linaria/react"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import SEO from "../components/Seo"
 import { ReactComponent as Illust404 } from "../images/404_page_not_found.svg"
