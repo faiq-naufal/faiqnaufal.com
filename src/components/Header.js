@@ -20,6 +20,7 @@ const Header = ({ children, ...others }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Github"
+          className="mr-16"
         >
           <GoMarkGithub />
           <span>Github</span>
@@ -29,6 +30,7 @@ const Header = ({ children, ...others }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          className="mr-16"
         >
           <FaLinkedin />
           <span>LinkedIn</span>
@@ -58,8 +60,8 @@ const StyledHeader = styled.header`
 
 const NavTop = styled.nav`
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
 
   .logo {
@@ -101,7 +103,7 @@ const NavTop = styled.nav`
       font-size: 1.5rem;
       text-decoration: none;
 
-      &:not(:last-of-type) {
+      &.mr-16 {
         margin-right: 16px;
       }
 

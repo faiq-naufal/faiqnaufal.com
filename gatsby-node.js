@@ -1,5 +1,3 @@
-const path = require("path")
-
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("develop")) {
     actions.setWebpackConfig({
@@ -26,7 +24,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage } = actions
 
-  if (page.path === "/") {
+  if (page.path.match(/^\/$/)) {
     page.context.layout = "home"
     createPage(page)
   }

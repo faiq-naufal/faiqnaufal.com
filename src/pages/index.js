@@ -9,9 +9,9 @@ const IndexPage = () => {
         <Content>
           <h1 className="Merriweather">Faiq Naufal</h1>
           <h2 className="job-alias">
-            <strong> Web Enthusiast</strong>
+            <strong className="odd"> Web Enthusiast</strong>
             <strong>&nbsp;| Front End Web Developer |&nbsp;</strong>
-            <strong> UI Crafter</strong>
+            <strong className="odd"> UI Crafter</strong>
           </h2>
 
           <p className="heading-label">
@@ -65,8 +65,8 @@ const Content = styled.div`
   h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin-top: 0;
+    margin-bottom: 40px;
 
     @media (min-width: 600px) {
       font-size: 4.5rem;
@@ -80,23 +80,19 @@ const Content = styled.div`
       display: block;
     }
 
-    strong:nth-of-type(1),
-    strong:nth-of-type(3) {
+    strong.odd {
       display: none;
     }
 
     @media (min-width: 600px) {
-      strong,
-      strong:nth-of-type(1),
-      strong:nth-of-type(3) {
+      strong {
         font-size: 1.5rem;
       }
     }
 
     @media (min-width: 768px) {
       strong,
-      strong:nth-of-type(1),
-      strong:nth-of-type(3) {
+      strong.odd {
         display: inline-block;
       }
     }
@@ -110,6 +106,11 @@ const Content = styled.div`
     font-style: italic;
     line-height: 1.5rem;
     letter-spacing: 0.25px;
+
+    @media (min-width: 600px) {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
 
     strong {
       font-weight: 600;

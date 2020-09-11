@@ -1,7 +1,6 @@
 import React from "react"
-import { ThemeProvider } from "emotion-theming"
-import { Global, css } from "@emotion/core"
 import { Helmet } from "react-helmet"
+import { Global, css } from "@emotion/core"
 
 const GlobalStyle = () => (
   <Global
@@ -10,18 +9,15 @@ const GlobalStyle = () => (
         box-sizing: border-box;
         scroll-behavior: smooth;
       }
-
       * {
         margin: 0;
         padding: 0;
       }
-
       *,
       *::before,
       *::after {
         box-sizing: inherit;
       }
-
       html,
       body,
       #___gatsby,
@@ -35,15 +31,13 @@ const GlobalStyle = () => (
       .Inter {
         font-family: "Inter", sans-serif;
       }
-
       .Merriweather {
         font-family: "Merriweather", serif;
       }
-
       body {
         font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
+        overflow-y: scroll;
       }
-
       img,
       button {
         -webkit-user-select: none;
@@ -52,24 +46,20 @@ const GlobalStyle = () => (
         -o-user-select: none;
         user-select: none;
       }
-
       *:focus {
         -webkit-tap-highlight-color: transparent;
         outline: none;
         -ms-touch-action: manipulation;
         touch-action: manipulation;
       }
-
       ::selection {
         background: #e24f41;
         color: #fff;
       }
-
       button {
         border: none;
         outline: none;
         cursor: pointer;
-
         &:focus {
           outline: none;
         }
@@ -80,7 +70,7 @@ const GlobalStyle = () => (
 
 export default function Theme({ children }) {
   return (
-    <ThemeProvider theme={{}}>
+    <>
       <Helmet>
         <link
           rel="apple-touch-icon"
@@ -106,6 +96,6 @@ export default function Theme({ children }) {
       </Helmet>
       <GlobalStyle />
       {children}
-    </ThemeProvider>
+    </>
   )
 }
