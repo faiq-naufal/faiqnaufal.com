@@ -1,13 +1,14 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { AiOutlineDownload } from "react-icons/ai"
+import emoji from "react-easy-emoji"
 
 const IndexPage = () => {
   return (
     <>
       <ContentWrapper>
         <Content>
-          <h1 className="Merriweather">Faiq Naufal</h1>
+          <h1 className="Tinos">Faiq Naufal</h1>
           <h2 className="job-alias">
             <strong className="odd"> Web Enthusiast</strong>
             <strong>&nbsp;| Front End Web Developer |&nbsp;</strong>
@@ -19,10 +20,9 @@ const IndexPage = () => {
             <strong>functional</strong>, <strong>quality-focused</strong> modern
             web with latest cutting-edge technology
           </p>
-          <ButtonOutlined>
-            <span>Download Resume</span>
-            <AiOutlineDownload size={24} />
-          </ButtonOutlined>
+          <LinkOutlined to="/contact">
+            <span>Let’s Talk! {emoji(`👋`)}</span>
+          </LinkOutlined>
         </Content>
       </ContentWrapper>
     </>
@@ -31,23 +31,26 @@ const IndexPage = () => {
 
 export default IndexPage
 
-const ButtonOutlined = styled.button`
+const LinkOutlined = styled(Link)`
   background: none;
+  text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   align-content: center;
   border-radius: 4px;
-  padding: 12px 24px;
-  border: solid 2px #000;
+  padding: 12px 36px;
+  border: solid 1px #0e8162;
+  color: #0e8162;
 
-  span {
-    margin-right: 8px;
+  &:hover {
+    background-color: #0e8162;
+    color: #fff;
   }
 `
 
@@ -63,13 +66,15 @@ const Content = styled.div`
   text-align: center;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 40px;
+    letter-spacing: -1px;
 
     @media (min-width: 600px) {
       font-size: 4.5rem;
+      letter-spacing: 1px;
     }
   }
 
@@ -114,6 +119,7 @@ const Content = styled.div`
 
     strong {
       font-weight: 600;
+      color: #0e8162;
     }
 
     &::before {

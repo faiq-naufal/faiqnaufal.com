@@ -28,11 +28,11 @@ const GlobalStyle = () => (
         min-height: 100%;
         height: auto;
       }
+      .Tinos {
+        font-family: "Tinos", serif;
+      }
       .Inter {
         font-family: "Inter", sans-serif;
-      }
-      .Merriweather {
-        font-family: "Merriweather", serif;
       }
       body {
         font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
@@ -53,7 +53,7 @@ const GlobalStyle = () => (
         touch-action: manipulation;
       }
       ::selection {
-        background: #e24f41;
+        background: #0e8162;
         color: #fff;
       }
       button {

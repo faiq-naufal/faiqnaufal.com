@@ -1,5 +1,5 @@
 import "typeface-inter"
-import "typeface-merriweather"
+import "typeface-tinos"
 import "normalize.css/normalize.css"
 
 export const onServiceWorkerUpdateReady = () => {

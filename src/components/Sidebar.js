@@ -40,6 +40,8 @@ export default function Sidebar({ children, ...others }) {
 }
 
 const StyledSidebar = styled.nav`
+  z-index: 10;
+
   a {
     font-size: 0.625rem;
     color: #000;
@@ -51,7 +53,7 @@ const StyledSidebar = styled.nav`
     &.active {
       font-weight: 600;
 
-      color: #e24f41;
+      color: #0e8162;
 
       span {
         color: #000;
@@ -113,7 +115,7 @@ const StyledSidebar = styled.nav`
           transform: translateY(-50%);
           width: 4px;
           height: calc(100% + 4px);
-          background-color: #e24f41;
+          background-color: #0e8162;
         }
       }
     }

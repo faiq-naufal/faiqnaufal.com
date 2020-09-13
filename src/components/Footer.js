@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import emoji from "react-easy-emoji"
 
 export default function Footer({ children, ...others }) {
   return (
@@ -7,7 +8,7 @@ export default function Footer({ children, ...others }) {
       <p>
         Made with{" "}
         <span role="img" aria-label="love">
-          💕
+          {emoji("💕")}
         </span>{" "}
         by Faiq Naufal &copy; {new Date().getFullYear()} All Rights Reserved
       </p>

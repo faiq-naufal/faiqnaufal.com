@@ -103,6 +103,11 @@ const NavTop = styled.nav`
       font-size: 1.5rem;
       text-decoration: none;
 
+      &:hover,
+      &:hover span {
+        color: #0e8162;
+      }
+
       &.mr-16 {
         margin-right: 16px;
       }

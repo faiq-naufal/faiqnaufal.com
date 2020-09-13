@@ -9,7 +9,7 @@ const NotFoundPage = () => {
     <>
       <SEO title="404: Not found" />
       <Section>
-        <h1 className="Merriweather">
+        <h1 className="Tinos">
           Awww... snap! You have found the edge of this website
         </h1>
         <div className="illust_container">
@@ -159,6 +159,10 @@ const NavLink = styled.nav`
         color: #000;
         text-transform: uppercase;
         text-decoration: underline;
+
+        &:hover {
+          color: #0e8162;
+        }
 
         @media (min-width: 600px) {
           justify-content: center;

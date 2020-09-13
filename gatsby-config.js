@@ -25,12 +25,7 @@ module.exports = {
     //SEO
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
-    {
-      resolve: `gatsby-plugin-webpack-bundle-analyzer`,
-      options: {
-        production: true,
-      },
-    },
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -71,7 +66,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: `#e24f41`,
+        color: `#0e8162`,
         minimum: 0,
       },
     },

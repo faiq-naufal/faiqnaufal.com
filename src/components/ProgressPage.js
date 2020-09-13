@@ -26,7 +26,7 @@ const Progress = styled.div`
   top: 0;
   background: linear-gradient(
     to right,
-    #e24f41 ${props => props.scroll},
+    #0e8162 ${props => props.scroll},
     transparent 0
   );
   width: 100%;
