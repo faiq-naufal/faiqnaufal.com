@@ -83,7 +83,7 @@ const Section = styled.section`
   }
   .illust-container {
     text-align: center;
-    border-bottom: solid 4px #000;
+    border-bottom: solid 4px #484848;
     svg {
       width: 100%;
       max-width: 240px;

@@ -37,7 +37,6 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   height: auto;
-  background-color: #fdfbfb;
   background-image: url(${BgHome});
   background-size: cover;
   background-position: right center;

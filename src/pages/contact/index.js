@@ -74,8 +74,7 @@ export default function Contact() {
             <div className="message-box-heading">
               <div>
                 <h2 className="Tinos heading">
-                  Just a few inputs and your messages will be reaching out to me
-                  ~
+                  Just a few inputs and your messages will be flying to me ~
                 </h2>
                 <p className="paragraph-heading">
                   Rest assured, I will not give your information to others. You
@@ -328,19 +327,37 @@ const MessageWrapper = styled.div`
   margin-bottom: 48px;
   p {
     line-height: 1.875rem;
-    letter-spacing: 0.2px;
+  }
+
+  .message-box-outer {
+    @media (min-width: 600px) {
+      padding: 40px;
+      background-color: #fff;
+      border: solid 4px #484848;
+      border-top: solid 40px #484848;
+    }
   }
 
   .message-box-heading {
-    display: grid;
-    grid-template-columns: 0.5fr;
+    @media (min-width: 960px) {
+      display: grid;
+      grid-template-columns: 0.5fr;
+    }
   }
 
   .message-box-inner {
     font-size: 0.875rem;
+    background-color: #fff;
+    padding: 40px 20px 40px 20px;
+    border-radius: 4px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23484848FF' stroke-width='8' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 
     @media (min-width: 600px) {
+      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23484848FF' stroke-width='8' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
       font-size: 1rem;
+      padding: 40px 32px 40px 32px;
+      max-width: 820px;
+      margin-top: 16px;
     }
 
     label {
@@ -387,6 +404,7 @@ const MessageWrapper = styled.div`
       margin-top: 48px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 1fr;
+      grid-column-gap: 4px;
 
       .regards {
         span {
@@ -441,7 +459,7 @@ const SocialMediaGrid = styled.div`
 const SocialMediaList = styled.ul`
   list-style: none;
   li {
-    border-bottom: solid 1px #000;
+    border-bottom: solid 1px #484848;
 
     @media (min-width: 960px) {
       &:first-of-type strong {
@@ -464,7 +482,7 @@ const SocialMediaList = styled.ul`
         right: -28px;
         width: 12px;
         height: 0px;
-        border: solid 1px #000;
+        border: solid 1px #484848;
       }
     }
 
