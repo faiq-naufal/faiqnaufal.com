@@ -1,27 +1,43 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { Global, css } from "@emotion/core"
 import { Link } from "gatsby"
 import SEO from "../components/Seo"
 import { ReactComponent as Illust404 } from "../images/404_page_not_found.svg"
 
-const NotFoundPage = () => {
+const GlobalStyle = () => (
+  <Global
+    styles={css`
+      @media (max-width: 959px) {
+        .content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    `}
+  />
+)
+
+export default function NotFoundPage() {
   return (
     <>
       <SEO title="404: Not found" />
+      <GlobalStyle />
       <Section>
         <h1 className="Tinos">
-          Awww... snap! You have found the edge of this website
+          Awww... snap! You have found the edge of the universe
         </h1>
-        <div className="illust_container">
+        <div className="illust-container">
           <Illust404
             title="404 Page Not Found"
             description="The 404 Page Not Found Illustration"
           />
         </div>
-        <p className="maxw-720 page_not_found">
+        <p className="maxw-720 page-not-found">
           The page you are looking for cannot be found
         </p>
-        <p className="maxw-720 dont_worry">
+        <p className="maxw-720 dont-worry">
           Do not worry as the detective will be sent to investigate further.
           While the investigation happens, why not check the other pages?
         </p>
@@ -50,8 +66,6 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
-
 const Section = styled.section`
   h1 {
     font-weight: 400;
@@ -60,14 +74,14 @@ const Section = styled.section`
     margin: 0 auto 48px auto;
     max-width: 720px;
 
-    @media (min-width: 960px) {
+    @media (min-width: 600px) {
       font-size: 2.5rem;
       line-height: 3rem;
       text-align: center;
       margin: 0 auto 60px auto;
     }
   }
-  .illust_container {
+  .illust-container {
     text-align: center;
     border-bottom: solid 4px #000;
     svg {
@@ -87,34 +101,34 @@ const Section = styled.section`
     margin-right: auto;
   }
 
-  .page_not_found {
+  .page-not-found {
     margin-top: 48px;
     font-weight: 300;
     font-size: 1.5rem;
     text-align: center;
 
-    @media (min-width: 960px) {
+    @media (min-width: 600px) {
       margin-top: 60px;
       font-size: 2rem;
     }
   }
 
-  .dont_worry {
+  .dont-worry {
     margin-top: 48px;
     color: #505050;
     font-size: 1rem;
     line-height: 1.5rem;
 
-    @media (min-width: 960px) {
+    @media (min-width: 600px) {
       text-align: center;
       margin-top: 60px;
     }
   }
 
-  .dont_worry + hr {
+  .dont-worry + hr {
     margin: 24px 0;
 
-    @media (min-width: 960px) {
+    @media (min-width: 600px) {
       margin: 30px 0;
     }
   }
@@ -123,7 +137,7 @@ const Section = styled.section`
 const NavLink = styled.nav`
   margin-bottom: 48px;
 
-  @media (min-width: 960px) {
+  @media (min-width: 600px) {
     margin-bottom: 60px;
   }
 
@@ -168,7 +182,7 @@ const NavLink = styled.nav`
           justify-content: center;
         }
 
-        @media (min-width: 960px) {
+        @media (min-width: 600px) {
           font-size: 1.25rem;
         }
       }

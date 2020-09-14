@@ -4,14 +4,14 @@ import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
-import logo from "../images/faiq_naufal_logo.svg"
+import { ReactComponent as Logo } from "../images/faiq_naufal_logo.svg"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>
     <NavTop>
       <div className="logo">
         <Link to="/" aria-label="Logo">
-          <img src={logo} alt="Logo" />
+          <Logo title="Logo" stroke="#000" description="Faiq Naufal Logo" />
         </Link>
       </div>
       <div className="social-media">
@@ -74,9 +74,11 @@ const NavTop = styled.nav`
       width: 40px;
       height: 40px;
 
-      img {
-        width: 100%;
-        height: auto;
+      svg {
+        /* fix svg stroke bug */
+        path[d="M8 8h496v496H8z"] {
+          stroke-width: 16;
+        }
       }
     }
 

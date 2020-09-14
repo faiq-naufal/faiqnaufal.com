@@ -93,7 +93,7 @@ const Main = styled.main`
     grid-area: content;
 
     @media (min-width: 960px) {
-      padding-top: 32px;
+      padding-top: 24px;
     }
   }
 

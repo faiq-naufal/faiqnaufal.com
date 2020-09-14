@@ -29,6 +29,11 @@ const StyledTextField = styled(MuiTextField)`
     }
   }
 
+  .MuiFormHelperText-root {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+  }
+
   .MuiInputBase-input::placeholder {
     color: #aaa;
     opacity: 1;
@@ -38,9 +43,8 @@ const StyledTextField = styled(MuiTextField)`
   .MuiInput-underline::before {
     border-bottom: 1px solid #d9d8d8;
   }
-
-  .MuiInput-underline:hover:not(.Mui-disabled)::before,
-  .MuiInput-underline:after {
+  .MuiInput-underline:not(.Mui-error)::after,
+  .MuiInput-underline:hover:not(.Mui-disabled)::before {
     border-bottom: 2px solid #0e8162;
   }
 `

@@ -1,9 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import emoji from "react-easy-emoji"
+import { LinkOutlined } from "../components/Button"
 
-const IndexPage = () => {
+export default function Home() {
   return (
     <>
       <ContentWrapper>
@@ -29,31 +29,6 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
-
-const LinkOutlined = styled(Link)`
-  background: none;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  border-radius: 4px;
-  padding: 12px 36px;
-  border: solid 1px #0e8162;
-  color: #0e8162;
-
-  &:hover {
-    background-color: #0e8162;
-    color: #fff;
-  }
-`
-
 const ContentWrapper = styled.section`
   height: 100%;
   display: flex;
@@ -75,6 +50,10 @@ const Content = styled.div`
     @media (min-width: 600px) {
       font-size: 4.5rem;
       letter-spacing: 1px;
+    }
+
+    @media (min-width: 960px) {
+      font-size: 5rem;
     }
   }
 

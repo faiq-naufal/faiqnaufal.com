@@ -1,9 +1,55 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { ReactComponent as IllustContact } from "../images/new_message.svg"
-import TextField from "../components/TextField"
+import { navigate } from "gatsby-link"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers"
+import { object as YupObject, string as YupString } from "yup"
+import { ReactComponent as IllustContact } from "../../images/new_message.svg"
+import TextField from "../../components/TextField"
+import StyledSection from "../../components/Section"
+import { encodeFormData } from "../../utils/utils"
 
-export default function contact() {
+let contactSchema = YupObject().shape({
+  subject: YupString().required("Field must be filled"),
+  name: YupString()
+    .required("Field must be filled")
+    .max(20, "Field cannot more than 20 characters"),
+  email: YupString()
+    .required("Field must be filled")
+    .email("Invalid format email address"),
+  message: YupString().required("Field must be filled"),
+})
+
+export default function Contact() {
+  const { register, handleSubmit, watch, errors } = useForm({
+    resolver: yupResolver(contactSchema),
+  })
+
+  const watchSenderName = watch("name")
+
+  const onSubmitMessage = (data, e) => {
+    const form = e.target
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeFormData({
+        "form-name": form.getAttribute("name"),
+        ...data,
+      }),
+    })
+      .then(response => {
+        navigate(form.getAttribute("action"), {
+          state: {
+            showPage: true,
+          },
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
+
   return (
     <>
       <Section>
@@ -25,18 +71,46 @@ export default function contact() {
       <Section>
         <MessageWrapper>
           <div className="message-box-outer">
-            <h2 className="Tinos heading">
-              Just a few inputs and your messages will be reaching out to me ~
-            </h2>
+            <div className="message-box-heading">
+              <div>
+                <h2 className="Tinos heading">
+                  Just a few inputs and your messages will be reaching out to me
+                  ~
+                </h2>
+                <p className="paragraph-heading">
+                  Rest assured, I will not give your information to others. You
+                  will not get any spam email from here.
+                </p>
+              </div>
+            </div>
+
             <div className="message-box-inner">
-              <form action="post">
+              <form
+                name="contact form"
+                method="post"
+                action="./mail-success"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit(onSubmitMessage)}
+              >
+                <input type="hidden" name="form-name" value="contact form" />
+                <p hidden>
+                  <label>
+                    If you're human don’t fill this out:
+                    <input name="bot-field" inputRef={register} />
+                  </label>
+                </p>
                 <p className="subject">
                   <label htmlFor="subject">Subject: </label>
                   <div className="wrapper-text-field">
                     <TextField
                       id="subject"
+                      name="subject"
                       fullWidth
                       placeholder="Message subject here"
+                      inputRef={register()}
+                      error={!!errors.subject?.message}
+                      helperText={errors.subject?.message}
                     />
                   </div>
                 </p>
@@ -51,8 +125,12 @@ export default function contact() {
                   <div className="wrapper-text-field">
                     <TextField
                       id="name"
+                      name="name"
                       fullWidth
                       placeholder="Your name here"
+                      inputRef={register()}
+                      error={!!errors.name?.message}
+                      helperText={errors.name?.message}
                     />
                   </div>
                   <span className="message-desktop">.&nbsp;</span>
@@ -61,8 +139,12 @@ export default function contact() {
                   <div className="wrapper-text-field">
                     <TextField
                       id="email"
+                      name="email"
                       fullWidth
                       placeholder="Your email here"
+                      inputRef={register()}
+                      error={!!errors.email?.message}
+                      helperText={errors.email?.message}
                     />
                   </div>
                   <span className="message-desktop">.&nbsp;</span>
@@ -72,17 +154,23 @@ export default function contact() {
                   I have a<label htmlFor="message"> message </label>for you,
                   <TextField
                     id="message"
+                    name="message"
                     fullWidth
                     multiline
                     placeholder="Your message here"
+                    inputRef={register()}
+                    error={!!errors.message?.message}
+                    helperText={errors.message?.message}
                   />
                 </p>
                 <div className="footer-message">
-                  <div>
+                  <div className="regards">
                     <span>Regards,</span>
-                    <span>Your Name</span>
+                    <span>
+                      {!!watchSenderName ? watchSenderName : `(Your Name)`}
+                    </span>
                   </div>
-                  <div>
+                  <div className="send-message">
                     <FilledButton type="submit">Send Message</FilledButton>
                   </div>
                 </div>
@@ -92,7 +180,7 @@ export default function contact() {
         </MessageWrapper>
       </Section>
       <Section>
-        <SocialMediaFlex>
+        <SocialMediaGrid>
           <div>
             <h2 className="Tinos heading">
               Or you can reach me at social media
@@ -150,19 +238,13 @@ export default function contact() {
               </li>
             </SocialMediaList>
           </div>
-        </SocialMediaFlex>
+        </SocialMediaGrid>
       </Section>
     </>
   )
 }
 
-const Section = styled.section`
-  margin-bottom: 80px;
-
-  &:not(:last-of-type) {
-    border-bottom: solid 4px #000;
-  }
-
+const Section = styled(StyledSection)`
   .heading {
     margin-top: 0;
     margin-bottom: 24px;
@@ -249,6 +331,11 @@ const MessageWrapper = styled.div`
     letter-spacing: 0.2px;
   }
 
+  .message-box-heading {
+    display: grid;
+    grid-template-columns: 0.5fr;
+  }
+
   .message-box-inner {
     font-size: 0.875rem;
 
@@ -286,7 +373,6 @@ const MessageWrapper = styled.div`
 
     .subject {
       margin-bottom: 24px;
-      /* margin-bottom: 1.875rem; */
     }
 
     .subject + p .wrapper-text-field {
@@ -299,27 +385,28 @@ const MessageWrapper = styled.div`
 
     .footer-message {
       margin-top: 48px;
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1fr;
 
-      > div {
-        flex: 1;
+      .regards {
+        span {
+          display: block;
+          max-width: 100%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
 
-        &:nth-of-type(1) {
-          span {
-            display: block;
-
-            &:first-child {
-              margin-bottom: 80px;
-            }
+          &:first-of-type {
+            margin-bottom: 80px;
           }
         }
+      }
 
-        &:nth-of-type(2) {
-          text-align: right;
-          display: flex;
-          align-items: flex-end;
-          justify-content: flex-end;
-        }
+      .send-message {
+        text-align: right;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
       }
     }
   }
@@ -343,7 +430,7 @@ const FilledButton = styled.button`
   }
 `
 
-const SocialMediaFlex = styled.div`
+const SocialMediaGrid = styled.div`
   @media (min-width: 960px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -357,7 +444,7 @@ const SocialMediaList = styled.ul`
     border-bottom: solid 1px #000;
 
     @media (min-width: 960px) {
-      &:first-child strong {
+      &:first-of-type strong {
         margin-top: 0;
       }
     }

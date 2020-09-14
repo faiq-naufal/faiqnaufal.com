@@ -92,7 +92,7 @@ const StyledSidebar = styled.nav`
   }
 
   @media (min-width: 960px) {
-    padding-top: 32px;
+    padding-top: 24px;
 
     a {
       font-size: 0.875rem;
