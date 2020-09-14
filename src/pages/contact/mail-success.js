@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
-import { navigate } from "gatsby"
+import { Redirect } from "@reach/router"
 import { ReactComponent as IllustSuccess } from "../../images/achievement.svg"
 import { RiArrowGoBackLine } from "react-icons/ri"
 import StyledSection from "../../components/Section"
@@ -24,33 +24,31 @@ const GlobalStyle = () => (
 export default function MailSuccess({ location }) {
   const { showPage } = location.state || false
 
-  if (!showPage) {
-    navigate("/contact")
-  } else {
-    return (
-      <>
-        <GlobalStyle />
-        <Section>
-          <div className="illust-container">
-            <IllustSuccess title="Email successfully be sent" />
-          </div>
-          <p className="thanks maxw-600">
-            Hey, thank you so much for sending me a message!&nbsp;
-            <strong>You are awesome.</strong>
-          </p>
-          <p className="successful-message maxw-600">
-            Your message has been successfully sent to me. Please give me a time
-            to read and reply your message.
-          </p>
-          <div className="footer">
-            <LinkOutlined to="/contact">
-              <RiArrowGoBackLine /> &nbsp;Back to Contact
-            </LinkOutlined>
-          </div>
-        </Section>
-      </>
-    )
-  }
+  return !showPage ? (
+    <Redirect noThrow to="/contact" />
+  ) : (
+    <>
+      <GlobalStyle />
+      <Section>
+        <div className="illust-container">
+          <IllustSuccess title="Email successfully be sent" />
+        </div>
+        <p className="thanks maxw-600">
+          Hey, thank you so much for sending me a message!&nbsp;
+          <strong>You are awesome.</strong>
+        </p>
+        <p className="successful-message maxw-600">
+          Your message has been successfully sent to me. Please give me a time
+          to read and reply your message.
+        </p>
+        <div className="footer">
+          <LinkOutlined to="/contact">
+            <RiArrowGoBackLine /> &nbsp;Back to Contact
+          </LinkOutlined>
+        </div>
+      </Section>
+    </>
+  )
 }
 
 const Section = styled(StyledSection)`

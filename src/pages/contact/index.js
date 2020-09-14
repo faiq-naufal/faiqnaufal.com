@@ -20,35 +20,35 @@ let contactSchema = YupObject().shape({
   message: YupString().required("Field must be filled"),
 })
 
+const onSubmitMessage = (data, e) => {
+  const form = e.target
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encodeFormData({
+      "form-name": form.getAttribute("name"),
+      ...data,
+    }),
+  })
+    .then(response => {
+      navigate(form.getAttribute("action"), {
+        state: {
+          showPage: true,
+        },
+      })
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
 export default function Contact() {
   const { register, handleSubmit, watch, errors } = useForm({
     resolver: yupResolver(contactSchema),
   })
 
   const watchSenderName = watch("name")
-
-  const onSubmitMessage = (data, e) => {
-    const form = e.target
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeFormData({
-        "form-name": form.getAttribute("name"),
-        ...data,
-      }),
-    })
-      .then(response => {
-        navigate(form.getAttribute("action"), {
-          state: {
-            showPage: true,
-          },
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
 
   return (
     <>
@@ -323,7 +323,6 @@ const StyledIllustContact = styled(IllustContact)`
   margin-bottom: -4px;
 `
 const MessageWrapper = styled.div`
-  /* margin-bottom: 60px; */
   margin-bottom: 48px;
   p {
     line-height: 1.875rem;
