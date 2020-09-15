@@ -7,17 +7,21 @@ import Header from "./Header"
 import Sidebar from "./Sidebar"
 import Footer from "./Footer"
 
-const Layout = ({ children, pageContext }) => (
-  <Theme>
-    {pageContext.layout === "home" ? (
-      <Background>
+const Layout = ({ children, location, pageContext }) => {
+  if (location.pathname === "/offline-plugin-app-shell-fallback") return null
+
+  return (
+    <Theme>
+      {pageContext.layout === "home" ? (
+        <Background>
+          <MainLayout children={children} />
+        </Background>
+      ) : (
         <MainLayout children={children} />
-      </Background>
-    ) : (
-      <MainLayout children={children} />
-    )}
-  </Theme>
-)
+      )}
+    </Theme>
+  )
+}
 
 export default Layout
 

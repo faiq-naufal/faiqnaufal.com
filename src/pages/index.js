@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import emoji from "react-easy-emoji"
+import Emoji from "a11y-react-emoji"
 import { LinkOutlined } from "../components/Button"
 
 export default function Home() {
@@ -21,7 +21,9 @@ export default function Home() {
             web with latest cutting-edge technology
           </p>
           <LinkOutlined to="/contact">
-            <span>Let’s Talk! {emoji(`👋`)}</span>
+            <span>
+              Let’s Talk! <Emoji symbol="👋" />
+            </span>
           </LinkOutlined>
         </Content>
       </ContentWrapper>

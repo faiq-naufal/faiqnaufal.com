@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -10,29 +10,21 @@ import { BsBriefcase } from "react-icons/bs"
 import { VscNote } from "react-icons/vsc"
 
 export default function Sidebar({ children, ...others }) {
-  const isActiveLink = ({ isCurrent }) => {
-    return isCurrent ? { className: "active" } : {}
-  }
-
-  const isPartiallyActiveLink = ({ isPartiallyCurrent }) => {
-    return isPartiallyCurrent ? { className: "active" } : {}
-  }
-
   return (
     <StyledSidebar {...others}>
-      <Link to="/" getProps={isActiveLink}>
+      <Link to="/" activeClassName="active">
         <AiOutlineHome size={24} /> <span>Home</span>
       </Link>
-      <Link to="/about" getProps={isPartiallyActiveLink}>
+      <Link to="/about" activeClassName="active" partiallyActive={true}>
         <AiOutlineInfoCircle size={24} /> <span>About</span>
       </Link>
-      <Link to="/showcase" getProps={isPartiallyActiveLink}>
+      <Link to="/showcase" activeClassName="active" partiallyActive={true}>
         <BsBriefcase size={24} /> <span>Showcase</span>
       </Link>
-      <Link to="/contact" getProps={isPartiallyActiveLink}>
+      <Link to="/contact" activeClassName="active" partiallyActive={true}>
         <AiOutlineMail size={24} /> <span>Contact</span>
       </Link>
-      <Link to="/note" getProps={isPartiallyActiveLink}>
+      <Link to="/note" activeClassName="active" partiallyActive={true}>
         <VscNote size={24} /> <span>Note</span>
       </Link>
     </StyledSidebar>

@@ -1,16 +1,13 @@
 import React from "react"
 import styled from "@emotion/styled"
-import emoji from "react-easy-emoji"
+import Emoji from "a11y-react-emoji"
 
 export default function Footer({ children, ...others }) {
   return (
     <StyledFooter {...others}>
       <p>
-        Made with{" "}
-        <span role="img" aria-label="love">
-          {emoji("💕")}
-        </span>{" "}
-        by Faiq Naufal &copy; {new Date().getFullYear()} All Rights Reserved
+        Made with <Emoji symbol="💕" label="love" /> by Faiq Naufal &copy;{" "}
+        {new Date().getFullYear()} All Rights Reserved
       </p>
     </StyledFooter>
   )

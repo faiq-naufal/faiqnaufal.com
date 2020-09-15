@@ -108,6 +108,7 @@ module.exports = {
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-loadable-components-ssr`,
     `netlify-plugin-gatsby-cache`,
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-preact`,
     {
       resolve: "gatsby-plugin-svgr",
@@ -136,6 +137,7 @@ module.exports = {
         icon: `./src/images/faiq_naufal_logo.svg`,
       },
     },
+    // `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-offline`,
   ],
 }
