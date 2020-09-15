@@ -325,7 +325,7 @@ const StyledIllustContact = styled(IllustContact)`
 const MessageWrapper = styled.div`
   margin-bottom: 48px;
   p {
-    line-height: 1.875rem;
+    line-height: 2rem;
   }
 
   .message-box-outer {
@@ -431,20 +431,14 @@ const MessageWrapper = styled.div`
 
 const FilledButton = styled.button`
   background-color: #0e8162;
-  border: none;
   border-radius: 4px;
   color: #fff;
   padding: 8px 10px;
-  outline: none;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: center;
-
-  &:focus {
-    outline: none;
-  }
 `
 
 const SocialMediaGrid = styled.div`
@@ -511,15 +505,9 @@ const SocialMediaList = styled.ul`
 
 const EmailCrypt = styled.button`
   background: none;
-  outline: none;
-  border: none;
   &::after {
     color: #000;
     content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &:hover&::after {

@@ -37,7 +37,6 @@
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-sharp": "^2.5.14",
     "netlify-plugin-gatsby-cache": "^0.3.2",
-    "normalize.css": "^8.0.1",
     "preact": "^10.4.8",
     "preact-render-to-string": "^5.1.10",
     "prop-types": "^15.7.2",

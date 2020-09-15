@@ -5,19 +5,6 @@ import { Global, css } from "@emotion/core"
 const GlobalStyle = () => (
   <Global
     styles={css`
-      html {
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
       html,
       body,
       #___gatsby,
@@ -38,6 +25,11 @@ const GlobalStyle = () => (
         font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
         overflow-y: scroll;
         background-color: #fdfbfb;
+        font-size: 0.875rem;
+
+        @media (min-width: 600px) {
+          font-size: 1rem;
+        }
       }
       img,
       button {
@@ -61,9 +53,10 @@ const GlobalStyle = () => (
         border: none;
         outline: none;
         cursor: pointer;
-        &:focus {
-          outline: none;
-        }
+      }
+
+      #nprogress .bar {
+        height: 4px;
       }
     `}
   />

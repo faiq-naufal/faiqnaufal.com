@@ -1,6 +1,6 @@
 import "typeface-inter"
 import "typeface-tinos"
-import "normalize.css/normalize.css"
+import "./src/utils/reset.min.css"
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
