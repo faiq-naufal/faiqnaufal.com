@@ -79,9 +79,9 @@ const Main = styled.main`
       "header header header"
       "sidebar content content"
       "footer footer footer";
-    grid-template-columns: 150px 1fr 150px;
+    grid-template-columns: 180px 1fr 150px;
     grid-template-rows: 80px calc(100% - 136px) 56px;
-    grid-column-gap: 24px;
+    grid-column-gap: 20px;
   }
 
   .header {

@@ -19,9 +19,10 @@ export const LinkOutlined = styled(Link)`
   justify-content: center;
   align-content: center;
   border-radius: 4px;
-  padding: 12px 36px;
+  padding: 12px 32px;
   border: solid 1px #0e8162;
   color: #0e8162;
+  min-width: 170px;
 
   &:hover {
     background-color: #0e8162;

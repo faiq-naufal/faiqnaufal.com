@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <ContentWrapper>
         <Content>
-          <h1 className="Tinos">Faiq Naufal</h1>
+          <h1>Faiq Naufal</h1>
           <h2 className="job-alias">
             <strong className="odd"> Web Enthusiast</strong>
             <strong>&nbsp;| Front End Web Developer |&nbsp;</strong>
@@ -43,19 +43,21 @@ const Content = styled.div`
   text-align: center;
 
   h1 {
-    font-size: 2.75rem;
-    text-transform: uppercase;
+    font-size: 3.25rem;
+    font-weight: 700;
     margin-top: 0;
-    margin-bottom: 40px;
-    letter-spacing: -1px;
+    margin-bottom: 24px;
+    line-height: 3.75rem;
 
     @media (min-width: 600px) {
-      font-size: 4.5rem;
+      font-size: 5rem;
       letter-spacing: 1px;
+      margin-bottom: 48px;
+      line-height: 4rem;
     }
 
     @media (min-width: 960px) {
-      font-size: 5rem;
+      font-size: 5.5rem;
     }
   }
 
@@ -85,8 +87,8 @@ const Content = styled.div`
   }
 
   .heading-label {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     font-size: 1rem;
     font-weight: 400;
     font-style: italic;

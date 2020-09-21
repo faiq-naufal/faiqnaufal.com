@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
-import { ReactComponent as Logo } from "../images/faiq_naufal_logo.svg"
+import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo.svg"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>
@@ -66,9 +66,8 @@ const NavTop = styled.nav`
 
   .logo {
     flex: 1;
-    max-width: 56px;
+    max-width: 40px;
     display: flex;
-    align-items: center;
 
     a {
       width: 40px;
@@ -83,7 +82,9 @@ const NavTop = styled.nav`
     }
 
     @media (min-width: 960px) {
-      max-width: 64px;
+      max-width: 48px;
+      position: fixed;
+      top: 20px;
 
       a {
         width: 48px;
@@ -101,8 +102,8 @@ const NavTop = styled.nav`
     a {
       display: flex;
       align-items: center;
-      color: #757575;
-      font-size: 1.5rem;
+      color: rgba(74, 85, 104, 0.7);
+      font-size: 1.25rem;
       text-decoration: none;
 
       &:hover,
@@ -116,12 +117,13 @@ const NavTop = styled.nav`
 
       span {
         display: none;
-        color: #000;
+        font-weight: 500;
+        color: rgba(74, 85, 104, 0.85);
 
         @media (min-width: 600px) {
           display: flex;
           margin-left: 8px;
-          font-size: 1rem;
+          font-size: 0.875rem;
         }
       }
     }

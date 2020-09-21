@@ -135,7 +135,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `./src/images/faiq_naufal_logo.svg`,
+        icon: `./src/images/logo/faiq_naufal_logo.svg`,
       },
     },
     // `gatsby-plugin-remove-serviceworker`,
