@@ -15,9 +15,6 @@ const GlobalStyle = () => (
         min-height: 100%;
         height: auto;
       }
-      .Tinos {
-        font-family: "Tinos", serif;
-      }
       .Inter {
         font-family: "Inter", sans-serif;
       }

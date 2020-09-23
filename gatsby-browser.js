@@ -1,5 +1,4 @@
 import "typeface-inter"
-import "typeface-tinos"
 import "./src/utils/reset.min.css"
 
 export const onServiceWorkerUpdateReady = () => {

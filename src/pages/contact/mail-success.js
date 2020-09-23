@@ -74,10 +74,10 @@ const Section = styled(StyledSection)`
 
   .thanks {
     margin-top: 20px;
-    font-weight: 500;
     font-size: 1.25rem;
     text-align: center;
     line-height: 1.5rem;
+    color: #373535;
 
     strong {
       font-weight: 500;
@@ -93,7 +93,7 @@ const Section = styled(StyledSection)`
   .successful-message {
     margin-top: 20px;
     text-align: center;
-    color: #505050;
+    color: #4a5568;
     line-height: 1.25rem;
     font-size: 0.875rem;
 

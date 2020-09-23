@@ -4,9 +4,11 @@ import { navigate } from "gatsby-link"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { object as YupObject, string as YupString } from "yup"
-import { ReactComponent as IllustContact } from "../../images/new_message.svg"
+import { ReactComponent as IllustContact } from "../../images/notifications.svg"
+import Section, { SectionTopBreak } from "../../components/Section"
+import Heading from "../../components/Heading"
+import TopIllust from "../../components/TopIllust"
 import TextField from "../../components/TextField"
-import StyledSection from "../../components/Section"
 import { encodeFormData } from "../../utils/utils"
 
 let contactSchema = YupObject().shape({
@@ -52,28 +54,27 @@ export default function Contact() {
 
   return (
     <>
+      <Heading>
+        <h1>Contact</h1>
+      </Heading>
       <Section>
-        <TopIllust>
-          <div className="col-grid">
-            <h1 className="Tinos heading">
-              Don’t just stay there. Let’s exchange words!
-            </h1>
-            <p className="paragraph-heading">
-              Tell me something amazing or you can just hit me up! I would love
-              to see your stories and thought
-            </p>
-          </div>
-          <div className="col-grid">
-            <StyledIllustContact />
-          </div>
+        <TopIllust Illustration={IllustContact}>
+          <h1>
+            Don’t just stay there. <strong>Let’s exchange words!</strong>
+          </h1>
+          <p>
+            Tell me something amazing or you can just hit me up! I would love to
+            see your stories and thought
+          </p>
         </TopIllust>
       </Section>
+      <SectionTopBreak number="04" />
       <Section>
         <MessageWrapper>
           <div className="message-box-outer">
             <div className="message-box-heading">
               <div>
-                <h2 className="Tinos heading">
+                <h2 className="heading">
                   Just a few inputs and your messages will be flying to me ~
                 </h2>
                 <p className="paragraph-heading">
@@ -179,18 +180,16 @@ export default function Contact() {
         </MessageWrapper>
       </Section>
       <Section>
-        <SocialMediaGrid>
-          <div>
-            <h2 className="Tinos heading">
-              Or you can reach me at social media
-            </h2>
-            <p className="paragraph-heading">
+        <SocialMedia>
+          <div className="dark-side">
+            <h2>Or you can reach me at social media</h2>
+            <p>
               That way we can be connected and have an opportunity to
               communicate our thought better
             </p>
           </div>
-          <div>
-            <SocialMediaList>
+          <div className="white-side">
+            <ul>
               <li>
                 <strong>Email</strong>
                 <br />
@@ -235,93 +234,87 @@ export default function Contact() {
                   github.com/faiq-naufal
                 </a>
               </li>
-            </SocialMediaList>
+            </ul>
           </div>
-        </SocialMediaGrid>
+        </SocialMedia>
       </Section>
     </>
   )
 }
 
-const Section = styled(StyledSection)`
-  .heading {
-    margin-top: 0;
-    margin-bottom: 24px;
-    font-weight: 400;
-  }
+// const Section = styled(StyledSection)`
+//   .heading {
+//     margin-top: 0;
+//     margin-bottom: 24px;
+//     font-weight: 400;
+//   }
 
-  h1.heading {
-    font-size: 1.875rem;
-    text-align: center;
+//   h1.heading {
+//     font-size: 1.875rem;
+//     text-align: center;
 
-    @media (min-width: 960px) {
-      font-size: 2rem;
-      line-height: 2.75rem;
-      text-align: left;
-    }
-  }
+//     @media (min-width: 960px) {
+//       font-size: 2rem;
+//       line-height: 2.75rem;
+//       text-align: left;
+//     }
+//   }
 
-  h1.heading + .paragraph-heading {
-    text-align: center;
-  }
+//   h1.heading + .paragraph-heading {
+//     text-align: center;
+//   }
 
-  @media (min-width: 960px) {
-    h1.heading + .paragraph-heading {
-      text-align: left;
-    }
-  }
+//   @media (min-width: 960px) {
+//     h1.heading + .paragraph-heading {
+//       text-align: left;
+//     }
+//   }
 
-  h2.heading {
-    font-size: 1.5rem;
+//   h2.heading {
+//     font-size: 1.5rem;
 
-    @media (min-width: 960px) {
-      font-size: 1.875rem;
-      line-height: 2.75rem;
-    }
-  }
+//     @media (min-width: 960px) {
+//       font-size: 1.875rem;
+//       line-height: 2.75rem;
+//     }
+//   }
 
-  .paragraph-heading {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-    margin-bottom: 24px;
-    text-align: justify;
-    text-justify: inter-word;
+//   .paragraph-heading {
+//     font-size: 0.875rem;
+//     font-weight: 400;
+//     line-height: 1.5rem;
+//     margin-bottom: 24px;
+//     text-align: justify;
+//     text-justify: inter-word;
 
-    @media (min-width: 600px) {
-      font-size: 1rem;
-    }
-  }
-`
+//     @media (min-width: 600px) {
+//       font-size: 1rem;
+//     }
+//   }
+// `
 
-const TopIllust = styled.div`
-  max-width: 480px;
-  margin: 0 auto;
+// const TopIllust = styled.div`
+//   max-width: 480px;
+//   margin: 0 auto;
 
-  .col-grid {
-    text-align: center;
-  }
+//   .col-grid {
+//     text-align: center;
+//   }
 
-  @media (min-width: 960px) {
-    max-width: unset;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
+//   @media (min-width: 960px) {
+//     max-width: unset;
+//     margin: 0;
+//     display: grid;
+//     grid-template-columns: 1fr 1fr;
+//     grid-column-gap: 40px;
 
-    .col-grid:last-child {
-      text-align: right;
-      padding-right: 80px;
-    }
-  }
-`
+//     .col-grid:last-child {
+//       text-align: right;
+//       padding-right: 80px;
+//     }
+//   }
+// `
 
-const StyledIllustContact = styled(IllustContact)`
-  width: 100%;
-  max-width: 240px;
-  height: 100%;
-  margin-bottom: -4px;
-`
 const MessageWrapper = styled.div`
   margin-bottom: 48px;
   p {
@@ -441,63 +434,100 @@ const FilledButton = styled.button`
   align-content: center;
 `
 
-const SocialMediaGrid = styled.div`
-  @media (min-width: 960px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-  }
-`
+const SocialMedia = styled.div`
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: 0px 16px 24px rgba(55, 53, 53, 0.06),
+    0px 2px 6px rgba(55, 53, 53, 0.04), 0px 0px 1px rgba(55, 53, 53, 0.04);
 
-const SocialMediaList = styled.ul`
-  list-style: none;
-  li {
-    border-bottom: solid 1px #484848;
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 24px;
 
     @media (min-width: 960px) {
+      font-size: 2.25rem;
+    }
+  }
+
+  p {
+    line-height: 1.5rem;
+    letter-spacing: 0.2px;
+  }
+
+  .dark-side {
+    background-color: #202020;
+    color: #fff;
+    padding: 32px 28px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 960px) {
+      padding: 40px;
+    }
+  }
+
+  .white-side {
+    background-color: #fff;
+    padding: 32px 28px;
+    @media (min-width: 960px) {
+      padding: 40px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      border-bottom: solid 1px #373535;
+
       &:first-of-type strong {
         margin-top: 0;
       }
-    }
 
-    strong {
-      display: inline-flex;
-      font-weight: 600;
-      font-size: 0.875rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      position: relative;
+      strong {
+        display: inline-flex;
+        font-weight: 600;
+        margin: 40px 0 20px 0;
+        padding: 4px 8px;
+        background-color: #202020;
+        color: #fff;
+        border-radius: 4px;
+        position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: -28px;
-        width: 12px;
-        height: 0px;
-        border: solid 1px #484848;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -28px;
+          width: 12px;
+          height: 0px;
+          border: solid 1px #373535;
+        }
       }
-    }
 
-    a {
-      text-decoration: none;
-    }
-
-    .social-media-link {
-      display: inline-flex;
-      font-size: 0.875rem;
-      color: #000;
-      margin-bottom: 20px;
-
-      &:hover {
-        color: #0e8162;
+      a {
+        text-decoration: none;
       }
-    }
 
-    @media (min-width: 600px) {
-      strong,
       .social-media-link {
-        font-size: 1rem;
+        display: inline-flex;
+        color: #4a5568;
+        margin-bottom: 20px;
+
+        &:hover {
+          color: #0e8162;
+        }
       }
     }
   }
@@ -506,7 +536,7 @@ const SocialMediaList = styled.ul`
 const EmailCrypt = styled.button`
   background: none;
   &::after {
-    color: #000;
+    color: #4a5568;
     content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
   }
 

@@ -68,7 +68,7 @@ module.exports = {
       options: {
         color: `#0e8162`,
         showSpinner: false,
-        minimum: 0.1,
+        minimum: 0.01,
       },
     },
     //File

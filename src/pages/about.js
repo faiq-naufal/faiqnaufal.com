@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
-import Section from "../components/Section"
+import Section, { SectionTopBreak } from "../components/Section"
+import Heading from "../components/Heading"
+import TopIllust from "../components/TopIllust"
 import { ReactComponent as IllustAbout } from "../images/note_taking.svg"
 import { ReactComponent as VsCode } from "../images/logo/visual-studio-code.svg"
 import { ReactComponent as Git } from "../images/logo/git.svg"
@@ -27,26 +29,20 @@ export default function About() {
         <h1>About</h1>
       </Heading>
       <Section>
-        <TopIllust>
-          <div className="col-grid">
-            <IllustAbout />
-          </div>
-          <div className="col-grid">
-            <div className="top-card">
-              <h1>A place where the story begins</h1>
-              <p>
-                Hello, I am <strong>Faiq Naufal</strong>. Web developer based on
-                Jakarta, Indonesia specialized on front-end, and fullstack
-                capable
-              </p>
-              <a href="/test" target="_blank">
-                Download Resume
-              </a>
-            </div>
-          </div>
+        <TopIllust Illustration={IllustAbout}>
+          <h1>
+            A place where <strong>the story begins</strong>
+          </h1>
+          <p>
+            Hello, I am <strong>Faiq Naufal</strong>. Web developer based on
+            Jakarta, Indonesia specialized on front-end, and fullstack capable
+          </p>
+          <a href="/test" target="_blank">
+            Download Resume
+          </a>
         </TopIllust>
-        <SectionTopBreak />
       </Section>
+      <SectionTopBreak number="02" />
       <Section>
         <AboutMe>
           <h2>Let’s know myself better</h2>
@@ -439,208 +435,6 @@ export default function About() {
   )
 }
 
-const Heading = styled.div`
-  position: relative;
-  margin-bottom: 20px;
-
-  &::before {
-    content: "";
-    background-color: #373535;
-    width: 100%;
-    height: 4px;
-    position: absolute;
-    top: -20px;
-    left: 0;
-  }
-
-  @media (min-width: 960px) {
-    margin-bottom: 40px;
-
-    &::before {
-      width: 40%;
-      top: -40px;
-      height: 8px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    &::before {
-      width: 50%;
-    }
-  }
-
-  h1 {
-    margin-top: 20px;
-    padding-left: 40px;
-    font-size: 2.25rem;
-    line-height: 3rem;
-    position: relative;
-    color: #373535;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      background: #0e8162;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-    }
-
-    @media (min-width: 960px) {
-      font-size: 2.75rem;
-      line-height: 3.5rem;
-      margin-top: 40px;
-      padding-left: 48px;
-
-      &::before {
-        width: 32px;
-        height: 32px;
-      }
-    }
-  }
-`
-
-const TopIllust = styled.div`
-  max-width: 480px;
-  margin: 0 auto;
-
-  @media (min-width: 960px) {
-    max-width: unset;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    grid-column-gap: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 40px;
-  }
-
-  .col-grid:first-of-type {
-    text-align: center;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-    max-width: 240px;
-    max-height: 240px;
-
-    @media (min-width: 960px) {
-      max-width: 360px;
-      max-height: 360px;
-    }
-  }
-
-  .top-card {
-    background: #ffffff;
-    box-shadow: 0px 38px 101px rgba(55, 53, 53, 0.07),
-      0px 15.8755px 42.1954px rgba(55, 53, 53, 0.0503198),
-      0px 8.4878px 22.5597px rgba(55, 53, 53, 0.0417275),
-      0px 4.75819px 12.6468px rgba(55, 53, 53, 0.035),
-      0px 2.52704px 6.7166px rgba(55, 53, 53, 0.0282725),
-      0px 1.05156px 2.79493px rgba(55, 53, 53, 0.0196802);
-    border-radius: 4px;
-    padding: 32px 28px;
-
-    @media (max-width: 959px) {
-      margin-top: 20px;
-    }
-
-    @media (min-width: 1024px) {
-      padding: 40px;
-    }
-
-    h1 {
-      color: #373535;
-      font-size: 2.25rem;
-      line-height: 3rem;
-
-      @media (min-width: 960px) {
-        font-size: 2.75rem;
-        line-height: 3.5rem;
-      }
-    }
-
-    p {
-      font-weight: 300;
-      color: #4a5568;
-      font-size: 1.25rem;
-      margin: 24px 0;
-    }
-
-    strong {
-      color: #0e8162;
-      font-weight: 600;
-    }
-
-    a {
-      background: none;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-align: center;
-      margin-right: auto;
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      align-content: center;
-      border-radius: 4px;
-      padding: 12px 32px;
-      border: solid 1px #0e8162;
-      color: #0e8162;
-      min-width: 170px;
-
-      &:hover {
-        background-color: #0e8162;
-        color: #fff;
-      }
-    }
-  }
-`
-
-const SectionTopBreak = styled.div`
-  display: block;
-  margin: 60px 0;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  height: 160px;
-  font-size: 8rem;
-  font-weight: 900;
-  @media (min-width: 960px) {
-    height: 200px;
-    font-size: 10rem;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    height: 2px;
-    background-color: #e7e7e9;
-    z-index: 2;
-  }
-
-  &::after {
-    content: "02";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #f0f0f0;
-    z-index: 1;
-  }
-`
-
 const AboutMe = styled.div`
   background-color: #fff;
   position: relative;
@@ -782,7 +576,6 @@ const CoreValues = styled.div`
 `
 
 const BlackSection = styled.div`
-  margin-left: auto;
   background-color: #202020;
   border-radius: 4px;
   color: #fff;

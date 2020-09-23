@@ -25,9 +25,7 @@ export default function NotFoundPage() {
       <SEO title="404: Not found" />
       <GlobalStyle />
       <Section>
-        <h1 className="Tinos">
-          Awww... snap! You have found the edge of the universe
-        </h1>
+        <h1>Awww... snap! You have found the edge of the universe</h1>
         <div className="illust-container">
           <Illust404
             title="404 Page Not Found"
@@ -68,11 +66,12 @@ export default function NotFoundPage() {
 
 const Section = styled.section`
   h1 {
-    font-weight: 400;
+    font-weight: 700;
     line-height: 2.25rem;
     font-size: 1.875rem;
     margin: 0 auto 48px auto;
     max-width: 720px;
+    color: #373535;
 
     @media (min-width: 600px) {
       font-size: 2.5rem;
@@ -106,6 +105,7 @@ const Section = styled.section`
     font-weight: 300;
     font-size: 1.5rem;
     text-align: center;
+    color: #373535;
 
     @media (min-width: 600px) {
       margin-top: 60px;
@@ -115,7 +115,7 @@ const Section = styled.section`
 
   .dont-worry {
     margin-top: 48px;
-    color: #505050;
+    color: #4a5568;
     font-size: 1rem;
     line-height: 1.5rem;
 
@@ -143,6 +143,7 @@ const NavLink = styled.nav`
 
   ul {
     list-style: none;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
 
@@ -170,7 +171,7 @@ const NavLink = styled.nav`
 
       a {
         font-size: 1rem;
-        color: #000;
+        color: #4a5568;
         text-transform: uppercase;
         text-decoration: underline;
 
