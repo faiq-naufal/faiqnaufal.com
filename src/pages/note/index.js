@@ -11,7 +11,7 @@ import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 
 export default function Note() {
   const data = useStaticQuery(graphql`
-    query ListNote {
+    query ListNoteQuery {
       file(relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }) {
         childImageSharp {
           fluid {
@@ -177,13 +177,13 @@ const LatestNote = styled.div`
       }
     }
 
-    .author p:last-of-type {
-      justify-content: flex-end;
-    }
-
     .time-to-read {
       color: #6f757b;
       font-weight: 300;
+    }
+
+    .author p:last-of-type {
+      justify-content: flex-end;
     }
 
     .author {
