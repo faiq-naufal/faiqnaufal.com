@@ -14,7 +14,7 @@ export default function Note() {
     query ListNoteQuery {
       file(relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 600, quality: 80, webpQuality: 80) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
@@ -42,7 +42,7 @@ export default function Note() {
       <Section>
         <LatestNote>
           <h2>Explore</h2>
-          <Link to="./detail">
+          <Link to="./introducing-the-new-website">
             <div className="card-latest">
               <div className="col-grid">
                 <Img
@@ -52,7 +52,7 @@ export default function Note() {
               </div>
               <div className="col-grid">
                 <div className="content-wrapper">
-                  <ul className="post-category">
+                  <ul className="note-category">
                     <li>Website</li>
                   </ul>
                   <h3>Introducing the new website</h3>
@@ -212,7 +212,7 @@ const LatestNote = styled.div`
       }
     }
 
-    .post-category {
+    .note-category {
       display: flex;
       flex-flow: row wrap;
 
