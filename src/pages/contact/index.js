@@ -71,112 +71,96 @@ export default function Contact() {
       <SectionTopBreak number="04" />
       <Section>
         <MessageWrapper>
-          <div className="message-box-outer">
-            <div className="message-box-heading">
-              <div>
-                <h2 className="heading">
-                  Just a few inputs and your messages will be flying to me ~
-                </h2>
-                <p className="paragraph-heading">
-                  Rest assured, I will not give your information to others. You
-                  will not get any spam email from here.
-                </p>
+          <h2 className="heading">Let's Talk</h2>
+          <form
+            id="contact-form"
+            name="contact form"
+            method="post"
+            action="./mail-success"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit(onSubmitMessage)}
+          >
+            <h3 className="heading-form">Tell me anything!</h3>
+            <p className="subtitle">
+              Rest assured, I will not give your information to others. You will
+              not get any spam email from here.
+            </p>
+            <input type="hidden" name="form-name" value="contact form" />
+            <p hidden>
+              <label>
+                If you're human don’t fill this out:
+                <input name="bot-field" inputRef={register} />
+              </label>
+            </p>
+            <div className="subject">
+              <label htmlFor="subject">Subject: </label>
+              <TextField
+                id="subject"
+                name="subject"
+                fullWidth
+                placeholder="Message subject here"
+                inputRef={register()}
+                error={!!errors.subject?.message}
+                helperText={errors.subject?.message}
+              />
+            </div>
+            <p className="dear">Dear Faiq Naufal,</p>
+            <div className="wrapper-text-field">
+              <p>
+                <label htmlFor="name">My name </label>is
+              </p>
+              <TextField
+                id="name"
+                name="name"
+                fullWidth
+                placeholder="Your name here"
+                inputRef={register()}
+                error={!!errors.name?.message}
+                helperText={errors.name?.message}
+              />
+            </div>
+            <div className="wrapper-text-field">
+              <p>
+                <label htmlFor="email">My contact email </label>is
+              </p>
+              <TextField
+                id="email"
+                name="email"
+                fullWidth
+                placeholder="Your email here"
+                inputRef={register()}
+                error={!!errors.email?.message}
+                helperText={errors.email?.message}
+              />
+            </div>
+            <div className="wrapper-text-field">
+              <p>
+                I have a<label htmlFor="message"> message </label>for you,
+              </p>
+              <TextField
+                id="message"
+                name="message"
+                fullWidth
+                multiline
+                placeholder="Your message here"
+                inputRef={register()}
+                error={!!errors.message?.message}
+                helperText={errors.message?.message}
+              />
+            </div>
+            <div className="footer-message">
+              <div className="regards">
+                <span>Regards,</span>
+                <span>
+                  {!!watchSenderName ? watchSenderName : `(Your Name)`}
+                </span>
+              </div>
+              <div className="send-message">
+                <FilledButton type="submit">Send Message</FilledButton>
               </div>
             </div>
-
-            <div className="message-box-inner">
-              <form
-                name="contact form"
-                method="post"
-                action="./mail-success"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit(onSubmitMessage)}
-              >
-                <input type="hidden" name="form-name" value="contact form" />
-                <p hidden>
-                  <label>
-                    If you're human don’t fill this out:
-                    <input name="bot-field" inputRef={register} />
-                  </label>
-                </p>
-                <p className="subject">
-                  <label htmlFor="subject">Subject: </label>
-                  <div className="wrapper-text-field">
-                    <TextField
-                      id="subject"
-                      name="subject"
-                      fullWidth
-                      placeholder="Message subject here"
-                      inputRef={register()}
-                      error={!!errors.subject?.message}
-                      helperText={errors.subject?.message}
-                    />
-                  </div>
-                </p>
-                <p>
-                  Dear Faiq Naufal, <br className="message-desktop" />
-                  <span className="message-desktop">
-                    First of all, let me introduce myself.&nbsp;
-                  </span>
-                  <br className="message-mobile" />
-                  <label htmlFor="name">My name </label>is
-                  <span className="message-desktop">&nbsp;</span>
-                  <div className="wrapper-text-field">
-                    <TextField
-                      id="name"
-                      name="name"
-                      fullWidth
-                      placeholder="Your name here"
-                      inputRef={register()}
-                      error={!!errors.name?.message}
-                      helperText={errors.name?.message}
-                    />
-                  </div>
-                  <span className="message-desktop">.&nbsp;</span>
-                  <label htmlFor="email">My contact email </label>is
-                  <span className="message-desktop">&nbsp;</span>
-                  <div className="wrapper-text-field">
-                    <TextField
-                      id="email"
-                      name="email"
-                      fullWidth
-                      placeholder="Your email here"
-                      inputRef={register()}
-                      error={!!errors.email?.message}
-                      helperText={errors.email?.message}
-                    />
-                  </div>
-                  <span className="message-desktop">.&nbsp;</span>
-                  <span className="message-desktop">
-                    I am contacting you because&nbsp;
-                  </span>
-                  I have a<label htmlFor="message"> message </label>for you,
-                  <TextField
-                    id="message"
-                    name="message"
-                    fullWidth
-                    multiline
-                    placeholder="Your message here"
-                    inputRef={register()}
-                    error={!!errors.message?.message}
-                    helperText={errors.message?.message}
-                  />
-                </p>
-                <div className="footer-message">
-                  <div className="regards">
-                    <span>Regards,</span>
-                    <span>
-                      {!!watchSenderName ? watchSenderName : `(Your Name)`}
-                    </span>
-                  </div>
-                  <div className="send-message">
-                    <FilledButton type="submit">Send Message</FilledButton>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+          </form>
         </MessageWrapper>
       </Section>
       <Section>
@@ -242,114 +226,66 @@ export default function Contact() {
   )
 }
 
-// const Section = styled(StyledSection)`
-//   .heading {
-//     margin-top: 0;
-//     margin-bottom: 24px;
-//     font-weight: 400;
-//   }
-
-//   h1.heading {
-//     font-size: 1.875rem;
-//     text-align: center;
-
-//     @media (min-width: 960px) {
-//       font-size: 2rem;
-//       line-height: 2.75rem;
-//       text-align: left;
-//     }
-//   }
-
-//   h1.heading + .paragraph-heading {
-//     text-align: center;
-//   }
-
-//   @media (min-width: 960px) {
-//     h1.heading + .paragraph-heading {
-//       text-align: left;
-//     }
-//   }
-
-//   h2.heading {
-//     font-size: 1.5rem;
-
-//     @media (min-width: 960px) {
-//       font-size: 1.875rem;
-//       line-height: 2.75rem;
-//     }
-//   }
-
-//   .paragraph-heading {
-//     font-size: 0.875rem;
-//     font-weight: 400;
-//     line-height: 1.5rem;
-//     margin-bottom: 24px;
-//     text-align: justify;
-//     text-justify: inter-word;
-
-//     @media (min-width: 600px) {
-//       font-size: 1rem;
-//     }
-//   }
-// `
-
-// const TopIllust = styled.div`
-//   max-width: 480px;
-//   margin: 0 auto;
-
-//   .col-grid {
-//     text-align: center;
-//   }
-
-//   @media (min-width: 960px) {
-//     max-width: unset;
-//     margin: 0;
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     grid-column-gap: 40px;
-
-//     .col-grid:last-child {
-//       text-align: right;
-//       padding-right: 80px;
-//     }
-//   }
-// `
-
 const MessageWrapper = styled.div`
-  margin-bottom: 48px;
-  p {
-    line-height: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 120px;
+
+  .heading {
+    text-align: center;
+    color: #373535;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 24px;
+
+    @media (min-width: 600px) {
+      font-size: 2.25rem;
+    }
   }
 
-  .message-box-outer {
+  #contact-form {
+    background-color: #fff;
+    color: #4a5568;
+    padding: 32px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 27px 48px rgba(55, 53, 53, 0.04),
+      0px 11.28px 20.0533px rgba(55, 53, 53, 0.0287542),
+      0px 6.0308px 10.7214px rgba(55, 53, 53, 0.0238443),
+      0px 3.38082px 6.01034px rgba(55, 53, 53, 0.02),
+      0px 1.79553px 3.19205px rgba(55, 53, 53, 0.0161557),
+      0px 0.747159px 1.32828px rgba(55, 53, 53, 0.0112458);
+    position: relative;
+
     @media (min-width: 600px) {
       padding: 40px;
-      background-color: #fff;
-      border: solid 4px #484848;
-      border-top: solid 40px #484848;
     }
-  }
 
-  .message-box-heading {
-    @media (min-width: 960px) {
-      display: grid;
-      grid-template-columns: 0.5fr;
+    &::after {
+      content: "";
+      background-color: #0e8162;
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      border-radius: 4px;
     }
-  }
 
-  .message-box-inner {
-    font-size: 0.875rem;
-    background-color: #fff;
-    padding: 40px 20px 40px 20px;
-    border-radius: 4px;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23484848FF' stroke-width='8' stroke-dasharray='12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    .heading-form {
+      color: #373535;
+      font-size: 1.125rem;
+      margin-bottom: 4px;
+      @media (min-width: 600px) {
+        font-size: 1.25rem;
+      }
+    }
 
-    @media (min-width: 600px) {
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='4' ry='4' stroke='%23484848FF' stroke-width='8' stroke-dasharray='20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-      font-size: 1rem;
-      padding: 40px 32px 40px 32px;
-      max-width: 820px;
-      margin-top: 16px;
+    .subtitle {
+      line-height: 1.5rem;
+      letter-spacing: 0.2px;
+      margin-bottom: 20px;
     }
 
     label {
@@ -358,37 +294,18 @@ const MessageWrapper = styled.div`
       cursor: pointer;
     }
 
-    .message-mobile {
-      display: inline-block;
-
-      @media (min-width: 960px) {
-        display: none;
-      }
+    .subject {
+      margin-bottom: 40px;
     }
 
-    .message-desktop {
-      display: none;
-
-      @media (min-width: 960px) {
-        display: inline-block;
-      }
+    .dear {
+      margin-bottom: 20px;
     }
 
     .wrapper-text-field {
-      @media (min-width: 960px) {
-        display: inline-block;
-      }
-    }
-
-    .subject {
-      margin-bottom: 24px;
-    }
-
-    .subject + p .wrapper-text-field {
-      margin-bottom: 10px;
-
-      @media (min-width: 960px) {
-        margin-bottom: 0;
+      margin-bottom: 20px;
+      p {
+        margin-bottom: 4px;
       }
     }
 

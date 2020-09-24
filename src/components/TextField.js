@@ -20,7 +20,7 @@ const StyledTextField = styled(MuiTextField)`
   .MuiInputBase-root {
     color: rgba(0, 0, 0, 1);
     font-family: "Inter", sans-serif;
-    line-height: 1.875rem;
+    line-height: 1.5rem;
     letter-spacing: 0.2px;
     font-size: 0.875rem;
 
@@ -43,6 +43,7 @@ const StyledTextField = styled(MuiTextField)`
   .MuiInput-underline::before {
     border-bottom: 1px solid #d9d8d8;
   }
+
   .MuiInput-underline:not(.Mui-error)::after,
   .MuiInput-underline:hover:not(.Mui-disabled)::before {
     border-bottom: 2px solid #0e8162;

@@ -438,7 +438,7 @@ export default function About() {
 const AboutMe = styled.div`
   background-color: #fff;
   position: relative;
-  margin-top: 108px;
+  margin-top: 128px;
   padding: 32px 28px;
   border-radius: 4px;
   box-shadow: 0px -2px 312px rgba(55, 53, 53, 0.05),
@@ -596,7 +596,7 @@ const BlackSection = styled.div`
   }
 
   hr {
-    margin: 60px 0;
+    margin: 80px 0;
     border-top: solid 1px #fff;
   }
 

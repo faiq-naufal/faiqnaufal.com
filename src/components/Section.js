@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 const Section = styled.section`
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 
   /* &:not(:last-of-type) {
     border-bottom: solid 4px #484848;
@@ -11,15 +11,15 @@ export default Section
 
 export const SectionTopBreak = styled.div`
   display: block;
-  margin: 60px 0;
+  margin: 80px 0;
   width: 100%;
   position: relative;
   text-align: center;
-  height: 160px;
+  height: 95px;
   font-size: 8rem;
   font-weight: 900;
   @media (min-width: 960px) {
-    height: 200px;
+    height: 120px;
     font-size: 10rem;
   }
 
