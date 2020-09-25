@@ -51,7 +51,7 @@ const StyledSidebar = styled.nav`
         color: #0e8162;
 
         span {
-          color: #000;
+          color: #373535;
         }
       }
     }

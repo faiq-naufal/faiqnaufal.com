@@ -12,7 +12,10 @@ import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 export default function Note() {
   const data = useStaticQuery(graphql`
     query ListNoteQuery {
-      file(relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }) {
+      file(
+        sourceInstanceName: { eq: "images" }
+        relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 600, quality: 80, webpQuality: 80) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG

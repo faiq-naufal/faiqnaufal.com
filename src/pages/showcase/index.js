@@ -24,6 +24,51 @@ export default function Showcase() {
         </TopIllust>
       </Section>
       <SectionTopBreak number="03" />
+      <Section>
+        <ComingSoon>
+          <h2>Coming Soon</h2>
+          <p className="card">
+            I'm still working on this page. It will take a little more time to
+            prepare all my projects to be published here. Soon this page will
+            have links for every project I already worked on.
+          </p>
+        </ComingSoon>
+      </Section>
     </>
   )
 }
+
+const ComingSoon = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 27px 48px rgba(55, 53, 53, 0.04),
+    0px 11.28px 20.0533px rgba(55, 53, 53, 0.0287542),
+    0px 6.0308px 10.7214px rgba(55, 53, 53, 0.0238443),
+    0px 3.38082px 6.01034px rgba(55, 53, 53, 0.02),
+    0px 1.79553px 3.19205px rgba(55, 53, 53, 0.0161557),
+    0px 0.747159px 1.32828px rgba(55, 53, 53, 0.0112458);
+  padding: 2.5rem 1.25rem;
+  border-radius: 4px;
+  @media (min-width: 600px) {
+    padding: 2.5rem;
+  }
+
+  h2 {
+    color: #373535;
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 24px;
+
+    @media (min-width: 600px) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .card {
+    color: #4a5568;
+    line-height: 1.75rem;
+    letter-spacing: 0.2px;
+  }
+`

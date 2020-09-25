@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { useStaticQuery, graphql } from "gatsby"
 import Section, { SectionTopBreak } from "../components/Section"
 import Heading from "../components/Heading"
 import TopIllust from "../components/TopIllust"
@@ -23,6 +24,16 @@ import { ReactComponent as Hyper } from "../images/logo/hyper.svg"
 import { BsBook, BsStar, BsGrid } from "react-icons/bs"
 
 export default function About() {
+  const data = useStaticQuery(graphql`
+    query {
+      pdf: file(
+        sourceInstanceName: { eq: "files" }
+        relativePath: { eq: "Faiq_Naufal_Resume.pdf" }
+      ) {
+        publicURL
+      }
+    }
+  `)
   return (
     <>
       <Heading>
@@ -37,7 +48,7 @@ export default function About() {
             Hello, I am <strong>Faiq Naufal</strong>. Web developer based on
             Jakarta, Indonesia specialized on front-end, and fullstack capable
           </p>
-          <a href="/test" target="_blank">
+          <a href={data.pdf.publicURL} target="_blank">
             Download Resume
           </a>
         </TopIllust>

@@ -3,13 +3,17 @@ import styled from "@emotion/styled"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Section from "../../components/Section"
+import { HiOutlineArrowLeft } from "react-icons/hi"
 import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 
 export default function DetailNote() {
   const data = useStaticQuery(graphql`
     query DetailNoteQuery {
-      file(relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }) {
+      file(
+        sourceInstanceName: { eq: "images" }
+        relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1000, quality: 80, webpQuality: 80) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -23,6 +27,9 @@ export default function DetailNote() {
     <Section>
       <DetailContent>
         <div className="heading">
+          <StyledLink to="/note">
+            <HiOutlineArrowLeft size={24} /> <span>Go to note</span>
+          </StyledLink>
           <ul className="note-category">
             <li>Website</li>
           </ul>
@@ -126,6 +133,29 @@ export default function DetailNote() {
     </Section>
   )
 }
+
+const StyledLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(74, 85, 104, 0.85);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 600px) {
+    margin-bottom: 2.5rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: #373535;
+  }
+  span {
+    margin-left: 0.25rem;
+    display: flex;
+    align-items: center;
+  }
+`
 
 const DetailContent = styled.div`
   .heading {
