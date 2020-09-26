@@ -14,11 +14,13 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
-    title: `Faiq Naufal | Web Developer Specialized in Front-End Development`,
-    description: `I am Faiq Naufal. Web Developer specialize in Front-End Development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
-    keyword: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
+    title: `Faiq Naufal - A Web Developer Focused in Front-End Development`,
+    description: `I am Faiq Naufal. Web developer focused in front-end development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
+    keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
     author: `Faiq Naufal`,
     siteUrl: siteUrl,
+    siteName: "Faiq Naufal",
+    image: `/faiq_naufal_logo.svg`,
     lang: `en`,
   },
   plugins: [
@@ -142,7 +144,10 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `standalone`,
-        icon: `./src/images/logo/faiq_naufal_logo.svg`,
+        icon: `static/faiq_naufal_logo.svg`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
     // `gatsby-plugin-remove-serviceworker`,

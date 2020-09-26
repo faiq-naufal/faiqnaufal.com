@@ -6,14 +6,19 @@ import Section from "../../components/Section"
 import { HiOutlineArrowLeft } from "react-icons/hi"
 import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
+import Helmet from "react-helmet"
+import Seo from "../../components/Seo"
+import JsonLd from "../../components/JsonLd"
+import useSiteMetaData from "../../components/useSiteMetaData"
 
-export default function DetailNote() {
+export default function DetailNote({ location }) {
   const data = useStaticQuery(graphql`
     query DetailNoteQuery {
-      file(
+      thumbnail: file(
         sourceInstanceName: { eq: "images" }
         relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
       ) {
+        publicURL
         childImageSharp {
           fluid(maxWidth: 1000, quality: 80, webpQuality: 80) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -23,114 +28,151 @@ export default function DetailNote() {
     }
   `)
 
+  const { siteUrl } = useSiteMetaData()
+  const currentUrl = `${siteUrl}/note/${location.pathname}`
+  const title = `Introducing The New Website - Faiq Naufal`
+  const description =
+    "Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here."
+  const thumbnail = data.thumbnail.publicURL
+
   return (
-    <Section>
-      <DetailContent>
-        <div className="heading">
-          <StyledLink to="/note">
-            <HiOutlineArrowLeft size={24} /> <span>Go to note</span>
-          </StyledLink>
-          <ul className="note-category">
-            <li>Website</li>
-          </ul>
-          <h1>Introducing the new website</h1>
-          <div className="author">
+    <>
+      <Helmet>
+        <link rel="canonical" href={currentUrl} />
+      </Helmet>
+      <Seo
+        title={title}
+        description={description}
+        image={thumbnail}
+        currentUrl={currentUrl}
+      />
+      <JsonLd>
+        {{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: siteUrl,
+          name: "Faiq Naufal",
+          description: "Faiq Naufal's Personal Website",
+          mainEntity: {
+            "@type": "Person",
+            name: "Faiq Naufal",
+            email: "contact@faiqnaufal.com",
+            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            jobTitle: "Web Developer",
+            gender: "male",
+            nationality: "Indonesia",
+            sameAs: [
+              "https://www.linkedin.com/in/faiqnaufal",
+              "https://github.com/faiq-naufal",
+            ],
+          },
+        }}
+      </JsonLd>
+      <Section>
+        <DetailContent>
+          <div className="heading">
+            <StyledLink to="/note">
+              <HiOutlineArrowLeft size={24} /> <span>Go to note</span>
+            </StyledLink>
+            <ul className="note-category">
+              <li>Website</li>
+            </ul>
+            <h1>{title}</h1>
+            <div className="author">
+              <p>
+                <BsPerson />
+                <span>Faiq Naufal</span>
+              </p>
+              <p>
+                <AiOutlineCalendar />
+                <span>22 Sep 2020</span>
+              </p>
+              <p>
+                <AiOutlineFieldTime />
+                <span>~ 3 min to read</span>
+              </p>
+            </div>
+            <p className="summary">{description}</p>
+          </div>
+          <div className="thumbnail">
+            <Img
+              fluid={data.thumbnail.childImageSharp.fluid}
+              alt="Introducing the new website"
+            />
+          </div>
+          <div className="blog-content">
+            <h2>Introduction</h2>
             <p>
-              <BsPerson />
-              <span>Faiq Naufal</span>
+              I'm very excited to present my new personal website. My old
+              website was created at 2018. The website itself wasn't really
+              scallable to put more contents. After some considerations, I
+              thought I really needed to revamp the whole website. I wanted the
+              new website to be faster, more accessible, SEO-friendly,
+              minimalistic and fun. I originally planned to revamp the website
+              on last year but I didn't have an inspiration and time to do it.
+              This new website is intended to be my personal value for my
+              professional career and hobby.
             </p>
+            <h2>What's inside the website?</h2>
+            <ul>
+              <p>
+                The website is broken down into five section of pages to
+                separate and make each part is easier to navigate:
+              </p>
+              <li>
+                <strong>Home</strong>
+                <p>
+                  The root and homepage of the website. This is the page that
+                  welcomes you as you visit the website.
+                </p>
+              </li>
+              <li>
+                <strong>About</strong>
+                <p>
+                  A place where I tell about my info, background and my personal
+                  core values. I also provide other useful info such as list of
+                  my skills and my productivity tools.
+                </p>
+              </li>
+              <li>
+                <strong>Showcase</strong>
+                <p>
+                  A place where I put and showcase all my projects whether it is
+                  my personal project, learning project or professional project.
+                  Each project has detail page which provides the information
+                  about the project itself. The detail page may provides
+                  informations such as the technologies used, description /
+                  background of the project, project screenshot, and how the
+                  project is created.
+                </p>
+              </li>
+              <li>
+                <strong>Contact</strong>
+                <p>
+                  Welcome to contact page, a place where you can contact and
+                  share stories with me. You can message me with subject
+                  literally anything from here with the exception of spam or
+                  marketing message of course.
+                </p>
+              </li>
+              <li>
+                <strong>Note</strong>
+                <p>
+                  Hey, right now you are on this section of website. A note page
+                  is basically made up of my random thoughts and notes which I
+                  like to share with everyone.
+                </p>
+              </li>
+            </ul>
             <p>
-              <AiOutlineCalendar />
-              <span>22 Sep 2020</span>
-            </p>
-            <p>
-              <AiOutlineFieldTime />
-              <span>~ 3 min to read</span>
+              That's all folks. This is the first note from this website. I plan
+              to write more next time whenever I have some thoughts to share.
+              Anyway, thank you so much for reaching this far.
             </p>
           </div>
-          <p className="summary">
-            Hello there, I'm excited to share you about my new website. I had
-            been holding the development for more than 1 year but it's finally
-            here.
-          </p>
-        </div>
-        <div className="thumbnail">
-          <Img
-            fluid={data.file.childImageSharp.fluid}
-            alt="Introducing the new website"
-          />
-        </div>
-        <div className="blog-content">
-          <h2>Introduction</h2>
-          <p>
-            I'm very excited to present my new personal website. My old website
-            was created at 2018. The website itself wasn't really scallable to
-            put more contents. After some considerations, I thought I really
-            needed to revamp the whole website. I wanted the new website to be
-            faster, more accessible, SEO-friendly, minimalistic and fun. I
-            originally planned to revamp the website on last year but I didn't
-            have an inspiration and time to do it. This new website is intended
-            to be my personal value for my professional career and hobby.
-          </p>
-          <h2>What's inside the website?</h2>
-          <ul>
-            <p>
-              The website is broken down into five section of pages to separate
-              and make each part is easier to navigate:
-            </p>
-            <li>
-              <strong>Home</strong>
-              <p>
-                The root and homepage of the website. This is the page that
-                welcomes you as you visit the website.
-              </p>
-            </li>
-            <li>
-              <strong>About</strong>
-              <p>
-                A place where I tell about my info, background and my personal
-                core values. I also provide other useful info such as list of my
-                skills and my productivity tools.
-              </p>
-            </li>
-            <li>
-              <strong>Showcase</strong>
-              <p>
-                A place where I put and showcase all my projects whether it is
-                my personal project, learning project or professional project.
-                Each project has detail page which provides the information
-                about the project itself. The detail page may provides
-                informations such as the technologies used, description /
-                background of the project, project screenshot, and how the
-                project is created.
-              </p>
-            </li>
-            <li>
-              <strong>Contact</strong>
-              <p>
-                Welcome to contact page, a place where you can contact and share
-                stories with me. You can message me with subject literally
-                anything from here with the exception of spam or marketing
-                message of course.
-              </p>
-            </li>
-            <li>
-              <strong>Note</strong>
-              <p>
-                Hey, right now you are on this section of website. A note page
-                is basically made up of my random thoughts and notes which I
-                like to share with everyone.
-              </p>
-            </li>
-          </ul>
-          <p>
-            That's all folks. This is the first note from this website. I plan
-            to write more next time whenever I have some thoughts to share.
-            Anyway, thank you so much for reaching this far.
-          </p>
-        </div>
-      </DetailContent>
-    </Section>
+        </DetailContent>
+      </Section>
+    </>
   )
 }
 

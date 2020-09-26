@@ -8,6 +8,10 @@ import TopIllust from "../../components/TopIllust"
 import { ReactComponent as IllustDreaming } from "../../images/dream.svg"
 import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
+import Helmet from "react-helmet"
+import Seo from "../../components/Seo"
+import JsonLd from "../../components/JsonLd"
+import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Note() {
   const data = useStaticQuery(graphql`
@@ -25,19 +29,59 @@ export default function Note() {
     }
   `)
 
+  const { siteUrl } = useSiteMetaData()
+  const currentUrl = `${siteUrl}/note`
+  const title = "Note - Faiq Naufal"
+  const description =
+    "A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing"
+  const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091713/assets_faiqnaufal/dream.png`
+
   return (
     <>
+      <Helmet>
+        <link rel="canonical" href={currentUrl} />
+      </Helmet>
+      <Seo
+        title={title}
+        description={description}
+        image={thumbnail}
+        currentUrl={currentUrl}
+      />
+      <JsonLd>
+        {{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: siteUrl,
+          name: "Faiq Naufal",
+          description: "Faiq Naufal's Personal Website",
+          mainEntity: {
+            "@type": "Person",
+            name: "Faiq Naufal",
+            email: "contact@faiqnaufal.com",
+            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            jobTitle: "Web Developer",
+            gender: "male",
+            nationality: "Indonesia",
+            sameAs: [
+              "https://www.linkedin.com/in/faiqnaufal",
+              "https://github.com/faiq-naufal",
+            ],
+          },
+        }}
+      </JsonLd>
       <Heading>
         <h1>Note</h1>
       </Heading>
       <Section>
         <TopIllust Illustration={IllustDreaming}>
           <h1>
-            Collection of <strong>exposed thoughts</strong> of a dreamer
+            Collection of <strong>exposed thoughts</strong> and{" "}
+            <strong>passions</strong> of a dreamer
           </h1>
           <p>
-            I write the things I find interesting just like others do. But not
-            in the way others do
+            I write the thing I find interesting just like others do. But not in
+            the way others do. Most of the times, it comes from my perspective
+            and my opinion
           </p>
         </TopIllust>
       </Section>
@@ -64,9 +108,9 @@ export default function Note() {
                     <span>~ 3 min to read</span>
                   </p>
                   <p className="summary">
-                    Hello there, I'm excited to share you about my new website.
-                    I had been holding the development for more than 1 year but
-                    it's finally here.
+                    Hello there, I'm excited to share to you about my new
+                    website. I had been holding the development for more than 1
+                    year but it's finally here.
                   </p>
                   <div className="author">
                     <p>

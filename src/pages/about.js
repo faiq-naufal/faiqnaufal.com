@@ -22,6 +22,10 @@ import { ReactComponent as LastPass } from "../images/logo/lastpass.svg"
 import { ReactComponent as Trello } from "../images/logo/trello.svg"
 import { ReactComponent as Hyper } from "../images/logo/hyper.svg"
 import { BsBook, BsStar, BsGrid } from "react-icons/bs"
+import Helmet from "react-helmet"
+import Seo from "../components/Seo"
+import JsonLd from "../components/JsonLd"
+import useSiteMetaData from "../components/useSiteMetaData"
 
 export default function About() {
   const data = useStaticQuery(graphql`
@@ -34,8 +38,47 @@ export default function About() {
       }
     }
   `)
+
+  const { siteUrl } = useSiteMetaData()
+  const currentUrl = `${siteUrl}/about`
+  const title = `About - Faiq Naufal`
+  const description = `See the information of Faiq Naufal here. A web developer and web enthusiast who likes and passionate with modern web technologies.`
+  const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601090819/assets_faiqnaufal/note_taking.png`
+
   return (
     <>
+      <Helmet>
+        <link rel="canonical" href={currentUrl} />
+      </Helmet>
+      <Seo
+        title={title}
+        description={description}
+        image={thumbnail}
+        currentUrl={currentUrl}
+      />
+      <JsonLd>
+        {{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "About Faiq Naufal",
+          url: `${siteUrl}/about`,
+          description:
+            "Faiq Naufal is a web developer focused in front-end development",
+          mainEntity: {
+            "@type": "Person",
+            name: "Faiq Naufal",
+            email: "contact@faiqnaufal.com",
+            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            jobTitle: "Web Developer",
+            gender: "male",
+            nationality: "Indonesia",
+            sameAs: [
+              "https://www.linkedin.com/in/faiqnaufal",
+              "https://github.com/faiq-naufal",
+            ],
+          },
+        }}
+      </JsonLd>
       <Heading>
         <h1>About</h1>
       </Heading>
@@ -46,10 +89,15 @@ export default function About() {
           </h1>
           <p>
             Hello, I am <strong>Faiq Naufal</strong>. Web developer based on
-            Jakarta, Indonesia specialized on front-end, and fullstack capable
+            Jakarta, Indonesia focused on front-end side, and fullstack capable
           </p>
-          <a href={data.pdf.publicURL} target="_blank">
-            Download Resume
+          <a
+            href={data.pdf.publicURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="See Resume"
+          >
+            See Resume
           </a>
         </TopIllust>
       </Section>
@@ -345,6 +393,14 @@ export default function About() {
                   and installable on mobile and desktop
                 </p>
               </li>
+              {/* <li className="col-grid">
+                <h3>Jamstack</h3>
+                <p>
+                  Currently, I am learning Jamstack architecture which stands
+                  for JavaScript, API & Markup. I'm using it for building this
+                  website.
+                </p>
+              </li> */}
               <li className="col-grid">
                 <h3>HTML</h3>
                 <p>

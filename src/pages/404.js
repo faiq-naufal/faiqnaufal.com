@@ -20,9 +20,12 @@ const GlobalStyle = () => (
 )
 
 export default function NotFoundPage() {
+  const title = `404 Error Page Not Found - Faiq Naufal`
+  const description = `Sorry, the page you are looking for cannot be found`
+
   return (
     <>
-      <SEO title="404: Not found" />
+      <SEO title={title} description={description} />
       <GlobalStyle />
       <Section>
         <h1>Awww... snap! You have found the edge of the universe</h1>

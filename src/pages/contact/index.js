@@ -10,6 +10,10 @@ import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
 import TextField from "../../components/TextField"
 import { encodeFormData } from "../../utils/utils"
+import Helmet from "react-helmet"
+import Seo from "../../components/Seo"
+import JsonLd from "../../components/JsonLd"
+import useSiteMetaData from "../../components/useSiteMetaData"
 
 let contactSchema = YupObject().shape({
   subject: YupString().required("Field must be filled"),
@@ -52,8 +56,46 @@ export default function Contact() {
 
   const watchSenderName = watch("name")
 
+  const { siteUrl } = useSiteMetaData()
+  const currentUrl = `${siteUrl}/contact`
+  const title = "Contact - Faiq Naufal"
+  const description =
+    "If you would like to work together or just want to get in touch with me just say hello. The best way to reach me is by filling the contact form."
+  const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
+
   return (
     <>
+      <Helmet>
+        <link rel="canonical" href={currentUrl} />
+      </Helmet>
+      <Seo
+        title={title}
+        description={description}
+        image={thumbnail}
+        currentUrl={currentUrl}
+      />
+      <JsonLd>
+        {{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: siteUrl,
+          name: "Faiq Naufal",
+          description: "Faiq Naufal's Personal Website",
+          mainEntity: {
+            "@type": "Person",
+            name: "Faiq Naufal",
+            email: "contact@faiqnaufal.com",
+            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            jobTitle: "Web Developer",
+            gender: "male",
+            nationality: "Indonesia",
+            sameAs: [
+              "https://www.linkedin.com/in/faiqnaufal",
+              "https://github.com/faiq-naufal",
+            ],
+          },
+        }}
+      </JsonLd>
       <Heading>
         <h1>Contact</h1>
       </Heading>
@@ -64,7 +106,8 @@ export default function Contact() {
           </h1>
           <p>
             Tell me something amazing or you can just hit me up! I would love to
-            see your stories and thought
+            see your stories and thought. The best way to get in touch with me
+            is to fill out the form below.
           </p>
         </TopIllust>
       </Section>
@@ -179,7 +222,7 @@ export default function Contact() {
                 <br />
                 <EmailCrypt
                   className="social-media-link"
-                  data-name="faiq"
+                  data-name="contact"
                   data-domain="faiqnaufal"
                   data-tld="com"
                   onClick={event => {
@@ -230,7 +273,7 @@ const MessageWrapper = styled.div`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 120px;
+  margin-bottom: 128px;
 
   .heading {
     text-align: center;
@@ -265,8 +308,8 @@ const MessageWrapper = styled.div`
       content: "";
       background-color: #0e8162;
       position: absolute;
-      bottom: -40px;
-      right: -40px;
+      bottom: -48px;
+      right: -48px;
       width: 100%;
       height: 100%;
       z-index: -1;

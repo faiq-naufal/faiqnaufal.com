@@ -4,14 +4,13 @@ import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
-import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo.svg"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>
     <NavTop>
       <div className="logo">
         <Link to="/" aria-label="Logo">
-          <Logo title="Logo" stroke="#000" description="Faiq Naufal Logo" />
+          <img src="/faiq_naufal_logo.svg" alt="Faiq Naufal's Logo" />
         </Link>
       </div>
       <div className="social-media">
