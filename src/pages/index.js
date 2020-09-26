@@ -8,9 +8,9 @@ import JsonLd from "../components/JsonLd"
 import useSiteMetaData from "../components/useSiteMetaData"
 
 export default function Home() {
-  const { siteUrl } = useSiteMetaData()
-  const title = `Hi, I'm Faiq Naufal. Would you like to have a coffee?`
-  const description = `This is my personal website. A website fully dedicated to give my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
+  const { siteUrl, logo } = useSiteMetaData()
+  const title = `👋 Hi, I'm Faiq Naufal. ☕ Would you like to have a coffee?`
+  const description = `This is my personal website. A website fully dedicated to tell my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
 
   return (
     <>
@@ -29,7 +29,7 @@ export default function Home() {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

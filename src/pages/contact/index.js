@@ -56,11 +56,11 @@ export default function Contact() {
 
   const watchSenderName = watch("name")
 
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/contact`
-  const title = "Contact - Faiq Naufal"
+  const title = "✉️ Contact - Faiq Naufal"
   const description =
-    "If you would like to work together or just want to get in touch with me just say hello. The best way to reach me is by filling the contact form."
+    "If you would like to work together or just want to get in touch with me just say hello 👋. The best way to reach me is by filling the contact form."
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
 
   return (
@@ -85,7 +85,7 @@ export default function Contact() {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

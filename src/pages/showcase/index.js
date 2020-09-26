@@ -10,9 +10,9 @@ import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Showcase() {
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/showcase`
-  const title = `Showcase - Faiq Naufal`
+  const title = `🎨 Showcase - Faiq Naufal`
   const description = `A collection of portfolio showcase by Faiq Naufal. He likes to showcase his work to people around the world to see`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091725/assets_faiqnaufal/landing_page.png`
 
@@ -38,7 +38,7 @@ export default function Showcase() {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

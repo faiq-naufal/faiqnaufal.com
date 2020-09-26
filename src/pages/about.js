@@ -29,7 +29,7 @@ import useSiteMetaData from "../components/useSiteMetaData"
 
 export default function About() {
   const data = useStaticQuery(graphql`
-    query {
+    {
       pdf: file(
         sourceInstanceName: { eq: "files" }
         relativePath: { eq: "Faiq_Naufal_Resume.pdf" }
@@ -39,10 +39,10 @@ export default function About() {
     }
   `)
 
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/about`
-  const title = `About - Faiq Naufal`
-  const description = `See the information of Faiq Naufal here. A web developer and web enthusiast who likes and passionate with modern web technologies.`
+  const title = `😄 About - Faiq Naufal`
+  const description = `See the information of Faiq Naufal here. A web developer and web enthusiast who likes and passionate with modern web technologies 🔥.`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601090819/assets_faiqnaufal/note_taking.png`
 
   return (
@@ -68,7 +68,7 @@ export default function About() {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

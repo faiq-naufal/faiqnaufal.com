@@ -28,9 +28,9 @@ const GlobalStyle = () => (
 export default function MailSuccess({ location }) {
   const { showPage } = location.state || false
 
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/contact/mail-success`
-  const title = "Successfully Sending a Message - Faiq Naufal"
+  const title = "✅ Successfully Sending a Message - Faiq Naufal"
   const description =
     "Thank you so much for sending me a message. Your message has been successfully sent to me"
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091725/assets_faiqnaufal/achievement.png`
@@ -59,7 +59,7 @@ export default function MailSuccess({ location }) {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

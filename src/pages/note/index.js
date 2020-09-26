@@ -15,7 +15,7 @@ import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Note() {
   const data = useStaticQuery(graphql`
-    query ListNoteQuery {
+    {
       file(
         sourceInstanceName: { eq: "images" }
         relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
@@ -29,9 +29,9 @@ export default function Note() {
     }
   `)
 
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note`
-  const title = "Note - Faiq Naufal"
+  const title = "📝 Note - Faiq Naufal"
   const description =
     "A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing"
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091713/assets_faiqnaufal/dream.png`
@@ -58,7 +58,7 @@ export default function Note() {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

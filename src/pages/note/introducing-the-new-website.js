@@ -13,7 +13,7 @@ import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function DetailNote({ location }) {
   const data = useStaticQuery(graphql`
-    query DetailNoteQuery {
+    {
       thumbnail: file(
         sourceInstanceName: { eq: "images" }
         relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
@@ -28,7 +28,7 @@ export default function DetailNote({ location }) {
     }
   `)
 
-  const { siteUrl } = useSiteMetaData()
+  const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note/${location.pathname}`
   const title = `Introducing The New Website - Faiq Naufal`
   const description =
@@ -57,7 +57,7 @@ export default function DetailNote({ location }) {
             "@type": "Person",
             name: "Faiq Naufal",
             email: "contact@faiqnaufal.com",
-            image: `${siteUrl}/faiq_naufal_logo.svg`,
+            image: logo,
             jobTitle: "Web Developer",
             gender: "male",
             nationality: "Indonesia",

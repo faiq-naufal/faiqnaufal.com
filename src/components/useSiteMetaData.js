@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby"
 
 export default function useSiteMetaData() {
-  const { site } = useStaticQuery(
+  const { site, file } = useStaticQuery(
     graphql`
-      query {
+      {
         site {
           siteMetadata {
             title
@@ -11,13 +11,18 @@ export default function useSiteMetaData() {
             author
             siteUrl
             siteName
-            image
             lang
           }
+        }
+        file(
+          sourceInstanceName: { eq: "images" }
+          relativePath: { eq: "logo/faiq_naufal_logo.svg" }
+        ) {
+          logo: publicURL
         }
       }
     `
   )
 
-  return site.siteMetadata
+  return { ...site.siteMetadata, ...file }
 }

@@ -20,7 +20,7 @@ const GlobalStyle = () => (
 )
 
 export default function NotFoundPage() {
-  const title = `404 Error Page Not Found - Faiq Naufal`
+  const title = `⛔ 404 Error Page Not Found - Faiq Naufal`
   const description = `Sorry, the page you are looking for cannot be found`
 
   return (
