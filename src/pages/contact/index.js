@@ -12,7 +12,6 @@ import TextField from "../../components/TextField"
 import { encodeFormData } from "../../utils/utils"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
-import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
 
@@ -68,6 +67,26 @@ export default function Contact() {
   const title = `✉️ Contact - Faiq Naufal`
   const description = `If you would like to work together or just want to get in touch with me just say hello 👋. The best way to reach me is by filling the contact form.`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: siteUrl,
+    name: "Faiq Naufal",
+    description: "Faiq Naufal's Personal Website",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
@@ -79,29 +98,8 @@ export default function Contact() {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
+        schemaMarkup={schemaMarkup}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <Heading>
         <h1>Contact</h1>
       </Heading>

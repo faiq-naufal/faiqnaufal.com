@@ -10,7 +10,6 @@ import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
-import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Note() {
@@ -34,6 +33,26 @@ export default function Note() {
   const title = `📝 Note - Faiq Naufal`
   const description = `A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091713/assets_faiqnaufal/dream.png`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: siteUrl,
+    name: "Faiq Naufal",
+    description: "Faiq Naufal's Personal Website",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
@@ -45,29 +64,8 @@ export default function Note() {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
+        schemaMarkup={schemaMarkup}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <Heading>
         <h1>Note</h1>
       </Heading>

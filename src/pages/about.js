@@ -25,7 +25,6 @@ import { BsBook, BsStar, BsGrid } from "react-icons/bs"
 import { HiOutlineArrowRight } from "react-icons/hi"
 import Helmet from "react-helmet"
 import Seo from "../components/Seo"
-import JsonLd from "../components/JsonLd"
 import useSiteMetaData from "../components/useSiteMetaData"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
@@ -46,6 +45,27 @@ export default function About() {
   const title = `😄 About - Faiq Naufal`
   const description = `See the information of Faiq Naufal here. A web developer and web enthusiast who likes and passionate with modern web technologies 🔥.`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601090819/assets_faiqnaufal/note_taking.png`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "About Faiq Naufal",
+    url: `${siteUrl}/about`,
+    description:
+      "Faiq Naufal is a web developer focused in front-end development",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
@@ -57,30 +77,8 @@ export default function About() {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
+        schemaMarkup={schemaMarkup}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "About Faiq Naufal",
-          url: `${siteUrl}/about`,
-          description:
-            "Faiq Naufal is a web developer focused in front-end development",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <Heading>
         <h1>About</h1>
       </Heading>

@@ -8,7 +8,6 @@ import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
-import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function DetailNote({ location }) {
@@ -33,6 +32,26 @@ export default function DetailNote({ location }) {
   const title = `Introducing The New Website`
   const description = `Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here.`
   const thumbnail = data.thumbnail.publicURL
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: siteUrl,
+    name: "Faiq Naufal",
+    description: "Faiq Naufal's Personal Website",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
@@ -44,29 +63,8 @@ export default function DetailNote({ location }) {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
+        schemaMarkup={schemaMarkup}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <Section>
         <DetailContent>
           <div className="heading">

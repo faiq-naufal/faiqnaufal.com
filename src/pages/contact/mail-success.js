@@ -8,7 +8,6 @@ import StyledSection from "../../components/Section"
 import { LinkOutlined } from "../../components/Button"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
-import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 const GlobalStyle = () => (
@@ -28,7 +27,7 @@ const GlobalStyle = () => (
 export default function MailSuccess({ location }) {
   const { showPage } = location.state || false
 
-  const { siteUrl, logo } = useSiteMetaData()
+  const { siteUrl } = useSiteMetaData()
   const currentUrl = `${siteUrl}/contact/mail-success`
   const title = `✉️ Successfully Sending a Message - Faiq Naufal`
   const description = `Thank you so much for sending me a message. Your message has been successfully sent to me`
@@ -47,28 +46,6 @@ export default function MailSuccess({ location }) {
         image={thumbnail}
         currentUrl={currentUrl}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <GlobalStyle />
       <Section>
         <div className="illust-container">

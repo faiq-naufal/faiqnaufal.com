@@ -4,7 +4,6 @@ import Emoji from "a11y-react-emoji"
 import { LinkOutlined } from "../components/Button"
 import Helmet from "react-helmet"
 import Seo from "../components/Seo"
-import JsonLd from "../components/JsonLd"
 import useSiteMetaData from "../components/useSiteMetaData"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
@@ -12,35 +11,38 @@ export default function Home() {
   const { siteUrl, logo } = useSiteMetaData()
   const title = `👋 Hi, I'm Faiq Naufal. ☕ Would you like to have a coffee?`
   const description = `This is my personal website. A website fully dedicated to tell my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: siteUrl,
+    name: "Faiq Naufal",
+    description: "Faiq Naufal's Personal Website",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
       <Helmet>
         <link rel="canonical" href={siteUrl} />
       </Helmet>
-      <Seo title={title} description={description} currentUrl={siteUrl} />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
+      <Seo
+        title={title}
+        description={description}
+        currentUrl={siteUrl}
+        schemaMarkup={schemaMarkup}
+      />
       <ContentWrapper>
         <Content>
           <h1>Faiq Naufal</h1>

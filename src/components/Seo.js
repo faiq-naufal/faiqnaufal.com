@@ -9,6 +9,7 @@ export default function SEO({
   image,
   currentUrl,
   author,
+  schemaMarkup,
   meta,
 }) {
   const siteMetadata = useSiteMetaData()
@@ -87,7 +88,13 @@ export default function SEO({
           content: metaAuthor,
         },
       ].concat(meta)}
-    />
+    >
+      {schemaMarkup && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      )}
+    </Helmet>
   )
 }
 
@@ -97,6 +104,7 @@ SEO.defaultProps = {
   image: "",
   siteUrl: "",
   author: "",
+  schemaMarkup: {},
   meta: [],
 }
 

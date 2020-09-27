@@ -6,7 +6,6 @@ import TopIllust from "../../components/TopIllust"
 import { ReactComponent as IllustShowcase } from "../../images/landing_page.svg"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
-import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Showcase() {
@@ -15,6 +14,26 @@ export default function Showcase() {
   const title = `🎨 Showcase - Faiq Naufal`
   const description = `A collection of portfolio showcase by Faiq Naufal. He likes to showcase his work to people around the world to see`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091725/assets_faiqnaufal/landing_page.png`
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: siteUrl,
+    name: "Faiq Naufal",
+    description: "Faiq Naufal's Personal Website",
+    mainEntity: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      email: "contact@faiqnaufal.com",
+      image: logo,
+      jobTitle: "Web Developer",
+      gender: "male",
+      nationality: "Indonesia",
+      sameAs: [
+        "https://www.linkedin.com/in/faiqnaufal",
+        "https://github.com/faiq-naufal",
+      ],
+    },
+  }
 
   return (
     <>
@@ -26,29 +45,8 @@ export default function Showcase() {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
+        schemaMarkup={schemaMarkup}
       />
-      <JsonLd>
-        {{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          url: siteUrl,
-          name: "Faiq Naufal",
-          description: "Faiq Naufal's Personal Website",
-          mainEntity: {
-            "@type": "Person",
-            name: "Faiq Naufal",
-            email: "contact@faiqnaufal.com",
-            image: logo,
-            jobTitle: "Web Developer",
-            gender: "male",
-            nationality: "Indonesia",
-            sameAs: [
-              "https://www.linkedin.com/in/faiqnaufal",
-              "https://github.com/faiq-naufal",
-            ],
-          },
-        }}
-      </JsonLd>
       <Heading>
         <h1>Showcase</h1>
       </Heading>
