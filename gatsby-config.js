@@ -135,7 +135,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Faiq Naufal Website`,
+        name: `Faiq Naufal`,
         short_name: `Faiq Naufal`,
         description: `A personal website of Faiq Naufal`,
         lang: `en`,

@@ -58,9 +58,8 @@ export default function Contact() {
 
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/contact`
-  const title = "✉️ Contact - Faiq Naufal"
-  const description =
-    "If you would like to work together or just want to get in touch with me just say hello 👋. The best way to reach me is by filling the contact form."
+  const title = `✉️ Contact - Faiq Naufal`
+  const description = `If you would like to work together or just want to get in touch with me just say hello 👋. The best way to reach me is by filling the contact form.`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
 
   return (
@@ -273,14 +272,13 @@ const MessageWrapper = styled.div`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 128px;
 
   .heading {
     text-align: center;
     color: #373535;
     font-weight: 700;
     font-size: 2rem;
-    margin-bottom: 24px;
+    margin-bottom: 72px;
 
     @media (min-width: 600px) {
       font-size: 2.25rem;
@@ -306,10 +304,10 @@ const MessageWrapper = styled.div`
 
     &::after {
       content: "";
-      background-color: #0e8162;
       position: absolute;
-      bottom: -48px;
-      right: -48px;
+      top: -48px;
+      left: -48px;
+      background-color: #0e8162;
       width: 100%;
       height: 100%;
       z-index: -1;

@@ -30,9 +30,8 @@ export default function MailSuccess({ location }) {
 
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/contact/mail-success`
-  const title = "✅ Successfully Sending a Message - Faiq Naufal"
-  const description =
-    "Thank you so much for sending me a message. Your message has been successfully sent to me"
+  const title = `✉️ Successfully Sending a Message - Faiq Naufal`
+  const description = `Thank you so much for sending me a message. Your message has been successfully sent to me`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091725/assets_faiqnaufal/achievement.png`
 
   return !showPage ? (

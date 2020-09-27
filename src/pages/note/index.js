@@ -31,9 +31,8 @@ export default function Note() {
 
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note`
-  const title = "📝 Note - Faiq Naufal"
-  const description =
-    "A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing"
+  const title = `📝 Note - Faiq Naufal`
+  const description = `A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091713/assets_faiqnaufal/dream.png`
 
   return (

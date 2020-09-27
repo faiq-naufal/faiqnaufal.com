@@ -30,9 +30,8 @@ export default function DetailNote({ location }) {
 
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note/${location.pathname}`
-  const title = `Introducing The New Website - Faiq Naufal`
-  const description =
-    "Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here."
+  const title = `Introducing The New Website`
+  const description = `Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here.`
   const thumbnail = data.thumbnail.publicURL
 
   return (
@@ -41,7 +40,7 @@ export default function DetailNote({ location }) {
         <link rel="canonical" href={currentUrl} />
       </Helmet>
       <Seo
-        title={title}
+        title={`📝 ${title} - Faiq Naufal`}
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
