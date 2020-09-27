@@ -103,7 +103,7 @@ export default function Note() {
                   </ul>
                   <h3>Introducing the new website</h3>
                   <p className="time-to-read">
-                    <AiOutlineFieldTime />
+                    <AiOutlineFieldTime size={24} color="#0e8162" />
                     <span>~ 3 min to read</span>
                   </p>
                   <p className="summary">
@@ -113,11 +113,11 @@ export default function Note() {
                   </p>
                   <div className="author">
                     <p>
-                      <BsPerson />
+                      <BsPerson size={24} color="#0e8162" />
                       <span>Faiq Naufal</span>
                     </p>
                     <p>
-                      <AiOutlineCalendar />
+                      <AiOutlineCalendar size={24} color="#0e8162" />
                       <span>22 Sep 2020</span>
                     </p>
                   </div>
@@ -212,11 +212,6 @@ const LatestNote = styled.div`
     p {
       display: flex;
       align-items: center;
-
-      svg {
-        font-size: 1.5rem;
-        color: #0e8162;
-      }
 
       span {
         margin-left: 0.5rem;

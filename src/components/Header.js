@@ -5,6 +5,7 @@ import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
 import { BiSitemap } from "react-icons/bi"
 import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo.svg"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Header = ({ children, ...others }) => (
   <StyledHeader {...others}>
@@ -15,7 +16,7 @@ const Header = ({ children, ...others }) => (
         </Link>
       </div>
       <div className="social-media">
-        <a
+        <OutboundLink
           href="https://github.com/faiq-naufal"
           target="_blank"
           rel="noopener noreferrer"
@@ -24,8 +25,8 @@ const Header = ({ children, ...others }) => (
         >
           <GoMarkGithub />
           <span>Github</span>
-        </a>
-        <a
+        </OutboundLink>
+        <OutboundLink
           href="https://www.linkedin.com/in/faiqnaufal"
           target="_blank"
           rel="noopener noreferrer"
@@ -34,8 +35,8 @@ const Header = ({ children, ...others }) => (
         >
           <FaLinkedin />
           <span>LinkedIn</span>
-        </a>
-        <a
+        </OutboundLink>
+        <OutboundLink
           href="/sitemap.xml"
           target="_blank"
           rel="noopener noreferrer"
@@ -43,7 +44,7 @@ const Header = ({ children, ...others }) => (
         >
           <BiSitemap />
           <span>Sitemap</span>
-        </a>
+        </OutboundLink>
       </div>
     </NavTop>
   </StyledHeader>
@@ -72,13 +73,6 @@ const NavTop = styled.nav`
     a {
       width: 40px;
       height: 40px;
-
-      svg {
-        /* fix svg stroke bug */
-        path[d="M8 8h496v496H8z"] {
-          stroke-width: 16;
-        }
-      }
     }
 
     @media (min-width: 960px) {

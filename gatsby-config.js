@@ -24,6 +24,15 @@ module.exports = {
   },
   plugins: [
     //SEO
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-133730197-2`,
+        head: true,
+        defer: true,
+        pageTransitionDelay: 0,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,

@@ -22,10 +22,12 @@ import { ReactComponent as LastPass } from "../images/logo/lastpass.svg"
 import { ReactComponent as Trello } from "../images/logo/trello.svg"
 import { ReactComponent as Hyper } from "../images/logo/hyper.svg"
 import { BsBook, BsStar, BsGrid } from "react-icons/bs"
+import { HiOutlineArrowRight } from "react-icons/hi"
 import Helmet from "react-helmet"
 import Seo from "../components/Seo"
 import JsonLd from "../components/JsonLd"
 import useSiteMetaData from "../components/useSiteMetaData"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default function About() {
   const data = useStaticQuery(graphql`
@@ -96,8 +98,15 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="See Resume"
+            onClick={e => {
+              trackCustomEvent({
+                category: "Link",
+                action: "Click",
+                label: "Resume Link",
+              })
+            }}
           >
-            See Resume
+            <span>See Resume</span> <HiOutlineArrowRight size={16} />
           </a>
         </TopIllust>
       </Section>

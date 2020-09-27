@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 export default function TopIllust({ Illustration, children, ...others }) {
   return (
     <StyledTopIllust {...others}>
-      <div className="col-grid">
+      <div className="col-grid illust">
         <Illustration />
       </div>
       <div className="col-grid">
@@ -35,15 +35,17 @@ const StyledTopIllust = styled.div`
     text-align: center;
   }
 
-  svg {
-    width: 100%;
-    height: 100%;
-    max-width: 240px;
-    max-height: 240px;
+  .illust {
+    svg {
+      width: 100%;
+      height: 100%;
+      max-width: 240px;
+      max-height: 240px;
 
-    @media (min-width: 960px) {
-      max-width: 360px;
-      max-height: 360px;
+      @media (min-width: 960px) {
+        max-width: 360px;
+        max-height: 360px;
+      }
     }
   }
 
@@ -111,6 +113,10 @@ const StyledTopIllust = styled.div`
       border: solid 1px #0e8162;
       color: #0e8162;
       min-width: 170px;
+
+      span {
+        margin-right: 4px;
+      }
 
       &:hover {
         background-color: #0e8162;

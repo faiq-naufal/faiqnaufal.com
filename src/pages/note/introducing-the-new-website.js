@@ -79,15 +79,15 @@ export default function DetailNote({ location }) {
             <h1>{title}</h1>
             <div className="author">
               <p>
-                <BsPerson />
+                <BsPerson size={24} color="#0e8162" />
                 <span>Faiq Naufal</span>
               </p>
               <p>
-                <AiOutlineCalendar />
+                <AiOutlineCalendar size={24} color="#0e8162" />
                 <span>22 Sep 2020</span>
               </p>
               <p>
-                <AiOutlineFieldTime />
+                <AiOutlineFieldTime size={24} color="#0e8162" />
                 <span>~ 3 min to read</span>
               </p>
             </div>
@@ -260,11 +260,6 @@ const DetailContent = styled.div`
         align-items: center;
         margin-right: 1.25rem;
         margin-bottom: 1.25rem;
-
-        svg {
-          font-size: 1.5rem;
-          color: #0e8162;
-        }
 
         span {
           margin-left: 0.5rem;

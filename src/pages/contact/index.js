@@ -14,6 +14,7 @@ import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
 import JsonLd from "../../components/JsonLd"
 import useSiteMetaData from "../../components/useSiteMetaData"
+import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 let contactSchema = YupObject().shape({
   subject: YupString().required("Field must be filled"),
@@ -27,6 +28,12 @@ let contactSchema = YupObject().shape({
 })
 
 const onSubmitMessage = (data, e) => {
+  trackCustomEvent({
+    category: "Submit Form",
+    action: "Click",
+    label: "Submit Contact Form",
+  })
+
   const form = e.target
 
   fetch("/", {
@@ -230,6 +237,12 @@ export default function Contact() {
                     )}@${event.currentTarget.getAttribute(
                       `data-domain`
                     )}.${event.currentTarget.getAttribute(`data-tld`)}`
+
+                    trackCustomEvent({
+                      category: "Link",
+                      action: "Click",
+                      label: "Contact Email Link",
+                    })
                     return false
                   }}
                 />
@@ -237,7 +250,7 @@ export default function Contact() {
               <li>
                 <strong>LinkedIn</strong>
                 <br />
-                <a
+                <OutboundLink
                   href="https://www.linkedin.com/in/faiqnaufal"
                   className="social-media-link"
                   target="_blank"
@@ -245,12 +258,12 @@ export default function Contact() {
                   aria-label="LinkedIn"
                 >
                   linkedin.com/in/faiqnaufal/
-                </a>
+                </OutboundLink>
               </li>
               <li>
                 <strong>Github</strong>
                 <br />
-                <a
+                <OutboundLink
                   href="https://github.com/faiq-naufal"
                   className="social-media-link"
                   target="_blank"
@@ -258,7 +271,7 @@ export default function Contact() {
                   aria-label="Github"
                 >
                   github.com/faiq-naufal
-                </a>
+                </OutboundLink>
               </li>
             </ul>
           </div>

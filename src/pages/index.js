@@ -6,6 +6,7 @@ import Helmet from "react-helmet"
 import Seo from "../components/Seo"
 import JsonLd from "../components/JsonLd"
 import useSiteMetaData from "../components/useSiteMetaData"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default function Home() {
   const { siteUrl, logo } = useSiteMetaData()
@@ -54,7 +55,16 @@ export default function Home() {
             <strong>functional</strong>, <strong>quality-focused</strong> modern
             web with latest cutting-edge technology
           </p>
-          <LinkOutlined to="/contact">
+          <LinkOutlined
+            to="/contact"
+            onClick={e => {
+              trackCustomEvent({
+                category: "Link",
+                action: "Click",
+                label: "Home to Contact Link",
+              })
+            }}
+          >
             <span>
               Let’s Talk! <Emoji symbol="👋" />
             </span>
