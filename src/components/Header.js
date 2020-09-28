@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
-import { BiSitemap } from "react-icons/bi"
 import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo.svg"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
@@ -23,7 +22,7 @@ const Header = ({ children, ...others }) => (
           aria-label="Github"
           className="mr-16"
         >
-          <GoMarkGithub />
+          <GoMarkGithub size={24} />
           <span>Github</span>
         </OutboundLink>
         <OutboundLink
@@ -33,17 +32,8 @@ const Header = ({ children, ...others }) => (
           aria-label="LinkedIn"
           className="mr-16"
         >
-          <FaLinkedin />
+          <FaLinkedin size={24} />
           <span>LinkedIn</span>
-        </OutboundLink>
-        <OutboundLink
-          href="/sitemap.xml"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Sitemap"
-        >
-          <BiSitemap />
-          <span>Sitemap</span>
         </OutboundLink>
       </div>
     </NavTop>

@@ -34,8 +34,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      output: `/sitemap.xml`,
+      exclude: [`/contact/mail-success/`],
+      createLinkInHead: true,
+    },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
@@ -43,6 +48,8 @@ module.exports = {
         env: {
           production: {
             policy: [{ userAgent: "*" }],
+            sitemap: `${siteUrl}/sitemap.xml`,
+            host: siteUrl,
           },
           "branch-deploy": {
             policy: [{ userAgent: "*", disallow: ["/"] }],
@@ -77,8 +84,11 @@ module.exports = {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `#0e8162`,
+        minimum: 0.1,
+        parent: `#gatsby-focus-wrapper`,
+        trickleSpeed: 400,
+        trickleRate: 0.1,
         showSpinner: false,
-        minimum: 0.01,
       },
     },
     //File
