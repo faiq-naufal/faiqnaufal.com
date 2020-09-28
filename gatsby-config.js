@@ -37,9 +37,11 @@ module.exports = {
     `gatsby-plugin-webpack-bundle-analyser-v2`,
     {
       resolve: `gatsby-plugin-sitemap`,
-      output: `/sitemap.xml`,
-      exclude: [`/contact/mail-success/`],
-      createLinkInHead: true,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/contact/mail-success`],
+        createLinkInHead: true,
+      },
     },
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -87,7 +89,7 @@ module.exports = {
         minimum: 0.1,
         parent: `#gatsby-focus-wrapper`,
         trickleSpeed: 400,
-        trickleRate: 0.1,
+        trickleRate: 0.2,
         showSpinner: false,
       },
     },
@@ -159,7 +161,7 @@ module.exports = {
         description: `A personal website of Faiq Naufal`,
         lang: `en`,
         start_url: `/`,
-        background_color: `#0e8162`,
+        background_color: `#ffffff`,
         theme_color: `#0e8162`,
         display: `standalone`,
         icon: `./src/images/logo/faiq_naufal_logo.svg`,
@@ -169,6 +171,11 @@ module.exports = {
       },
     },
     // `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/showcase/*`, `/note/*`],
+      },
+    },
   ],
 }

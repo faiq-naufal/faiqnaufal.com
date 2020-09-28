@@ -13,23 +13,19 @@ export default function Home() {
   const description = `This is my personal website. A website fully dedicated to tell my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteUrl,
+    "@type": "Person",
     name: "Faiq Naufal",
-    description: "Faiq Naufal's Personal Website",
-    mainEntity: {
-      "@type": "Person",
-      name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
-    },
+    givenName: "Faiq",
+    gender: "Male",
+    image: `${siteUrl}${logo}`,
+    url: siteUrl,
+    jobTitle: "Web Developer",
+    nationality: "Indonesia",
+    description: "Web and Technology Enthusiast",
+    sameAs: [
+      "https://www.linkedin.com/in/faiqnaufal",
+      "https://github.com/faiq-naufal",
+    ],
   }
 
   return (

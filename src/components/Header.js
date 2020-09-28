@@ -22,7 +22,7 @@ const Header = ({ children, ...others }) => (
           aria-label="Github"
           className="mr-16"
         >
-          <GoMarkGithub size={24} />
+          <GoMarkGithub />
           <span>Github</span>
         </OutboundLink>
         <OutboundLink
@@ -32,7 +32,7 @@ const Header = ({ children, ...others }) => (
           aria-label="LinkedIn"
           className="mr-16"
         >
-          <FaLinkedin size={24} />
+          <FaLinkedin />
           <span>LinkedIn</span>
         </OutboundLink>
       </div>
@@ -89,6 +89,13 @@ const NavTop = styled.nav`
       color: rgba(74, 85, 104, 0.7);
       font-size: 1.25rem;
       text-decoration: none;
+
+      svg {
+        font-size: 1.5rem;
+        @media (min-width: 960px) {
+          font-size: 1.25rem;
+        }
+      }
 
       &:hover,
       &:hover span {

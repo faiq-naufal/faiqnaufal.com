@@ -52,13 +52,16 @@ const onSubmitMessage = (data, e) => {
     })
     .catch(error => {
       console.log(error)
+      alert("Something went wrong. Please try again!")
     })
 }
 
 export default function Contact() {
-  const { register, handleSubmit, watch, errors } = useForm({
+  const { register, handleSubmit, watch, errors, formState } = useForm({
     resolver: yupResolver(contactSchema),
   })
+
+  const { isSubmitting } = formState
 
   const watchSenderName = watch("name")
 
@@ -69,23 +72,19 @@ export default function Contact() {
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteUrl,
+    "@type": "Person",
     name: "Faiq Naufal",
-    description: "Faiq Naufal's Personal Website",
-    mainEntity: {
-      "@type": "Person",
-      name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
-    },
+    givenName: "Faiq",
+    gender: "Male",
+    image: `${siteUrl}${logo}`,
+    url: siteUrl,
+    jobTitle: "Web Developer",
+    nationality: "Indonesia",
+    description: "Web and Technology Enthusiast",
+    sameAs: [
+      "https://www.linkedin.com/in/faiqnaufal",
+      "https://github.com/faiq-naufal",
+    ],
   }
 
   return (
@@ -204,7 +203,9 @@ export default function Contact() {
                 </span>
               </div>
               <div className="send-message">
-                <FilledButton type="submit">Send Message</FilledButton>
+                <FilledButton type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Send Message"}
+                </FilledButton>
               </div>
             </div>
           </form>
@@ -401,6 +402,13 @@ const FilledButton = styled.button`
   align-items: center;
   justify-content: center;
   align-content: center;
+  &:disabled {
+    background-color: #cacaca;
+  }
+
+  span {
+    margin-left: 4px;
+  }
 `
 
 const SocialMedia = styled.div`

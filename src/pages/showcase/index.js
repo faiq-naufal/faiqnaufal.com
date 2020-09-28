@@ -9,29 +9,26 @@ import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
 export default function Showcase() {
-  const { siteUrl, logo } = useSiteMetaData()
+  const { siteUrl } = useSiteMetaData()
   const currentUrl = `${siteUrl}/showcase`
   const title = `🎨 Showcase - Faiq Naufal`
   const description = `A collection of portfolio showcase by Faiq Naufal. He likes to showcase his work to people around the world to see`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091725/assets_faiqnaufal/landing_page.png`
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteUrl,
-    name: "Faiq Naufal",
-    description: "Faiq Naufal's Personal Website",
-    mainEntity: {
+    "@type": "CreativeWork",
+    headline: "🎨 Showcase by Faiq Naufal",
+    description: "A collection of portfolio showcase by Faiq Naufal",
+    url: `${siteUrl}/showcase`,
+    author: {
       "@type": "Person",
       name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
+      url: siteUrl,
+    },
+    creator: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      url: siteUrl,
     },
   }
 

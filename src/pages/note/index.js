@@ -28,29 +28,26 @@ export default function Note() {
     }
   `)
 
-  const { siteUrl, logo } = useSiteMetaData()
+  const { siteUrl } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note`
   const title = `📝 Note - Faiq Naufal`
   const description = `A collection of blogs and notes written by Faiq Naufal. A dreamer who shares some of his exposed thoughts and passions into writing`
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091713/assets_faiqnaufal/dream.png`
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteUrl,
-    name: "Faiq Naufal",
-    description: "Faiq Naufal's Personal Website",
-    mainEntity: {
+    "@type": "Blog",
+    headline: "📝 Note by Faiq Naufal",
+    description: "A collection of blogs and notes written by Faiq Naufal",
+    url: `${siteUrl}/note`,
+    author: {
       "@type": "Person",
       name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
+      url: siteUrl,
+    },
+    creator: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      url: siteUrl,
     },
   }
 
@@ -102,7 +99,7 @@ export default function Note() {
                   <h3>Introducing the new website</h3>
                   <p className="time-to-read">
                     <AiOutlineFieldTime size={24} color="#0e8162" />
-                    <span>~ 3 min to read</span>
+                    <span>~ 2 min to read</span>
                   </p>
                   <p className="summary">
                     Hello there, I'm excited to share to you about my new

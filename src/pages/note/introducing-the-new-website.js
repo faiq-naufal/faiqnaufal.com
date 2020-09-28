@@ -29,27 +29,48 @@ export default function DetailNote({ location }) {
 
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note/${location.pathname}`
-  const title = `Introducing The New Website`
+  const title = `Introducing the New Website`
   const description = `Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here.`
   const thumbnail = data.thumbnail.publicURL
+  const category = "Website"
+  const datePublished = "22 Sep 2020"
+  const dateModified = "22 Sep 2020"
+
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: siteUrl,
-    name: "Faiq Naufal",
-    description: "Faiq Naufal's Personal Website",
-    mainEntity: {
+    "@type": "BlogPosting",
+    headline: title,
+    image: `${siteUrl}${thumbnail}`,
+    genre: category,
+    keywords: category,
+    url: currentUrl,
+    description: description,
+    datePublished: datePublished,
+    dateModified: dateModified,
+    author: {
       "@type": "Person",
       name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
+      url: siteUrl,
+    },
+    creator: {
+      "@type": "Person",
+      name: "Faiq Naufal",
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Faiq Naufal",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}${logo}`,
+        width: "48",
+        height: "48",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": currentUrl,
     },
   }
 
@@ -72,7 +93,7 @@ export default function DetailNote({ location }) {
               <HiOutlineArrowLeft size={24} /> <span>Go to note</span>
             </StyledLink>
             <ul className="note-category">
-              <li>Website</li>
+              <li>{category}</li>
             </ul>
             <h1>{title}</h1>
             <div className="author">
@@ -82,11 +103,11 @@ export default function DetailNote({ location }) {
               </p>
               <p>
                 <AiOutlineCalendar size={24} color="#0e8162" />
-                <span>22 Sep 2020</span>
+                <span>{datePublished}</span>
               </p>
               <p>
                 <AiOutlineFieldTime size={24} color="#0e8162" />
-                <span>~ 3 min to read</span>
+                <span>~ 2 min to read</span>
               </p>
             </div>
             <p className="summary">{description}</p>

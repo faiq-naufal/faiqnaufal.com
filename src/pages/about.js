@@ -47,24 +47,19 @@ export default function About() {
   const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601090819/assets_faiqnaufal/note_taking.png`
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "About Faiq Naufal",
-    url: `${siteUrl}/about`,
-    description:
-      "Faiq Naufal is a web developer focused in front-end development",
-    mainEntity: {
-      "@type": "Person",
-      name: "Faiq Naufal",
-      email: "contact@faiqnaufal.com",
-      image: logo,
-      jobTitle: "Web Developer",
-      gender: "male",
-      nationality: "Indonesia",
-      sameAs: [
-        "https://www.linkedin.com/in/faiqnaufal",
-        "https://github.com/faiq-naufal",
-      ],
-    },
+    "@type": "Person",
+    name: "Faiq Naufal",
+    givenName: "Faiq",
+    gender: "Male",
+    image: `${siteUrl}${logo}`,
+    url: siteUrl,
+    jobTitle: "Web Developer",
+    nationality: "Indonesia",
+    description: "Web and Technology Enthusiast",
+    sameAs: [
+      "https://www.linkedin.com/in/faiqnaufal",
+      "https://github.com/faiq-naufal",
+    ],
   }
 
   return (
