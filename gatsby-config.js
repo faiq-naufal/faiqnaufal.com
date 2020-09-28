@@ -12,6 +12,13 @@ const {
 const isNetlifyProduction = NETLIFY_ENV === "production"
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
+//restrict hostname with word dev from being crawled
+const DoBlockCrawlerNetlify = siteUrl.includes("dev")
+  ? {
+      "/*": ["X-Robots-Tag: noindex, nofollow"],
+    }
+  : {}
+
 module.exports = {
   siteMetadata: {
     title: `Faiq Naufal - A Web Developer Focused in Front-End Development`,
@@ -124,14 +131,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
-        // headers: {
-        //   "https://www.dev.faiqnaufal.com/*": [
-        //     "X-Robots-Tag: noindex, nofollow",
-        //   ],
-        //   "https://dev-faiqnaufal.netlify.app/*": [
-        //     "X-Robots-Tag: noindex, nofollow",
-        //   ],
-        // },
+        headers: {
+          ...DoBlockCrawlerNetlify,
+        },
       },
     },
     //Optimization
