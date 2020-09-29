@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { GoMarkGithub } from "react-icons/go"
 import { FaLinkedin } from "react-icons/fa"
-import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo.svg"
+import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo_full.svg"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Header = ({ children, ...others }) => (
@@ -57,23 +57,18 @@ const NavTop = styled.nav`
 
   .logo {
     flex: 1;
-    max-width: 40px;
-    display: flex;
 
     a {
-      width: 40px;
+      display: flex;
+    }
+
+    svg {
       height: 40px;
     }
 
     @media (min-width: 960px) {
-      max-width: 48px;
       position: fixed;
       top: 20px;
-
-      a {
-        width: 48px;
-        height: 48px;
-      }
     }
   }
 
