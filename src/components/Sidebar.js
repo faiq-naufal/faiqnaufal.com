@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import {
@@ -8,10 +8,23 @@ import {
 } from "react-icons/ai"
 import { BsBriefcase } from "react-icons/bs"
 import { VscNote } from "react-icons/vsc"
+import { AppContext } from "./context"
+
+//check mobile user agent
+const uaDataIsMobile = window.navigator.userAgentData?.mobile
+
+const legacyIsMobileCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  window.navigator.userAgent
+)
+
+const isMobile =
+  typeof uaDataIsMobile === "boolean" ? uaDataIsMobile : legacyIsMobileCheck
 
 export default function Sidebar({ children, ...others }) {
+  const contextData = useContext(AppContext)
+
   return (
-    <StyledSidebar {...others}>
+    <StyledSidebar context={contextData.data} {...others}>
       <div className="wrapper-bar">
         <Link to="/" activeClassName="active">
           <AiOutlineHome size={24} /> <span>Home</span>
@@ -59,7 +72,8 @@ const StyledSidebar = styled.nav`
     @media (max-width: 959px) {
       display: flex;
       flex-direction: row;
-      position: fixed;
+      position: ${props =>
+        props.context.stateFocusInput && isMobile ? "absolute" : "fixed"};
       bottom: 0;
       left: 0;
       height: 56px;
