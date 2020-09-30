@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import BgHome from "../images/bg_home.svg"
+import AppProvider from "./context"
 import Container from "./Container"
 import Header from "./Header"
 import Sidebar from "./Sidebar"
@@ -69,30 +70,34 @@ const Layout = ({ children, location, pageContext }) => {
 
   return (
     <>
-      <GlobalStyle />
-      {pageContext.layout === "home" ? (
-        <Background>
+      <AppProvider>
+        <GlobalStyle />
+        {pageContext.layout === "home" ? (
+          <Background>
+            <MainLayout children={children} />
+          </Background>
+        ) : (
           <MainLayout children={children} />
-        </Background>
-      ) : (
-        <MainLayout children={children} />
-      )}
+        )}
+      </AppProvider>
     </>
   )
 }
 
 export default Layout
 
-const MainLayout = ({ children }) => (
-  <StyledContainer>
-    <Main>
-      <Header className="header" />
-      <Sidebar className="sidebar" />
-      <div className="content">{children}</div>
-      <Footer className="footer" />
-    </Main>
-  </StyledContainer>
-)
+const MainLayout = ({ children }) => {
+  return (
+    <StyledContainer>
+      <Main>
+        <Header className="header" />
+        <Sidebar className="sidebar" />
+        <div className="content">{children}</div>
+        <Footer className="footer" />
+      </Main>
+    </StyledContainer>
+  )
+}
 
 const Background = styled.div`
   flex: 1;

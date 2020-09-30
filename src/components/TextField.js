@@ -1,10 +1,14 @@
-import React, { forwardRef } from "react"
+import React, { useContext, forwardRef } from "react"
 import styled from "@emotion/styled"
 import MuiTextField from "@material-ui/core/TextField"
+import { AppContext } from "./context"
 
 export default forwardRef(function TextField(props, ref) {
+  const contextData = useContext(AppContext)
   return (
     <StyledTextField
+      onBlur={() => contextData.toggleStateFocusInput()}
+      onFocus={() => contextData.toggleStateFocusInput()}
       inputProps={{
         form: {
           autocomplete: "off",
