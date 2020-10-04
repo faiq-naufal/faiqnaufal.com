@@ -132,7 +132,7 @@ const Main = styled.main`
     "sidebar sidebar sidebar";
 
   grid-template-columns: 1fr;
-  grid-template-rows: 80px calc(100% - 192px) 56px 56px;
+  grid-template-rows: 80px minmax(calc(100vh - 192px), calc(100% - 192px)) 56px 56px;
 
   @media (min-width: 960px) {
     grid-template-areas:
@@ -140,7 +140,7 @@ const Main = styled.main`
       "sidebar content content"
       "footer footer footer";
     grid-template-columns: 180px 1fr 150px;
-    grid-template-rows: 80px calc(100% - 136px) 56px;
+    grid-template-rows: 80px minmax(calc(100vh - 136px), calc(100% - 136px)) 56px;
     grid-column-gap: 20px;
   }
 
