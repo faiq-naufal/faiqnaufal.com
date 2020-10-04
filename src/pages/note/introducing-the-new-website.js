@@ -30,7 +30,7 @@ export default function DetailNote({ location }) {
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note/${location.pathname}`
   const title = `Introducing the New Website`
-  const description = `Hello there, I'm excited to share to you about my new website. I had been holding the development for more than 1 year but it's finally here.`
+  const description = `Hello there, I'm excited to share with you about my new website. I had been holding the development for more than 1 year but it's finally here.`
   const thumbnail = data.thumbnail.publicURL
   const category = "Website"
   const datePublished = "22 Sep 2020"
@@ -86,7 +86,7 @@ export default function DetailNote({ location }) {
         currentUrl={currentUrl}
         schemaMarkup={schemaMarkup}
       />
-      <Section>
+      <Section data-nosnippet>
         <DetailContent>
           <div className="heading">
             <StyledLink to="/note">

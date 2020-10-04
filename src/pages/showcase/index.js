@@ -47,7 +47,7 @@ export default function Showcase() {
       <Heading>
         <h1>Showcase</h1>
       </Heading>
-      <Section>
+      <Section data-nosnippet>
         <TopIllust Illustration={IllustShowcase}>
           <h1>
             Collection of <strong>portfolio showcase</strong> from my work

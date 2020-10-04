@@ -9,7 +9,7 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default function Home() {
   const { siteUrl, logo } = useSiteMetaData()
-  const title = `👋 Hi, I'm Faiq Naufal. ☕ Would you like to have a coffee?`
+  const title = `👋 Hi, I'm Faiq Naufal. You have found my personal website!`
   const description = `This is my personal website. A website fully dedicated to tell my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
   const schemaMarkup = {
     "@context": "https://schema.org",

@@ -8,6 +8,7 @@ export default function useSiteMetaData() {
           siteMetadata {
             title
             description
+            logoPng
             author
             siteUrl
             siteName

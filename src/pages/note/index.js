@@ -66,7 +66,7 @@ export default function Note() {
       <Heading>
         <h1>Note</h1>
       </Heading>
-      <Section>
+      <Section data-nosnippet>
         <TopIllust Illustration={IllustDreaming}>
           <h1>
             Collection of <strong>exposed thoughts</strong> and{" "}
@@ -102,7 +102,7 @@ export default function Note() {
                     <span>~ 2 min to read</span>
                   </p>
                   <p className="summary">
-                    Hello there, I'm excited to share to you about my new
+                    Hello there, I'm excited to share with you about my new
                     website. I had been holding the development for more than 1
                     year but it's finally here.
                   </p>

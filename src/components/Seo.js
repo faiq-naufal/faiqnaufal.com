@@ -19,7 +19,7 @@ export default function SEO({
   const metaDescription = description || siteMetadata.description
   const metaUrl = currentUrl || siteMetadata.siteUrl
   const metaAuthor = author || siteMetadata.author
-  const metaImage = image || siteMetadata.image
+  const metaImage = image || siteMetadata.logoPng
 
   return (
     <Helmet

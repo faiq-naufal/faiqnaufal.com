@@ -104,7 +104,7 @@ export default function About() {
         </TopIllust>
       </Section>
       <SectionTopBreak number="02" />
-      <Section>
+      <Section data-nosnippet>
         <AboutMe>
           <h2>Let’s know myself better</h2>
           <p>
