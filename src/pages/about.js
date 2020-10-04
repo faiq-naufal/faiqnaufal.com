@@ -165,10 +165,9 @@ export default function About() {
                   </div>
                 </div>
                 <p>
-                  I value people's time, privacy, and honesty. I think it is
-                  fine to give people more space for their time, and their
-                  privacy because I feel the same way when interacting with
-                  others
+                  I value people's time, and privacy. I think it is fine to give
+                  people more space for their time, and their privacy because I
+                  feel the same way when interacting with others
                 </p>
               </div>
             </li>
