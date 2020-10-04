@@ -11,6 +11,7 @@ export default function SEO({
   author,
   schemaMarkup,
   meta,
+  children,
 }) {
   const siteMetadata = useSiteMetaData()
 
@@ -94,6 +95,7 @@ export default function SEO({
           {JSON.stringify(schemaMarkup)}
         </script>
       )}
+      {children}
     </Helmet>
   )
 }
