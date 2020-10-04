@@ -45,7 +45,9 @@ export default function MailSuccess({ location }) {
         description={description}
         image={thumbnail}
         currentUrl={currentUrl}
-      />
+      >
+        <meta name="robots" content="noindex" />
+      </Seo>
       <GlobalStyle />
       <Section>
         <div className="illust-container">
