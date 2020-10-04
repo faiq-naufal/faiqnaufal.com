@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
 import styled from "@emotion/styled"
-import { Link } from "gatsby"
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -9,6 +8,7 @@ import {
 import { BsBriefcase } from "react-icons/bs"
 import { VscNote } from "react-icons/vsc"
 import { AppContext } from "./context"
+import NavLink from "./NavLink"
 
 export default function Sidebar({ children, ...others }) {
   const contextData = useContext(AppContext)
@@ -31,21 +31,21 @@ export default function Sidebar({ children, ...others }) {
   return (
     <StyledSidebar isMobile={isMobile} context={contextData.data} {...others}>
       <div className="wrapper-bar">
-        <Link to="/" activeClassName="active">
+        <NavLink to="/">
           <AiOutlineHome size={24} /> <span>Home</span>
-        </Link>
-        <Link to="/about" activeClassName="active" partiallyActive={true}>
+        </NavLink>
+        <NavLink to="/about" partiallyActive={true}>
           <AiOutlineInfoCircle size={24} /> <span>About</span>
-        </Link>
-        <Link to="/showcase" activeClassName="active" partiallyActive={true}>
+        </NavLink>
+        <NavLink to="/showcase" partiallyActive={true}>
           <BsBriefcase size={24} /> <span>Showcase</span>
-        </Link>
-        <Link to="/contact" activeClassName="active" partiallyActive={true}>
+        </NavLink>
+        <NavLink to="/contact" partiallyActive={true}>
           <AiOutlineMail size={24} /> <span>Contact</span>
-        </Link>
-        <Link to="/note" activeClassName="active" partiallyActive={true}>
+        </NavLink>
+        <NavLink to="/note" partiallyActive={true}>
           <VscNote size={24} /> <span>Note</span>
-        </Link>
+        </NavLink>
       </div>
     </StyledSidebar>
   )
