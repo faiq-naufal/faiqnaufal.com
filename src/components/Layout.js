@@ -2,7 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import BgHome from "../images/bg_home.svg"
-import AppProvider from "./context"
 import Container from "./Container"
 import Header from "./Header"
 import Sidebar from "./Sidebar"
@@ -70,16 +69,14 @@ const Layout = ({ children, location, pageContext }) => {
 
   return (
     <>
-      <AppProvider>
-        <GlobalStyle />
-        {pageContext.layout === "home" ? (
-          <Background>
-            <MainLayout children={children} />
-          </Background>
-        ) : (
+      <GlobalStyle />
+      {pageContext.layout === "home" ? (
+        <Background>
           <MainLayout children={children} />
-        )}
-      </AppProvider>
+        </Background>
+      ) : (
+        <MainLayout children={children} />
+      )}
     </>
   )
 }
