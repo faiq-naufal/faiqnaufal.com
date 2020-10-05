@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import BgHome from "../images/bg_home.svg"
@@ -17,7 +17,8 @@ const GlobalStyle = () => (
         display: flex;
         flex: 1;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: 100%;
+        min-height: calc(var(--vh, 1vh) * 100);
         height: auto;
       }
       .Inter {
@@ -64,7 +65,23 @@ const GlobalStyle = () => (
   />
 )
 
+const setDocHeight = () => {
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty("--vh", `${vh}px`)
+}
+
 const Layout = ({ children, location, pageContext }) => {
+  useEffect(() => {
+    window.addEventListener("resize", setDocHeight, true)
+    window.addEventListener("orientationchange", setDocHeight, true)
+    setDocHeight()
+
+    return () => {
+      window.removeEventListener("resize", setDocHeight, true)
+      window.removeEventListener("orientationchange", setDocHeight, true)
+    }
+  }, [])
+
   if (location.pathname === "/offline-plugin-app-shell-fallback") return null
 
   return (
@@ -132,7 +149,7 @@ const Main = styled.main`
     "sidebar sidebar sidebar";
 
   grid-template-columns: 1fr;
-  grid-template-rows: 80px minmax(calc(100vh - 192px), calc(100% - 192px)) 56px 56px;
+  grid-template-rows: 80px calc(100% - 192px) 56px 56px;
 
   @media (min-width: 960px) {
     grid-template-areas:
@@ -140,7 +157,7 @@ const Main = styled.main`
       "sidebar content content"
       "footer footer footer";
     grid-template-columns: 180px 1fr 150px;
-    grid-template-rows: 80px minmax(calc(100vh - 136px), calc(100% - 136px)) 56px;
+    grid-template-rows: 80px calc(100% - 136px) 56px;
     grid-column-gap: 20px;
   }
 
