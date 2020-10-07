@@ -102,7 +102,7 @@ export default function Contact() {
       <Heading>
         <h1>Contact</h1>
       </Heading>
-      <Section data-nosnippet>
+      <Section>
         <TopIllust Illustration={IllustContact}>
           <h1>
             Don’t just stay there. <strong>Let’s exchange words!</strong>

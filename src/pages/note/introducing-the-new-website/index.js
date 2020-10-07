@@ -86,7 +86,7 @@ export default function DetailNote({ location }) {
         currentUrl={currentUrl}
         schemaMarkup={schemaMarkup}
       />
-      <Section data-nosnippet>
+      <Section>
         <DetailContent>
           <div className="heading">
             <StyledLink to="/note">

@@ -83,8 +83,9 @@ export default function About() {
             A place where <strong>the story begins</strong>
           </h1>
           <p>
-            Hello, I am <strong>Faiq Naufal</strong>. Web developer based on
-            Jakarta, Indonesia focused on front-end side, and fullstack capable
+            Hello, I am <strong>Faiq Naufal</strong>. Software engineer web
+            platform based on Jakarta, Indonesia focused on front-end side, and
+            fullstack capable
           </p>
           <a
             href={data.pdf.publicURL}
@@ -104,7 +105,7 @@ export default function About() {
         </TopIllust>
       </Section>
       <SectionTopBreak number="02" />
-      <Section data-nosnippet>
+      <Section>
         <AboutMe>
           <h2>Let’s know myself better</h2>
           <p>

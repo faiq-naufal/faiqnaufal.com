@@ -66,7 +66,7 @@ export default function Note() {
       <Heading>
         <h1>Note</h1>
       </Heading>
-      <Section data-nosnippet>
+      <Section>
         <TopIllust Illustration={IllustDreaming}>
           <h1>
             Collection of <strong>exposed thoughts</strong> and{" "}
