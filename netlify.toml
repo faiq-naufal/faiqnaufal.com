@@ -1,9 +1,4 @@
 [[headers]]
-  for = "https://www.v1.faiqnaufal.com/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[headers]]
-  for = "https://faiqnaufal-v1.netlify.app/*"
+  for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
