@@ -1,23 +1,14 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
 const {
-  NODE_ENV,
-  URL: NETLIFY_SITE_URL = "https://www.faiqnaufal.com",
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV,
+  GATSBY_ENV,
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  CLOUDINARY_CLOUD_NAME,
+  TRACKING_ID,
 } = process.env
 
-const isNetlifyProduction = NETLIFY_ENV === "production"
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
-
-//restrict hostname with word dev from being crawled
-const DoBlockCrawlerNetlify = siteUrl.includes("dev")
-  ? {
-      "/*": ["X-Robots-Tag: noindex, nofollow"],
-    }
-  : {}
+require("dotenv").config({
+  path: `.env.${GATSBY_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -26,7 +17,7 @@ module.exports = {
     keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
     logoPng: `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601447867/assets_faiqnaufal/faiq_naufal_logo_png.png`,
     author: `Faiq Naufal`,
-    siteUrl: siteUrl,
+    siteUrl: `https://www.faiqnaufal.com`,
     siteName: "Faiq Naufal",
     lang: `en`,
   },
@@ -35,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-133730197-2`,
+        trackingId: TRACKING_ID,
         head: true,
         defer: true,
         pageTransitionDelay: 0,
@@ -54,22 +45,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        resolveEnv: () => NETLIFY_ENV,
+        host: `https://www.faiqnaufal.com`,
+        sitemap: "https://www.faiqnaufal.com/sitemap.xml",
+        resolveEnv: () => GATSBY_ENV,
         env: {
+          development: {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+          },
           production: {
-            policy: [{ userAgent: "*" }],
-            sitemap: `${siteUrl}/sitemap.xml`,
-            host: siteUrl,
-          },
-          "branch-deploy": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
-          },
-          "deploy-preview": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
+            policy: [{ userAgent: "*", allow: "/" }],
           },
         },
       },
@@ -87,7 +71,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/Layout`),
+        component: require.resolve(`./src/components/layouts/MainLayout`),
       },
     },
     {
@@ -101,8 +85,7 @@ module.exports = {
         showSpinner: false,
       },
     },
-    //File
-    `gatsby-plugin-pnpm`,
+    //File System
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -117,31 +100,56 @@ module.exports = {
         path: `${__dirname}/src/files`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: `${__dirname}/src/content/notes`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `showcases`,
+        path: `${__dirname}/src/content/showcases`,
+      },
+    },
     {
       resolve: `gatsby-source-cloudinary`,
       options: {
-        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-        apiKey: process.env.CLOUDINARY_API_KEY,
-        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        cloudName: CLOUDINARY_CLOUD_NAME,
+        apiKey: CLOUDINARY_API_KEY,
+        apiSecret: CLOUDINARY_API_SECRET,
         resourceType: `image`,
         prefix: `assets_faiqnaufal/`,
       },
     },
-    //Netlify
+    //Markdown, Transformer, and File
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        headers: {
-          ...DoBlockCrawlerNetlify,
-        },
+        plugins: [
+          `gatsby-remark-reading-time`,
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 720,
+              quality: 70,
+              withWebp: true,
+              tracedSVG: true,
+            },
+          },
+        ],
       },
     },
+
     //Optimization
     `gatsby-plugin-optimize-svgs`,
     `gatsby-plugin-loadable-components-ssr`,
-    `netlify-plugin-gatsby-cache`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-preact`,
     {
@@ -170,7 +178,7 @@ module.exports = {
         display: `standalone`,
         icon: `./src/images/logo/faiq_naufal_logo.svg`,
         icon_options: {
-          purpose: `maskable`,
+          purpose: `maskable any`,
         },
       },
     },
