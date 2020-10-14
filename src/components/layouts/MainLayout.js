@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
-import BgHome from "../images/bg_home.svg"
-import Container from "./Container"
-import Header from "./Header"
-import Sidebar from "./Sidebar"
-import Footer from "./Footer"
+import BgHome from "../../images/bg_home.svg"
+import Container from "../Container"
+import Header from "../Header"
+import Sidebar from "../Sidebar"
+import Footer from "../Footer"
 
 const GlobalStyle = () => (
   <Global

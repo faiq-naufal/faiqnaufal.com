@@ -195,6 +195,137 @@ export default function About() {
       </Section>
       <Section>
         <BlackSection>
+          <div className="skills">
+            <h2>Essential Skills that May Help You</h2>
+            <ul className="list-grid">
+              <li className="col-grid">
+                <h3>Front End Development</h3>
+                <p>
+                  I have a responsibility to tackle down front-end problem, give
+                  solution, create innovation and ensure business features work
+                  properly as the user's needs
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Responsive Web Design</h3>
+                <p>
+                  I create a responsive website that automatically scales its
+                  content and elements to match device's screen size
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Lighthouse Audit and Optimization</h3>
+                <p>
+                  Currently, I am learning how to do audit with Google
+                  Lighthouse to optimize website based on five metric
+                  optimization categories
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Progressive Web App (PWA)</h3>
+                <p>
+                  Currently, I am learning to convert websites into PWA using
+                  PWA-ready tools provided by Gatsby, Create React App, and Next
+                  JS to make the website more accessible, has offline support,
+                  and installable on mobile and desktop
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>HTML</h3>
+                <p>
+                  I write meaningful and semantic way HTML document markup to
+                  give the browsers and search engines more information about
+                  the page and its content
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>CSS</h3>
+                <p>
+                  I write CSS, the most popular way to style and create great
+                  looking web pages. It controls all design-related aspects of
+                  the website
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Javascript</h3>
+                <p>
+                  I build an interactive, functional website using Javascript as
+                  my primary programming language
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>React JS</h3>
+                <p>
+                  A javascript UI library to compose and form reusable UI
+                  components and making reactive websites based on dynamically
+                  data change
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Styled Components</h3>
+                <p>
+                  I use CSS in JS library Styled Components to compose UI
+                  components inside Javascript file. Styled Components makes
+                  styling component-based UI easier especially when using React
+                  JS
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Emotion JS</h3>
+                <p>
+                  I used to use styled-components in the past but after I tried
+                  Emotion I prefer Emotion which is the same CSS in JS library
+                  and has similar API with Styled Components but with less
+                  bundle size to improve performance
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Gatsby</h3>
+                <p>
+                  I use Gatsby as a static site generator for React JS and
+                  utilize Gatsby powerful features such as GraphQL and Gatsby
+                  plugins
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Next JS</h3>
+                <p>
+                  I use Next JS as React JS framework for building isomorphic
+                  website and utilize server-side rendering feature on single
+                  page application (SPA)
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>jQuery</h3>
+                <p>
+                  I use jQuery as a Javascript library for handling HTML DOM
+                  manipulation, event handling, and Ajax
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Material-UI</h3>
+                <p>
+                  I use Material-UI component for React JS project. Material-UI
+                  is component-based UI kit for React based on material design
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Bootstrap</h3>
+                <p>
+                  I can use Bootstrap, the most popular CSS and JS framework for
+                  front-end development
+                </p>
+              </li>
+              <li className="col-grid">
+                <h3>Git</h3>
+                <p>
+                  I can use git commands to control project workflow and
+                  collaborate with team members
+                </p>
+              </li>
+            </ul>
+          </div>
+          <hr />
           <div className="productivity-tools">
             <h2>The Productivity Tools that I Use</h2>
             <ul className="list-grid">
@@ -355,145 +486,6 @@ export default function About() {
                 <p>
                   The terminal I'm using right now. A cross-platform terminal
                   with a customizable theme and has a lot of plugins
-                </p>
-              </li>
-            </ul>
-          </div>
-          <hr />
-          <div className="skills">
-            <h2>Essential Skills that May Help You</h2>
-            <ul className="list-grid">
-              <li className="col-grid">
-                <h3>Front End Development</h3>
-                <p>
-                  I have a responsibility to tackle down front-end problem, give
-                  solution, create innovation and ensure business features work
-                  properly as the user's needs
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Responsive Web Design</h3>
-                <p>
-                  I create a responsive website that automatically scales its
-                  content and elements to match device's screen size
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Lighthouse Audit and Optimization</h3>
-                <p>
-                  Currently, I am learning how to do audit with Google
-                  Lighthouse to optimize website based on five metric
-                  optimization categories
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Progressive Web App (PWA)</h3>
-                <p>
-                  Currently, I am learning to convert websites into PWA using
-                  PWA-ready tools provided by Gatsby, Create React App, and Next
-                  JS to make the website more accessible, has offline support,
-                  and installable on mobile and desktop
-                </p>
-              </li>
-              {/* <li className="col-grid">
-                <h3>Jamstack</h3>
-                <p>
-                  Currently, I am learning Jamstack architecture which stands
-                  for JavaScript, API & Markup. I'm using it for building this
-                  website.
-                </p>
-              </li> */}
-              <li className="col-grid">
-                <h3>HTML</h3>
-                <p>
-                  I write meaningful and semantic way HTML document markup to
-                  give the browsers and search engines more information about
-                  the page and its content
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>CSS</h3>
-                <p>
-                  I write CSS, the most popular way to style and create great
-                  looking web pages. It controls all design-related aspects of
-                  the website
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Javascript</h3>
-                <p>
-                  I build an interactive, functional website using Javascript as
-                  my primary programming language
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>React JS</h3>
-                <p>
-                  A javascript UI library to compose and form reusable UI
-                  components and making reactive websites based on dynamically
-                  data change
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Styled Components</h3>
-                <p>
-                  I use CSS in JS library Styled Components to compose UI
-                  components inside Javascript file. Styled Components makes
-                  styling component-based UI easier especially when using React
-                  JS
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Emotion JS</h3>
-                <p>
-                  I used to use styled-components in the past but after I tried
-                  Emotion I prefer Emotion which is the same CSS in JS library
-                  and has similar API with Styled Components but with less
-                  bundle size to improve performance
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Gatsby</h3>
-                <p>
-                  I use Gatsby as a static site generator for React JS and
-                  utilize Gatsby powerful features such as GraphQL and Gatsby
-                  plugins
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Next JS</h3>
-                <p>
-                  I use Next JS as React JS framework for building isomorphic
-                  website and utilize server-side rendering feature on single
-                  page application (SPA)
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>jQuery</h3>
-                <p>
-                  I use jQuery as a Javascript library for handling HTML DOM
-                  manipulation, event handling, and Ajax
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Material-UI</h3>
-                <p>
-                  I use Material-UI component for React JS project. Material-UI
-                  is component-based UI kit for React based on material design
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Bootstrap</h3>
-                <p>
-                  I can use Bootstrap, the most popular CSS and JS framework for
-                  front-end development
-                </p>
-              </li>
-              <li className="col-grid">
-                <h3>Git</h3>
-                <p>
-                  I can use git commands to control project workflow and
-                  collaborate with team members
                 </p>
               </li>
             </ul>

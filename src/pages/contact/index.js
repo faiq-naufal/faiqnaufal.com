@@ -151,7 +151,7 @@ export default function Contact() {
                 helperText={errors.subject?.message}
               />
             </div>
-            <p className="dear">Dear Faiq Naufal,</p>
+            <p className="hello">Hello Faiq Naufal,</p>
             <div className="wrapper-text-field">
               <p>
                 <label htmlFor="name">My name </label>is
@@ -351,7 +351,7 @@ const MessageWrapper = styled.div`
       margin-bottom: 40px;
     }
 
-    .dear {
+    .hello {
       margin-bottom: 20px;
     }
 
@@ -501,6 +501,7 @@ const SocialMedia = styled.div`
         display: inline-flex;
         color: #4a5568;
         margin-bottom: 20px;
+        padding: 0;
 
         &:hover {
           color: #0e8162;

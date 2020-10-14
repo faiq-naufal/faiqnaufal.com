@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
@@ -12,21 +12,8 @@ import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
 
-export default function Note() {
-  const data = useStaticQuery(graphql`
-    {
-      file(
-        sourceInstanceName: { eq: "images" }
-        relativePath: { eq: "thumbnail/introducing-the-new-website.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 600, quality: 80, webpQuality: 80) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `)
+export default function Note({ data }) {
+  const { latestNote, restOfNotes } = data
 
   const { siteUrl } = useSiteMetaData()
   const currentUrl = `${siteUrl}/note`
@@ -83,49 +70,147 @@ export default function Note() {
       <Section>
         <LatestNote>
           <h2>Explore</h2>
-          <Link to="./introducing-the-new-website">
-            <div className="card-latest">
-              <div className="col-grid">
-                <Img
-                  fluid={data.file.childImageSharp.fluid}
-                  alt="Introducing the new website"
-                />
-              </div>
-              <div className="col-grid">
-                <div className="content-wrapper">
-                  <ul className="note-category">
-                    <li>Website</li>
-                  </ul>
-                  <h3>Introducing the new website</h3>
-                  <p className="time-to-read">
-                    <AiOutlineFieldTime size={24} color="#0e8162" />
-                    <span>~ 2 min to read</span>
-                  </p>
-                  <p className="summary">
-                    Hello there, I'm excited to share with you about my new
-                    website. I had been holding the development for more than 1
-                    year but it's finally here.
-                  </p>
-                  <div className="author">
-                    <p>
-                      <BsPerson size={24} color="#0e8162" />
-                      <span>Faiq Naufal</span>
-                    </p>
-                    <p>
-                      <AiOutlineCalendar size={24} color="#0e8162" />
-                      <span>22 Sep 2020</span>
-                    </p>
+          {latestNote.nodes.map(latestNote => {
+            const {
+              title,
+              tag,
+              featureImage,
+              overview,
+              date,
+            } = latestNote.frontmatter
+            const { slug, readingTime } = latestNote.fields
+            return (
+              <Link key={latestNote.id} to={`.${slug}`}>
+                <div className="card-latest">
+                  <div className="col-grid">
+                    <Img
+                      fluid={featureImage.childImageSharp.fluid}
+                      alt={title}
+                    />
+                  </div>
+                  <div className="col-grid">
+                    <div className="content-wrapper">
+                      <ul className="note-tag">
+                        <li>{tag}</li>
+                      </ul>
+                      <h3>{title}</h3>
+                      <p className="time-to-read">
+                        <AiOutlineFieldTime size={20} color="#0e8162" />
+                        <span>
+                          ~ {Math.round(readingTime.minutes)} min to read
+                        </span>
+                      </p>
+                      <p className="overview">{overview}</p>
+                      <div className="author">
+                        <p>
+                          <BsPerson size={20} color="#0e8162" />
+                          <span>Faiq Naufal</span>
+                        </p>
+                        <p>
+                          <AiOutlineCalendar size={20} color="#0e8162" />
+                          <span>{date}</span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </Link>
+              </Link>
+            )
+          })}
         </LatestNote>
       </Section>
-      {/* list notes v */}
+      {/* list of notes */}
+      <Section>
+        <div>
+          {restOfNotes.nodes.map(note => {
+            const {
+              title,
+              tag,
+              featureImage,
+              overview,
+              date,
+            } = note.frontmatter
+            const { slug, readingTime } = note.fields
+            return (
+              <>
+                <Link key={note.id} to={`.${slug}`}>
+                  <div>{title}</div>
+                  <div>{tag}</div>
+                  <Img fluid={featureImage.childImageSharp.fluid} alt={title} />
+                  <div>{overview}</div>
+                  <div>{date}</div>
+                  <div>{slug}</div>
+                  <div>{readingTime.minutes}</div>
+                </Link>
+              </>
+            )
+          })}
+        </div>
+      </Section>
     </>
   )
 }
+
+export const query = graphql`
+  {
+    latestNote: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/notes/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      nodes {
+        id
+        fields {
+          slug
+          readingTime {
+            minutes
+          }
+        }
+        frontmatter {
+          title
+          tag
+          overview
+          date(formatString: "DD MMM yyyy")
+          featureImage {
+            childImageSharp {
+              fluid(maxWidth: 720, quality: 70, webpQuality: 70) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+        }
+      }
+    }
+    restOfNotes: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/notes/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+      skip: 1
+    ) {
+      nodes {
+        id
+        fields {
+          slug
+          readingTime {
+            minutes
+          }
+        }
+        frontmatter {
+          title
+          tag
+          overview
+          date(formatString: "DD MMM yyyy")
+          featureImage {
+            childImageSharp {
+              fluid(maxWidth: 720, quality: 70, webpQuality: 70) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 const LatestNote = styled.div`
   a {
@@ -198,7 +283,7 @@ const LatestNote = styled.div`
       margin-bottom: 0.75rem;
 
       @media (min-width: 768px) {
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.625rem;
         line-height: 2.5rem;
         font-size: 2rem;
       }
@@ -216,6 +301,7 @@ const LatestNote = styled.div`
     .time-to-read {
       color: #6f757b;
       font-weight: 300;
+      font-size: 0.875rem;
     }
 
     .author p:last-of-type {
@@ -232,23 +318,20 @@ const LatestNote = styled.div`
       grid-column-gap: 8px;
       font-size: 0.875rem;
       font-weight: 500;
-
-      @media (min-width: 768px) {
-        font-size: 1rem;
-      }
     }
 
-    .summary {
-      margin-top: 1.25rem;
+    .overview {
+      margin-top: 0.75rem;
+
+      @media (min-width: 768px) {
+        margin-top: 0.625rem;
+      }
+
       color: #4a5568;
       font-size: 1rem;
-
-      @media (min-width: 768px) {
-        font-size: 1.25rem;
-      }
     }
 
-    .note-category {
+    .note-tag {
       display: flex;
       flex-flow: row wrap;
 

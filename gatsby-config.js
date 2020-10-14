@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 const {
   GATSBY_ENV,
   CLOUDINARY_API_KEY,
@@ -5,10 +8,6 @@ const {
   CLOUDINARY_CLOUD_NAME,
   TRACKING_ID,
 } = process.env
-
-require("dotenv").config({
-  path: `.env.${GATSBY_ENV}`,
-})
 
 module.exports = {
   siteMetadata: {

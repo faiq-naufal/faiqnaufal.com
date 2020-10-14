@@ -6,8 +6,8 @@ export default function Footer({ children, ...others }) {
   return (
     <StyledFooter {...others}>
       <p>
-        Made with <Emoji symbol="💕" label="love" /> by Faiq Naufal &copy;{" "}
-        {new Date().getFullYear()} All Rights Reserved
+        Lovingly crafted <Emoji symbol="💕" label="love" /> by Faiq Naufal
+        &copy; {new Date().getFullYear()}
       </p>
     </StyledFooter>
   )
