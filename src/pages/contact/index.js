@@ -9,10 +9,10 @@ import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
 import TextField from "../../components/TextField"
-import { encodeFormData } from "../../utils/utils"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
+import { encodeFormData } from "../../utils/utils"
 import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 let contactSchema = YupObject().shape({
@@ -26,7 +26,7 @@ let contactSchema = YupObject().shape({
   message: YupString().required("Field must be filled"),
 })
 
-const onSubmitMessage = (data, e) => {
+const onSubmit = async (data, e) => {
   trackCustomEvent({
     category: "Submit Form",
     action: "Click",
@@ -35,25 +35,33 @@ const onSubmitMessage = (data, e) => {
 
   const form = e.target
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodeFormData({
-      "form-name": form.getAttribute("name"),
-      ...data,
-    }),
-  })
-    .then(response => {
-      navigate(form.getAttribute("action"), {
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+
+      body: encodeFormData({
+        ...data,
+        message: `Subject: ${data.subject}\n\nHello Faiq Naufal,\nMy name is ${data.name} and my contact email is ${data.email}.\nI have a message for you :\n${data.message}`,
+      }),
+    })
+
+    if (response.ok === true && response.status === 200) {
+      navigate(`./mail-success`, {
         state: {
           showPage: true,
         },
       })
-    })
-    .catch(error => {
-      console.log(error)
+    } else {
       alert("Something went wrong. Please try again!")
-    })
+    }
+  } catch (error) {
+    console.log(error)
+    alert("Something went wrong. Please try again!")
+  }
 }
 
 export default function Contact() {
@@ -120,23 +128,24 @@ export default function Contact() {
           <h2 className="heading">Let's Talk</h2>
           <form
             id="contact-form"
-            name="contact form"
-            method="post"
-            action="./mail-success"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit(onSubmitMessage)}
+            method="POST"
+            action={process.env.FORMSPREE_ENDPOINT}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <h3 className="heading-form">Tell me anything!</h3>
             <p className="subtitle">
               Rest assured, I will not give your information to others. You will
               not get any spam email from here.
             </p>
-            <input type="hidden" name="form-name" value="contact form" />
             <p hidden>
               <label>
                 If you're human don’t fill this out:
-                <input name="bot-field" inputRef={register} />
+                <input
+                  type="text"
+                  name="_gotcha"
+                  inputRef={register}
+                  style={{ display: "none" }}
+                />
               </label>
             </p>
             <div className="subject">
@@ -204,7 +213,7 @@ export default function Contact() {
               </div>
               <div className="send-message">
                 <FilledButton type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </FilledButton>
               </div>
             </div>
@@ -227,6 +236,7 @@ export default function Contact() {
                 <br />
                 <EmailCrypt
                   className="social-media-link"
+                  aria-label="Email"
                   data-name="contact"
                   data-domain="faiqnaufal"
                   data-tld="com"
