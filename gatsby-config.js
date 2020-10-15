@@ -106,13 +106,13 @@ module.exports = {
         path: `${__dirname}/src/content/notes`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `showcases`,
-        path: `${__dirname}/src/content/showcases`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `showcases`,
+    //     path: `${__dirname}/src/content/showcases`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-cloudinary`,
       options: {
