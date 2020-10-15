@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 const {
-  GATSBY_ENV,
+  NODE_ENV,
   CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
   CLOUDINARY_CLOUD_NAME,
@@ -46,13 +46,13 @@ module.exports = {
       options: {
         host: `https://faiqnaufal.com`,
         sitemap: "https://faiqnaufal.com/sitemap.xml",
-        resolveEnv: () => GATSBY_ENV,
+        resolveEnv: () => NODE_ENV,
         env: {
+          production: {
+            policy: [{ userAgent: "*", allow: ["/"] }],
+          },
           development: {
             policy: [{ userAgent: "*", disallow: ["/"] }],
-          },
-          production: {
-            policy: [{ userAgent: "*", allow: "/" }],
           },
         },
       },
