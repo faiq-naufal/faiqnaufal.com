@@ -33,21 +33,22 @@ const onSubmit = async (data, e) => {
     label: "Submit Contact Form",
   })
 
-  const form = e.target
-
   try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
+    const response = await fetch(
+      `https://formspree.io/f/${process.env.FORMSPREE_ENDPOINT}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
 
-      body: encodeFormData({
-        ...data,
-        message: `Subject: ${data.subject}\n\nHello Faiq Naufal,\nMy name is ${data.name} and my contact email is ${data.email}.\nI have a message for you :\n${data.message}`,
-      }),
-    })
+        body: encodeFormData({
+          ...data,
+          message: `Subject: ${data.subject}\n\nHello Faiq Naufal,\nMy name is ${data.name} and my contact email is ${data.email}.\nI have a message for you :\n${data.message}`,
+        }),
+      }
+    )
 
     if (response.ok === true && response.status === 200) {
       navigate(`./mail-success`, {
@@ -126,12 +127,7 @@ export default function Contact() {
       <Section>
         <MessageWrapper>
           <h2 className="heading">Let's Talk</h2>
-          <form
-            id="contact-form"
-            method="POST"
-            action={process.env.FORMSPREE_ENDPOINT}
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
             <h3 className="heading-form">Tell me anything!</h3>
             <p className="subtitle">
               Rest assured, I will not give your information to others. You will
