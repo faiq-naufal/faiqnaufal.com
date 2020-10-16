@@ -20,12 +20,9 @@ body {
   font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
   overflow-y: scroll;
   background-color: #fdfbfb;
-  font-size: 0.875rem;
-
-  @media (min-width: 600px) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
 }
+
 img,
 button {
   -webkit-user-select: none;
