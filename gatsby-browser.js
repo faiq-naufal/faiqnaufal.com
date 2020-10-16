@@ -1,5 +1,7 @@
-import "typeface-inter"
 import "./src/utils/reset.min.css"
+import "fontsource-inter/400-normal.css"
+import "fontsource-inter/600-normal.css"
+import "fontsource-inter/700-normal.css"
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

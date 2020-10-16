@@ -75,7 +75,6 @@ const StyledTopIllust = styled.div`
 
       strong {
         color: #0e8162;
-        font-weight: 700;
       }
 
       @media (min-width: 960px) {
@@ -85,13 +84,12 @@ const StyledTopIllust = styled.div`
     }
 
     p {
-      font-weight: 300;
+      font-weight: 400;
       color: #4a5568;
       font-size: 1.25rem;
       margin-top: 24px;
       strong {
         color: #0e8162;
-        font-weight: 600;
       }
     }
 

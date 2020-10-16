@@ -39,7 +39,7 @@ const StyledSidebar = styled.nav`
   .wrapper-bar {
     a {
       font-size: 0.625rem;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
       position: relative;
       color: rgba(74, 85, 104, 0.85);

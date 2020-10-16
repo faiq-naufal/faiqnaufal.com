@@ -100,7 +100,7 @@ const Section = styled(StyledSection)`
     color: #373535;
 
     strong {
-      font-weight: 500;
+      font-weight: 600;
       color: #0e8162;
     }
 

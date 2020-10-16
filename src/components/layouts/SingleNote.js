@@ -150,7 +150,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: rgba(74, 85, 104, 0.85);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1.5rem;
 
   @media (min-width: 600px) {
@@ -190,7 +190,6 @@ const DetailContent = styled.div`
 
     h1 {
       color: #373535;
-      font-weight: 700;
       font-size: 2rem;
       line-height: 2.25rem;
       margin: 1.5rem 0;
@@ -218,7 +217,7 @@ const DetailContent = styled.div`
       flex-flow: row wrap;
       color: #4a5568;
       font-size: 0.875rem;
-      font-weight: 500;
+      font-weight: 600;
 
       @media (min-width: 600px) {
         grid-template-columns: 1fr 1fr;

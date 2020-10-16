@@ -103,7 +103,7 @@ const NavTop = styled.nav`
 
       span {
         display: none;
-        font-weight: 500;
+        font-weight: 600;
         color: rgba(74, 85, 104, 0.85);
 
         @media (min-width: 600px) {

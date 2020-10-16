@@ -1,26 +1,25 @@
+import React from "react"
 import styled from "@emotion/styled"
 
 const Section = styled.section`
   margin-bottom: 80px;
-
-  /* &:not(:last-of-type) {
-    border-bottom: solid 4px #484848;
-  } */
 `
 export default Section
 
-export const SectionTopBreak = styled.div`
-  display: block;
+export const SectionTopBreak = ({ TextNumber }) => {
+  return <StyledSectionTopBreak>{TextNumber}</StyledSectionTopBreak>
+}
+
+export const StyledSectionTopBreak = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
   margin: 80px 0;
   width: 100%;
   position: relative;
-  text-align: center;
   height: 95px;
-  font-size: 8rem;
-  font-weight: 900;
   @media (min-width: 960px) {
     height: 120px;
-    font-size: 10rem;
   }
 
   &::before {
@@ -35,13 +34,10 @@ export const SectionTopBreak = styled.div`
     z-index: 2;
   }
 
-  &::after {
-    content: '${props => props.number}';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #f0f0f0;
-    z-index: 1;
+  svg {
+    height: 95px;
+    @media (min-width: 960px) {
+      height: 120px;
+    }
   }
 `

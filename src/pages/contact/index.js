@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { object as YupObject, string as YupString } from "yup"
 import { ReactComponent as IllustContact } from "../../images/notifications.svg"
+import { ReactComponent as Number04 } from "../../images/04.svg"
 import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
@@ -123,7 +124,7 @@ export default function Contact() {
           </p>
         </TopIllust>
       </Section>
-      <SectionTopBreak number="04" />
+      <SectionTopBreak TextNumber={<Number04 />} />
       <Section>
         <MessageWrapper>
           <h2 className="heading">Let's Talk</h2>
@@ -294,7 +295,6 @@ const MessageWrapper = styled.div`
   .heading {
     text-align: center;
     color: #373535;
-    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 72px;
 
@@ -430,7 +430,6 @@ const SocialMedia = styled.div`
   }
 
   h2 {
-    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 24px;
 

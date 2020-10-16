@@ -69,7 +69,6 @@ export default function NotFoundPage() {
 
 const Section = styled.section`
   h1 {
-    font-weight: 700;
     line-height: 2.25rem;
     font-size: 1.875rem;
     margin: 0 auto 48px auto;
@@ -105,7 +104,7 @@ const Section = styled.section`
 
   .page-not-found {
     margin-top: 48px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.5rem;
     text-align: center;
     color: #373535;

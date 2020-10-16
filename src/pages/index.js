@@ -86,7 +86,6 @@ const Content = styled.div`
 
   h1 {
     font-size: 3.25rem;
-    font-weight: 700;
     margin-top: 0;
     margin-bottom: 24px;
     line-height: 3.75rem;
@@ -105,7 +104,7 @@ const Content = styled.div`
 
   h2.job-alias {
     strong {
-      font-weight: 500;
+      font-weight: 600;
       font-size: 1.25rem;
       display: block;
     }

@@ -6,6 +6,7 @@ import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
 import { ReactComponent as IllustDreaming } from "../../images/dream.svg"
+import { ReactComponent as Number05 } from "../../images/05.svg"
 import { BsPerson } from "react-icons/bs"
 import { AiOutlineFieldTime, AiOutlineCalendar } from "react-icons/ai"
 import Helmet from "react-helmet"
@@ -66,7 +67,7 @@ export default function Note({ data }) {
           </p>
         </TopIllust>
       </Section>
-      <SectionTopBreak number="05" />
+      <SectionTopBreak TextNumber={<Number05 />} />
       <Section>
         <LatestNote>
           <h2>Explore</h2>
@@ -226,7 +227,6 @@ const LatestNote = styled.div`
     }
   }
   h2 {
-    font-weight: 700;
     margin-bottom: 1.5rem;
     color: #373535;
     font-size: 2rem;
@@ -317,7 +317,6 @@ const LatestNote = styled.div`
       color: #4a5568;
       grid-column-gap: 8px;
       font-size: 0.875rem;
-      font-weight: 500;
     }
 
     .overview {

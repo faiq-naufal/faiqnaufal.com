@@ -31,13 +31,13 @@ const StyledTextField = styled(MuiTextField)`
 
   .MuiFormHelperText-root {
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .MuiInputBase-input::placeholder {
     color: #aaa;
     opacity: 1;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .MuiInput-underline::before {

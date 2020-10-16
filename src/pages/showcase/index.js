@@ -4,6 +4,7 @@ import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
 import { ReactComponent as IllustShowcase } from "../../images/landing_page.svg"
+import { ReactComponent as Number03 } from "../../images/03.svg"
 import Helmet from "react-helmet"
 import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
@@ -59,7 +60,7 @@ export default function Showcase() {
           {/* Learning showcase */}
         </TopIllust>
       </Section>
-      <SectionTopBreak number="03" />
+      <SectionTopBreak TextNumber={<Number03 />} />
       <Section>
         <ComingSoon>
           <h2>Coming Soon</h2>

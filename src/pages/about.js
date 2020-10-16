@@ -21,6 +21,7 @@ import { ReactComponent as Pocket } from "../images/logo/pocket.svg"
 import { ReactComponent as LastPass } from "../images/logo/lastpass.svg"
 import { ReactComponent as Trello } from "../images/logo/trello.svg"
 import { ReactComponent as Hyper } from "../images/logo/hyper.svg"
+import { ReactComponent as Number02 } from "../images/02.svg"
 import { BsBook, BsStar, BsGrid } from "react-icons/bs"
 import { HiOutlineArrowRight } from "react-icons/hi"
 import Helmet from "react-helmet"
@@ -104,7 +105,7 @@ export default function About() {
           </a>
         </TopIllust>
       </Section>
-      <SectionTopBreak number="02" />
+      <SectionTopBreak TextNumber={<Number02 />} />
       <Section>
         <AboutMe>
           <h2>Let’s know myself better</h2>
@@ -526,7 +527,6 @@ const AboutMe = styled.div`
 
   h2 {
     color: #373535;
-    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 24px;
 
@@ -549,7 +549,6 @@ const CoreValues = styled.div`
   text-align: center;
   h2 {
     color: #373535;
-    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 24px;
     text-align: center;
@@ -576,7 +575,6 @@ const CoreValues = styled.div`
 
   h3 {
     font-size: 1.125rem;
-    font-weight: 700;
     color: #373535;
 
     @media (min-width: 960px) {
@@ -647,7 +645,6 @@ const BlackSection = styled.div`
   }
 
   h2 {
-    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 24px;
 
