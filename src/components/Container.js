@@ -1,8 +1,15 @@
 import React from "react"
-import Container from "@material-ui/core/Container"
 import styled from "@emotion/styled"
 
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
 
@@ -19,6 +26,7 @@ const StyledContainer = styled(Container)`
   @media (min-width: 1280px) {
     padding-left: 40px;
     padding-right: 40px;
+    max-width: 1280px;
   }
 `
 

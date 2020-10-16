@@ -30,7 +30,6 @@ const Header = ({ children, ...others }) => (
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="mr-16"
         >
           <FaLinkedin />
           <span>LinkedIn</span>

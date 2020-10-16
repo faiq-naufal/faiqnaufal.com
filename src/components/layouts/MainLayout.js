@@ -1,69 +1,10 @@
 import React, { useEffect } from "react"
 import styled from "@emotion/styled"
-import { Global, css } from "@emotion/core"
 import BgHome from "../../images/bg_home.svg"
 import Container from "../Container"
 import Header from "../Header"
 import Sidebar from "../Sidebar"
 import Footer from "../Footer"
-
-const GlobalStyle = () => (
-  <Global
-    styles={css`
-      html,
-      body,
-      #___gatsby,
-      #gatsby-focus-wrapper {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        min-height: 100%;
-        min-height: calc(var(--vh, 1vh) * 100);
-        height: auto;
-      }
-      .Inter {
-        font-family: "Inter", sans-serif;
-      }
-      body {
-        font-family: "Inter", "Helvetica Neue", "Arial", "sans-serif";
-        overflow-y: scroll;
-        background-color: #fdfbfb;
-        font-size: 0.875rem;
-
-        @media (min-width: 600px) {
-          font-size: 1rem;
-        }
-      }
-      img,
-      button {
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -o-user-select: none;
-        user-select: none;
-      }
-      *:focus {
-        -webkit-tap-highlight-color: transparent;
-        outline: none;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-      }
-      ::selection {
-        background: #0e8162;
-        color: #fff;
-      }
-      button {
-        border: none;
-        outline: none;
-        cursor: pointer;
-      }
-
-      #nprogress .bar {
-        height: 4px;
-      }
-    `}
-  />
-)
 
 const setDocHeight = () => {
   let vh = window.innerHeight * 0.01
@@ -86,7 +27,6 @@ const Layout = ({ children, location, pageContext }) => {
 
   return (
     <>
-      <GlobalStyle />
       {pageContext.layout === "home" ? (
         <Background>
           <MainLayout children={children} />
@@ -102,14 +42,14 @@ export default Layout
 
 const MainLayout = ({ children }) => {
   return (
-    <StyledContainer>
+    <Container>
       <Main>
         <Header className="header" />
         <Sidebar className="sidebar" />
         <div className="content">{children}</div>
         <Footer className="footer" />
       </Main>
-    </StyledContainer>
+    </Container>
   )
 }
 
@@ -126,14 +66,6 @@ const Background = styled.div`
   @media (min-width: 960px) {
     background-position: center center;
   }
-`
-
-const StyledContainer = styled(Container)`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
 
 const Main = styled.main`
