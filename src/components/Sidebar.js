@@ -34,7 +34,9 @@ export default function Sidebar({ children, ...others }) {
 }
 
 const StyledSidebar = styled.nav`
-  z-index: 10;
+  @media (max-width: 959px) {
+    z-index: 10;
+  }
 
   .wrapper-bar {
     a {
