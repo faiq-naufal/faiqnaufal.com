@@ -30,7 +30,6 @@ const StyledTopIllust = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 40px;
   }
-
   .col-grid:first-of-type {
     text-align: center;
   }

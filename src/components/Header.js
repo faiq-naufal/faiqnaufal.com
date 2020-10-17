@@ -6,38 +6,40 @@ import { FaLinkedin } from "react-icons/fa"
 import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo_full.svg"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
-const Header = ({ children, ...others }) => (
-  <StyledHeader {...others}>
-    <NavTop>
-      <div className="logo">
-        <Link to="/" aria-label="Logo">
-          <Logo title="Logo" description="Faiq Naufal Logo" />
-        </Link>
-      </div>
-      <div className="social-media">
-        <OutboundLink
-          href="https://github.com/faiq-naufal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Github"
-          className="mr-16"
-        >
-          <GoMarkGithub />
-          <span>Github</span>
-        </OutboundLink>
-        <OutboundLink
-          href="https://www.linkedin.com/in/faiqnaufal"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <FaLinkedin />
-          <span>LinkedIn</span>
-        </OutboundLink>
-      </div>
-    </NavTop>
-  </StyledHeader>
-)
+const Header = ({ children, ...others }) => {
+  return (
+    <StyledHeader {...others}>
+      <NavTop>
+        <div className="logo">
+          <Link to="/" aria-label="Logo">
+            <Logo title="Logo" description="Faiq Naufal Logo" />
+          </Link>
+        </div>
+        <div className="social-media">
+          <OutboundLink
+            href="https://github.com/faiq-naufal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Github"
+            className="mr-16"
+          >
+            <GoMarkGithub />
+            <span>Github</span>
+          </OutboundLink>
+          <OutboundLink
+            href="https://www.linkedin.com/in/faiqnaufal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+            <span>LinkedIn</span>
+          </OutboundLink>
+        </div>
+      </NavTop>
+    </StyledHeader>
+  )
+}
 
 export default Header
 

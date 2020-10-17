@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Section, { SectionTopBreak } from "../components/Section"
 import Heading from "../components/Heading"
 import TopIllust from "../components/TopIllust"
@@ -29,18 +29,7 @@ import Seo from "../components/Seo"
 import useSiteMetaData from "../components/useSiteMetaData"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
-export default function About() {
-  const data = useStaticQuery(graphql`
-    {
-      pdf: file(
-        sourceInstanceName: { eq: "files" }
-        relativePath: { eq: "Faiq_Naufal_Resume.pdf" }
-      ) {
-        publicURL
-      }
-    }
-  `)
-
+export default function About({ data }) {
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/about`
   const title = `😄 About - Faiq Naufal`
@@ -497,6 +486,17 @@ export default function About() {
   )
 }
 
+export const query = graphql`
+  {
+    pdf: file(
+      sourceInstanceName: { eq: "files" }
+      relativePath: { eq: "Faiq_Naufal_Resume.pdf" }
+    ) {
+      publicURL
+    }
+  }
+`
+
 const AboutMe = styled.div`
   background-color: #fff;
   position: relative;
@@ -560,17 +560,6 @@ const CoreValues = styled.div`
     @media (min-width: 960px) {
       font-size: 2.25rem;
     }
-
-    /* &::before {
-      content: "";
-      background-color: rgba(14, 129, 98, 0.18);
-      position: absolute;
-      top: 32px;
-      left: 16px;
-      width: 100%;
-      height: 16px;
-      z-index: -1;
-    } */
   }
 
   h3 {
@@ -672,11 +661,6 @@ const BlackSection = styled.div`
       grid-template-columns: repeat(auto-fit, minmax(280px, auto));
       justify-content: center;
     }
-
-    /* .col-grid:nth-of-type(3n + 1):nth-last-of-type(-n + 3),
-    .col-grid:nth-of-type(3n + 1):nth-last-of-type(-n + 3) ~ .col-grid {
-      background-color: red;
-    } */
 
     .col-grid {
       span {
