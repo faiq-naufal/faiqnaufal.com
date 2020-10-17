@@ -1,20 +1,14 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const {
-  NODE_ENV,
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET,
-  CLOUDINARY_CLOUD_NAME,
-  TRACKING_ID,
-} = process.env
+const { NODE_ENV, TRACKING_ID } = process.env
 
 module.exports = {
   siteMetadata: {
     title: `Faiq Naufal - A Web Developer Focused in Front-End Development`,
     description: `I am Faiq Naufal. Web developer focused in front-end development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
     keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
-    logoPng: `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601447867/assets_faiqnaufal/faiq_naufal_logo_png.png`,
+    logoPng: `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601447867/assets_faiqnaufal/faiq_naufal_logo.png`,
     author: `Faiq Naufal`,
     siteUrl: `https://faiqnaufal.com`,
     siteName: "Faiq Naufal",
@@ -113,16 +107,6 @@ module.exports = {
     //     path: `${__dirname}/src/content/showcases`,
     //   },
     // },
-    {
-      resolve: `gatsby-source-cloudinary`,
-      options: {
-        cloudName: CLOUDINARY_CLOUD_NAME,
-        apiKey: CLOUDINARY_API_KEY,
-        apiSecret: CLOUDINARY_API_SECRET,
-        resourceType: `image`,
-        prefix: `assets_faiqnaufal/`,
-      },
-    },
     //Markdown, Transformer, and File
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
