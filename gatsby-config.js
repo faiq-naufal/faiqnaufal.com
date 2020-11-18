@@ -7,7 +7,7 @@ module.exports = {
   siteMetadata: {
     title: `Faiq Naufal - A Web Developer Focused in Front-End Development`,
     description: `I am Faiq Naufal. Web developer focused in front-end development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
-    keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer`,
+    keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer, Software Developer`,
     logoPng: `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601447867/assets_faiqnaufal/faiq_naufal_logo.png`,
     author: `Faiq Naufal`,
     siteUrl: `https://faiqnaufal.com`,

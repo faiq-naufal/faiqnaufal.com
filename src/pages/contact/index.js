@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { navigate } from "gatsby-link"
+import { navigate } from "gatsby"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { object as YupObject, string as YupString } from "yup"
@@ -234,15 +234,17 @@ export default function Contact() {
                 <EmailCrypt
                   className="social-media-link"
                   aria-label="Email"
-                  data-name="contact"
+                  data-name="me"
                   data-domain="faiqnaufal"
                   data-tld="com"
                   onClick={event => {
-                    window.location.href = `mailto:${event.currentTarget.getAttribute(
+                    const currtarget = event.currentTarget
+
+                    window.location.href = `mailto:${currtarget.getAttribute(
                       `data-name`
-                    )}@${event.currentTarget.getAttribute(
+                    )}@${currtarget.getAttribute(
                       `data-domain`
-                    )}.${event.currentTarget.getAttribute(`data-tld`)}`
+                    )}.${currtarget.getAttribute(`data-tld`)}`
 
                     trackCustomEvent({
                       category: "Link",

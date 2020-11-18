@@ -73,7 +73,7 @@ export default function About({ data }) {
             A place where <strong>the story begins</strong>
           </h1>
           <p>
-            Hello, I am <strong>Faiq Naufal</strong>. Software engineer web
+            Hello, I am <strong>Faiq Naufal</strong>. Software developer web
             platform based on Jakarta, Indonesia focused on front-end side, and
             fullstack capable
           </p>
