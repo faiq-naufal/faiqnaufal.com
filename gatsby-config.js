@@ -61,6 +61,13 @@ module.exports = {
         },
       },
     },
+    // {
+    //   resolve: "@chakra-ui/gatsby-plugin",
+    //   options: {
+    //     isResettingCSS: true,
+    //     isUsingColorMode: true,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
@@ -84,13 +91,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `files`,
-        path: `${__dirname}/src/files`,
       },
     },
     {

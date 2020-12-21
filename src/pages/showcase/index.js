@@ -1,13 +1,49 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
 import TopIllust from "../../components/TopIllust"
 import { ReactComponent as IllustShowcase } from "../../images/landing_page.svg"
 import { ReactComponent as Number03 } from "../../images/03.svg"
+import FaiqNaufalLogo from "../../images/logo/faiq_naufal_logo.svg"
+import TealChatLogo from "../../images/logo/tealchat.svg"
+import MovieQLogo from "../../images/logo/movieq.png"
+import { GoMarkGithub } from "@react-icons/all-files/go/GoMarkGithub"
+import { IoIosGlobe } from "@react-icons/all-files/io/IoIosGlobe"
 import Helmet from "react-helmet"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
+
+const projectsData = [
+  {
+    name: "TealChat",
+    description:
+      "TealChat is an open-source and free simple chat room web application.",
+    logo: TealChatLogo,
+    githubLink: "https://github.com/faiq-naufal/tealchat",
+    websiteLink: "https://tealchat.faiqnaufal.com",
+    detailLink: "",
+  },
+  {
+    name: "MovieQ",
+    description:
+      "Website for searching and get movie information based on OMDb.",
+    logo: MovieQLogo,
+    githubLink: "https://github.com/faiq-naufal/MovieQ",
+    websiteLink: "https://movieq.faiqnaufal.com",
+    detailLink: "",
+  },
+  {
+    name: "Faiq Naufal's Website",
+    description: "My own personal website and the one you see right now",
+    logo: FaiqNaufalLogo,
+    githubLink: "https://github.com/faiq-naufal/faiqnaufal.com",
+    websiteLink: "https://faiqnaufal.com",
+    detailLink: "",
+  },
+]
 
 export default function Showcase() {
   const { siteUrl } = useSiteMetaData()
@@ -62,35 +98,192 @@ export default function Showcase() {
       </Section>
       <SectionTopBreak TextNumber={<Number03 />} />
       <Section>
-        <ComingSoon>
-          <h2>Coming Soon</h2>
-          <p className="card">
-            I'm still working on this page. It will take a little more time to
-            prepare all my projects to be published here. Soon this page will
-            have links for every project I already worked on.
-          </p>
-        </ComingSoon>
+        <Projects>
+          <h2 className="heading">My Projects</h2>
+          <ul className="list-grid">
+            {projectsData.map(project => (
+              <li className="col-grid">
+                <div className="wrapper-card">
+                  <div className="head">
+                    <div className="logo">
+                      <OutboundLink
+                        href={project.websiteLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} Website`}
+                        title="Go to website url"
+                      >
+                        <img src={project.logo} alt={project.name} />
+                      </OutboundLink>
+                    </div>
+                  </div>
+                  <div className="body">
+                    <h3>
+                      <OutboundLink
+                        href={project.websiteLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} Website`}
+                        title="Go to website url"
+                      >
+                        {project.name}
+                      </OutboundLink>
+                    </h3>
+                    <p className="short-description">{project.description}</p>
+                  </div>
+                  <div className="footer">
+                    <div className="external-links">
+                      <div>
+                        <OutboundLink
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} Github`}
+                          title="Go to github url"
+                        >
+                          <GoMarkGithub />
+                        </OutboundLink>
+                      </div>
+                      <div>
+                        <OutboundLink
+                          href={project.websiteLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.name} Website`}
+                          title="Go to website url"
+                        >
+                          <IoIosGlobe />
+                        </OutboundLink>
+                      </div>
+                    </div>
+                    {/* <div className="detail">
+                      <Link to="/">Detail</Link>
+                    </div> */}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </Projects>
       </Section>
     </>
   )
 }
 
-const ComingSoon = styled.div`
-  max-width: 600px;
+const Projects = styled.div`
+  text-align: center;
+  h2 {
+    color: #373535;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 960px) {
+      font-size: 2.25rem;
+    }
+  }
+
+  .list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px 28px;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      justify-content: center;
+    }
+  }
+
+  .wrapper-card {
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 10px 20px rgba(55, 53, 53, 0.04),
+      0px 2px 6px rgba(55, 53, 53, 0.04), 0px 0px 1px rgba(55, 53, 53, 0.04);
+    padding: 1.25rem;
+    border-radius: 4px;
+    background: #fff;
+
+    .head {
+      margin-bottom: 10px;
+
+      .logo {
+        margin-right: 8px;
+        width: 48px;
+        height: 48px;
+        padding: 8px;
+        box-shadow: 0px 10px 20px rgba(55, 53, 53, 0.04),
+          0px 2px 6px rgba(55, 53, 53, 0.04), 0px 0px 1px rgba(55, 53, 53, 0.04);
+        border-radius: 50%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .body {
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+        a {
+          color: #373535;
+          text-decoration: none;
+        }
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: #4a5568;
+      }
+    }
+
+    .footer {
+      display: flex;
+
+      .external-links {
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          display: flex;
+          margin-right: 8px;
+          font-size: 1.375rem;
+          color: #373535;
+        }
+      }
+
+      .detail {
+        font-weight: 600;
+        flex: 1;
+        text-align: right;
+        a {
+          color: #7b8390;
+          text-decoration: none;
+          &:hover {
+            color: #0e8162;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  /* max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  background-color: #fff;
-  box-shadow: 0px 27px 48px rgba(55, 53, 53, 0.04),
-    0px 11.28px 20.0533px rgba(55, 53, 53, 0.0287542),
-    0px 6.0308px 10.7214px rgba(55, 53, 53, 0.0238443),
-    0px 3.38082px 6.01034px rgba(55, 53, 53, 0.02),
-    0px 1.79553px 3.19205px rgba(55, 53, 53, 0.0161557),
-    0px 0.747159px 1.32828px rgba(55, 53, 53, 0.0112458);
-  padding: 2.5rem 1.25rem;
-  border-radius: 4px;
-  @media (min-width: 600px) {
-    padding: 2.5rem;
-  }
+  
+  
+  
+  
+ 
 
   h2 {
     color: #373535;
@@ -107,5 +300,5 @@ const ComingSoon = styled.div`
     color: #4a5568;
     line-height: 1.75rem;
     letter-spacing: 0.2px;
-  }
+  } */
 `

@@ -81,23 +81,13 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage.startsWith("develop")) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          "react-dom": "@hot-loader/react-dom",
-        },
-      },
-    })
-  }
-
   actions.setWebpackConfig({
     resolve: {
       alias: {
         react: "preact/compat",
-        react$: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
         "react-dom": "preact/compat",
-        "react-dom$": "preact/compat",
+        // Must be below test-utils
       },
     },
   })

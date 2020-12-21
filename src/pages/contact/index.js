@@ -2,8 +2,6 @@ import React from "react"
 import styled from "@emotion/styled"
 import { navigate } from "gatsby"
 import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers"
-import { object as YupObject, string as YupString } from "yup"
 import { ReactComponent as IllustContact } from "../../images/notifications.svg"
 import { ReactComponent as Number04 } from "../../images/04.svg"
 import Section, { SectionTopBreak } from "../../components/Section"
@@ -15,17 +13,6 @@ import Seo from "../../components/Seo"
 import useSiteMetaData from "../../components/useSiteMetaData"
 import { encodeFormData } from "../../utils/utils"
 import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
-
-let contactSchema = YupObject().shape({
-  subject: YupString().required("Field must be filled"),
-  name: YupString()
-    .required("Field must be filled")
-    .max(20, "Field cannot more than 20 characters"),
-  email: YupString()
-    .required("Field must be filled")
-    .email("Invalid format email address"),
-  message: YupString().required("Field must be filled"),
-})
 
 const onSubmit = async (data, e) => {
   trackCustomEvent({
@@ -67,9 +54,7 @@ const onSubmit = async (data, e) => {
 }
 
 export default function Contact() {
-  const { register, handleSubmit, watch, errors, formState } = useForm({
-    resolver: yupResolver(contactSchema),
-  })
+  const { register, handleSubmit, watch, errors, formState } = useForm()
 
   const { isSubmitting } = formState
 
@@ -152,7 +137,9 @@ export default function Contact() {
                 name="subject"
                 fullWidth
                 placeholder="Message subject here"
-                inputRef={register()}
+                inputRef={register({
+                  required: "This field is required",
+                })}
                 error={!!errors.subject?.message}
                 helperText={errors.subject?.message}
               />
@@ -167,7 +154,14 @@ export default function Contact() {
                 name="name"
                 fullWidth
                 placeholder="Your name here"
-                inputRef={register()}
+                inputRef={register({
+                  required: "This field is required",
+                  maxLength: {
+                    value: 25,
+                    message:
+                      "Please enter shorter name less than 25 characters",
+                  },
+                })}
                 error={!!errors.name?.message}
                 helperText={errors.name?.message}
               />
@@ -176,12 +170,19 @@ export default function Contact() {
               <p>
                 <label htmlFor="email">My contact email </label>is
               </p>
+              {/*eslint no-useless-escape: "error"*/}
               <TextField
                 id="email"
                 name="email"
                 fullWidth
                 placeholder="Your email here"
-                inputRef={register()}
+                inputRef={register({
+                  required: "This field is required",
+                  pattern: {
+                    value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, // eslint-disable-line no-useless-escape
+                    message: "Invalid format email address",
+                  },
+                })}
                 error={!!errors.email?.message}
                 helperText={errors.email?.message}
               />
@@ -196,7 +197,9 @@ export default function Contact() {
                 fullWidth
                 multiline
                 placeholder="Your message here"
-                inputRef={register()}
+                inputRef={register({
+                  required: "This field is required",
+                })}
                 error={!!errors.message?.message}
                 helperText={errors.message?.message}
               />

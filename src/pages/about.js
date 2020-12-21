@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { graphql } from "gatsby"
 import Section, { SectionTopBreak } from "../components/Section"
 import Heading from "../components/Heading"
 import TopIllust from "../components/TopIllust"
@@ -22,14 +21,16 @@ import { ReactComponent as LastPass } from "../images/logo/lastpass.svg"
 import { ReactComponent as Trello } from "../images/logo/trello.svg"
 import { ReactComponent as Hyper } from "../images/logo/hyper.svg"
 import { ReactComponent as Number02 } from "../images/02.svg"
-import { BsBook, BsStar, BsGrid } from "react-icons/bs"
-import { HiOutlineArrowRight } from "react-icons/hi"
+import { BsBook } from "@react-icons/all-files/bs/BsBook"
+import { BsStar } from "@react-icons/all-files/bs/BsStar"
+import { BsGrid } from "@react-icons/all-files/bs/BsGrid"
+import { HiOutlineArrowRight } from "@react-icons/all-files/hi/HiOutlineArrowRight"
 import Helmet from "react-helmet"
 import Seo from "../components/Seo"
 import useSiteMetaData from "../components/useSiteMetaData"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
-export default function About({ data }) {
+export default function About() {
   const { siteUrl, logo } = useSiteMetaData()
   const currentUrl = `${siteUrl}/about`
   const title = `😄 About - Faiq Naufal`
@@ -78,7 +79,7 @@ export default function About({ data }) {
             fullstack capable
           </p>
           <a
-            href={data.pdf.publicURL}
+            href="/assets/Faiq_Naufal_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="See Resume"
@@ -486,17 +487,6 @@ export default function About({ data }) {
   )
 }
 
-export const query = graphql`
-  {
-    pdf: file(
-      sourceInstanceName: { eq: "files" }
-      relativePath: { eq: "Faiq_Naufal_Resume.pdf" }
-    ) {
-      publicURL
-    }
-  }
-`
-
 const AboutMe = styled.div`
   background-color: #fff;
   position: relative;
@@ -664,7 +654,6 @@ const BlackSection = styled.div`
 
     .col-grid {
       span {
-        display: inline-block;
         border-radius: 50%;
         background-color: #fff;
         width: 48px;

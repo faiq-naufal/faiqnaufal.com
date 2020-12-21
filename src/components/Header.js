@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { GoMarkGithub } from "react-icons/go"
-import { FaLinkedin } from "react-icons/fa"
+import { GoMarkGithub } from "@react-icons/all-files/go/GoMarkGithub"
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin"
 import { ReactComponent as Logo } from "../images/logo/faiq_naufal_logo_full.svg"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 

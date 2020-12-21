@@ -1,12 +1,10 @@
 import React from "react"
 import styled from "@emotion/styled"
-import {
-  AiOutlineHome,
-  AiOutlineInfoCircle,
-  AiOutlineMail,
-} from "react-icons/ai"
-import { BsBriefcase } from "react-icons/bs"
-import { VscNote } from "react-icons/vsc"
+import { AiOutlineHome } from "@react-icons/all-files/ai/AiOutlineHome"
+import { AiOutlineInfoCircle } from "@react-icons/all-files/ai/AiOutlineInfoCircle"
+import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail"
+import { BsBriefcase } from "@react-icons/all-files/bs/BsBriefcase"
+import { VscNote } from "@react-icons/all-files/vsc/VscNote"
 import NavLink from "./NavLink"
 
 export default function Sidebar({ children, ...others }) {
