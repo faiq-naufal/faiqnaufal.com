@@ -14,6 +14,12 @@ module.exports = {
     siteName: "Faiq Naufal",
     lang: `en`,
   },
+  //experimental update
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   plugins: [
     //SEO
     {

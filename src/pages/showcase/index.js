@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import Section, { SectionTopBreak } from "../../components/Section"
 import Heading from "../../components/Heading"
@@ -8,6 +7,7 @@ import { ReactComponent as IllustShowcase } from "../../images/landing_page.svg"
 import { ReactComponent as Number03 } from "../../images/03.svg"
 import FaiqNaufalLogo from "../../images/logo/faiq_naufal_logo.svg"
 import TealChatLogo from "../../images/logo/tealchat.svg"
+import PokeCatchLogo from "../../images/logo/pokecatch.svg"
 import MovieQLogo from "../../images/logo/movieq.png"
 import { GoMarkGithub } from "@react-icons/all-files/go/GoMarkGithub"
 import { IoIosGlobe } from "@react-icons/all-files/io/IoIosGlobe"
@@ -18,6 +18,14 @@ import useSiteMetaData from "../../components/useSiteMetaData"
 
 const projectsData = [
   {
+    name: "Faiq Naufal's Website",
+    description: "My own personal website and the one you see right now",
+    logo: FaiqNaufalLogo,
+    githubLink: "https://github.com/faiq-naufal/faiqnaufal.com",
+    websiteLink: "https://faiqnaufal.com",
+    detailLink: "",
+  },
+  {
     name: "TealChat",
     description:
       "TealChat is an open-source and free simple chat room web application.",
@@ -27,20 +35,21 @@ const projectsData = [
     detailLink: "",
   },
   {
+    name: "PokeCatch",
+    description:
+      "PokeCatch is catch and release pokemon game built with Next.js, Poke API, and GraphQL",
+    logo: PokeCatchLogo,
+    githubLink: "https://github.com/faiq-naufal/pokecatch",
+    websiteLink: "https://pokecatch.faiqnaufal.com",
+    detailLink: "",
+  },
+  {
     name: "MovieQ",
     description:
       "Website for searching and get movie information based on OMDb.",
     logo: MovieQLogo,
     githubLink: "https://github.com/faiq-naufal/MovieQ",
     websiteLink: "https://movieq.faiqnaufal.com",
-    detailLink: "",
-  },
-  {
-    name: "Faiq Naufal's Website",
-    description: "My own personal website and the one you see right now",
-    logo: FaiqNaufalLogo,
-    githubLink: "https://github.com/faiq-naufal/faiqnaufal.com",
-    websiteLink: "https://faiqnaufal.com",
     detailLink: "",
   },
 ]
