@@ -62,7 +62,14 @@ public
 .DS_Store
 
 # Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 yarn-error.log
+.pnp.*
 .pnp/
 .pnp.js
 # Yarn Integrity file
