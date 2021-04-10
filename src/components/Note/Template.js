@@ -1,4 +1,5 @@
 import React from "react"
+import LazyLoad from "react-lazyload"
 import Section, { SectionTopBreak } from "../../components/Commons/Section"
 import Heading, { HeadingOne } from "../../components/Commons/Heading"
 import TopIllust from "../../components/Commons/TopIllust"
@@ -28,9 +29,11 @@ const NoteTemplate = ({ notes }) => (
           my opinion
         </p>
       </TopIllust>
-      <SectionTopBreak TextNumber={() => <Number05 />} />
     </Section>
-    <NoteList notes={notes} />
+    <SectionTopBreak TextNumber={() => <Number05 />} />
+    <LazyLoad height={400} once>
+      <NoteList notes={notes} />
+    </LazyLoad>
   </>
 )
 
