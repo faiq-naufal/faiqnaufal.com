@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/react"
+import { css } from "linaria"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -60,7 +60,7 @@ const DetailNoteTemplate = props => {
       <div className="my-10 mx-auto rounded-md overflow-hidden max-w-3xl">
         <GatsbyImage image={heroImage} alt={title} />
       </div>
-      <div css={blogContentStyles}>
+      <div className={blogContentStyles}>
         <MDXRenderer>{body}</MDXRenderer>
       </div>
     </Section>

@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "@emotion/react"
+import { css } from "linaria"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Section from "../../Commons/Section"
 
@@ -29,8 +29,7 @@ const SocialMedia = () => (
             </strong>
             <br />
             <button
-              css={encryptEmail}
-              className="bg-none cursor-pointer inline-flex text-gray-600 mb-5 p-0 hover:text-primaryGreen"
+              className={`${encryptEmail} bg-none cursor-pointer inline-flex text-gray-600 mb-5 p-0 hover:text-primaryGreen`}
               aria-label="Email"
               data-name="me"
               data-domain="faiqnaufal"

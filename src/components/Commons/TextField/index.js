@@ -1,11 +1,11 @@
 import React, { forwardRef } from "react"
-import { css } from "@emotion/react"
+import { css } from "linaria"
 import MuiTextField from "@material-ui/core/TextField"
 
 export default forwardRef(function TextField(props, ref) {
   return (
     <MuiTextField
-      css={stylesTextField}
+      className={stylesTextField}
       inputProps={{
         form: {
           autocomplete: "off",

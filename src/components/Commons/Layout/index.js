@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { css } from "@emotion/react"
+import { css } from "linaria"
 import Container from "../Container"
 import Header from "../Header"
 import Navbar from "../NavBar"
@@ -45,8 +45,7 @@ const MainLayout = ({ children }) => {
   return (
     <Container>
       <main
-        css={gridAreaTemplates}
-        className="grid grid-cols-1 lg:grid-cols-[180px,1fr,150px] lg:gap-x-5 w-full relative flex-1"
+        className={`${gridAreaTemplates} grid grid-cols-1 lg:grid-cols-[180px,1fr,150px] lg:gap-x-5 w-full relative flex-1`}
       >
         <Header style={{ gridArea: "header" }} />
         <Navbar style={{ gridArea: "navbar" }} />
