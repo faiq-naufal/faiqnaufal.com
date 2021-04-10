@@ -1,11 +1,11 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const { NODE_ENV, TRACKING_ID } = process.env
+const { NODE_ENV, GA_TRACKING_ID } = process.env
 
 module.exports = {
   siteMetadata: {
-    title: `Faiq Naufal - A Web Developer Focused in Front-End Development`,
+    title: `Faiq Naufal - Web Developer Focused in Front-End Development`,
     description: `I am Faiq Naufal. Web developer focused in front-end development. I craft beautiful website with latest cutting-edge front-end web technologies.`,
     keywords: `Faiq Naufal, Portfolio, CV, Resume, Personal Website, Front-End, Developer, Web Developer, Website, Software Engineer, Software Developer`,
     logoPng: `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601447867/assets_faiqnaufal/faiq_naufal_logo.png`,
@@ -14,25 +14,27 @@ module.exports = {
     siteName: "Faiq Naufal",
     lang: `en`,
   },
-  //experimental update
-  flags: {
-    FAST_DEV: true,
-    FAST_REFRESH: true,
-    PRESERVE_WEBPACK_CACHE: true,
-  },
   plugins: [
     //SEO
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: TRACKING_ID,
-        head: true,
-        defer: true,
-        pageTransitionDelay: 0,
+        trackingIds: [
+          GA_TRACKING_ID, // Google Analytics / GA
+        ],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
+    {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+      options: {
+        generateStatsFile: true,
+      },
+    },
+    `gatsby-plugin-bundle-stats`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -59,25 +61,11 @@ module.exports = {
     },
     //Theme & Layout
     `gatsby-plugin-emotion`,
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-        },
-      },
-    },
-    // {
-    //   resolve: "@chakra-ui/gatsby-plugin",
-    //   options: {
-    //     isResettingCSS: true,
-    //     isUsingColorMode: true,
-    //   },
-    // },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve(`./src/components/layouts/MainLayout`),
+        component: require.resolve(`./src/components/Commons/Layout/`),
       },
     },
     {
@@ -117,11 +105,9 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
-          `gatsby-remark-reading-time`,
-          `gatsby-remark-relative-images`,
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -133,12 +119,13 @@ module.exports = {
             },
           },
         ],
+        extensions: [`.md`, `.mdx`],
       },
     },
 
     //Optimization
+    `gatsby-plugin-image`,
     `gatsby-plugin-optimize-svgs`,
-    `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-preact`,
     {

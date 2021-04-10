@@ -2,12 +2,14 @@ import React from "react"
 import Helmet from "react-helmet"
 import Seo from "../components/Commons/Seo"
 import useSiteMetaData from "../components/Hooks/useSiteMetaData"
-import HomeTemplate from "../components/Home/Template"
+import ContactTemplate from "../components/Contact/Template"
 
-const HomePage = () => {
+const ContactPage = () => {
   const { siteUrl, logo } = useSiteMetaData()
-  const title = `👋 Hi, I'm Faiq Naufal. You have found my personal website!`
-  const description = `This is my personal website. A website fully dedicated to tell my personal info, showcase my work, and store my thought as a web developer from Indonesia.`
+  const currentUrl = `${siteUrl}/contact`
+  const title = `✉️ Contact - Faiq Naufal`
+  const description = `If you would like to work together or just want to get in touch with me just say hello 👋. The best way to reach me is by filling the contact form.`
+  const thumbnail = `https://res.cloudinary.com/faiqnaufal/image/upload/q_auto:eco/v1601091712/assets_faiqnaufal/notifications.png`
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -28,17 +30,18 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <link rel="canonical" href={siteUrl} />
+        <link rel="canonical" href={currentUrl} />
       </Helmet>
       <Seo
         title={title}
         description={description}
-        currentUrl={siteUrl}
+        image={thumbnail}
+        currentUrl={currentUrl}
         schemaMarkup={schemaMarkup}
       />
-      <HomeTemplate />
+      <ContactTemplate />
     </>
   )
 }
 
-export default HomePage
+export default ContactPage

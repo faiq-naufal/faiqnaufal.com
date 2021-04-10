@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #___gatsby,
+  #gatsby-focus-wrapper {
+    @apply flex flex-1 flex-col min-h-full h-auto;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  body {
+    @apply overflow-y-scroll text-base;
+    background-color: #fdfbfb;
+  }
+
+  img,
+  button {
+    @apply select-none;
+  }
+
+  ::selection {
+    @apply bg-primaryGreen text-white;
+  }
+
+  button {
+    @apply border-none outline-none cursor-pointer;
+  }
+
+  #nprogress .bar {
+    @apply h-1;
+  }
+
+  a.active-link {
+    @apply text-primaryGreen text-opacity-100;
+  }
+
+  @screen lg {
+    a.active-link::before {
+      @apply absolute -left-3 top-1/2 w-1 bg-primaryGreen transform -translate-y-1/2;
+      content: "";
+      height: calc(100% + 4px);
+    }
+  }
+
+  a.active-link span {
+    @apply text-gray-700;
+  }
+}

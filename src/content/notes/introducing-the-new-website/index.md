@@ -4,6 +4,7 @@ overview: "Hello there, I'm excited to share with you about my new website. I ha
 featureImage: "introducing-the-new-website.jpg"
 tag: "Website"
 date: 2020-09-22
+author: "Faiq Naufal"
 ---
 
 ## Introduction
