@@ -60,7 +60,6 @@ module.exports = {
       },
     },
     //Theme & Layout
-    `gatsby-plugin-linaria`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-layout`,

@@ -55,14 +55,14 @@ const ContactForm = () => {
           Let's Talk
         </h2>
         <form
-          className="bg-white text-gray-600 py-8 px-5 rounded relative shadow-md sm:p-10 "
+          className="bg-white text-gray-600 py-8 px-5 rounded relative shadow-md sm:p-10 text-sm sm:text-base"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="absolute -top-12 -left-12 bg-primaryGreen w-full h-full z-[-1] rounded"></div>
           <h3 className="text-gray-700 font-bold text-lg mb-1 sm:text-xl">
             Tell me anything!
           </h3>
-          <p className="leading-6 tracking-[0.2px] mb-5">
+          <p className="leading-6 tracking-[0.2px] mb-4 sm:mb-5">
             Rest assured, I will not give your information to others. You will
             not get any spam email from here.
           </p>
@@ -96,8 +96,8 @@ const ContactForm = () => {
               helperText={errors.subject?.message}
             />
           </div>
-          <p className="mb-5">Hello Faiq Naufal,</p>
-          <div className="mb-5">
+          <p className="mb-4 sm:mb-5">Hello Faiq Naufal,</p>
+          <div className="mb-4 sm:mb-5">
             <p className="mb-1">
               <label
                 htmlFor="senderName"
@@ -123,7 +123,7 @@ const ContactForm = () => {
               helperText={errors.senderName?.message}
             />
           </div>
-          <div className="mb-5">
+          <div className="mb-4 sm:mb-5">
             <p className="mb-1">
               <label
                 htmlFor="email"
@@ -150,7 +150,7 @@ const ContactForm = () => {
               helperText={errors.email?.message}
             />
           </div>
-          <div className="mb-5">
+          <div className="mb-4 sm:mb-5">
             <p className="mb-1">
               I have a
               <label
@@ -173,7 +173,7 @@ const ContactForm = () => {
               helperText={errors.message?.message}
             />
           </div>
-          <div className="mt-12 grid grid-cols[minmax(0,1fr),1fr] gap-x-1">
+          <div className="mt-12 grid grid-cols-[minmax(0,1fr),1fr] gap-x-1">
             <div>
               <span className="block max-w-full overflow-ellipsis whitespace-nowrap overflow-hidden mb-20">
                 Regards,

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { css } from "linaria"
+import { css } from "@linaria/core"
 import Container from "../Container"
 import Header from "../Header"
 import Navbar from "../NavBar"

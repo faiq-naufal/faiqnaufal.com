@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "linaria"
+import { css } from "@linaria/core"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Section from "../../Commons/Section"
 

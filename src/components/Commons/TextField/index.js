@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react"
-import { css } from "linaria"
+import { css } from "@linaria/core"
 import MuiTextField from "@material-ui/core/TextField"
 
 export default forwardRef(function TextField(props, ref) {

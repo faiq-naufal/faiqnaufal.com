@@ -1,5 +1,5 @@
 import React from "react"
-import { css } from "linaria"
+import { css } from "@linaria/core"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
