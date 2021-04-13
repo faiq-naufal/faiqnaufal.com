@@ -1,18 +1,18 @@
 import React from "react"
-import { ReactComponent as VsCode } from "../../../images/logo/visual-studio-code.svg"
-import { ReactComponent as Git } from "../../../images/logo/git.svg"
-import { ReactComponent as Figma } from "../../../images/logo/figma.svg"
-import { ReactComponent as ZohoMail } from "../../../images/logo/zoho.svg"
-import { ReactComponent as GoogleLighthouse } from "../../../images/logo/google-lighthouse.svg"
-import { ReactComponent as GooglePageSpeedInsights } from "../../../images/logo/google-pagespeed-insights.svg"
-import { ReactComponent as GoogleAnalytics } from "../../../images/logo/google-analytics.svg"
-import { ReactComponent as Prettier } from "../../../images/logo/prettier.svg"
-import { ReactComponent as Npm } from "../../../images/logo/npm.svg"
-import { ReactComponent as ChromeDevTools } from "../../../images/logo/chrome-devtools.svg"
-import { ReactComponent as Wappalyzer } from "../../../images/logo/wappalyzer.svg"
-import { ReactComponent as Pocket } from "../../../images/logo/pocket.svg"
-import { ReactComponent as LastPass } from "../../../images/logo/lastpass.svg"
-import { ReactComponent as Trello } from "../../../images/logo/trello.svg"
+import { ReactComponent as VsCode } from "@images/logo/visual-studio-code.svg"
+import { ReactComponent as Git } from "@images/logo/git.svg"
+import { ReactComponent as Figma } from "@images/logo/figma.svg"
+import { ReactComponent as ZohoMail } from "@images/logo/zoho.svg"
+import { ReactComponent as GoogleLighthouse } from "@images/logo/google-lighthouse.svg"
+import { ReactComponent as GooglePageSpeedInsights } from "@images/logo/google-pagespeed-insights.svg"
+import { ReactComponent as GoogleAnalytics } from "@images/logo/google-analytics.svg"
+import { ReactComponent as Prettier } from "@images/logo/prettier.svg"
+import { ReactComponent as Npm } from "@images/logo/npm.svg"
+import { ReactComponent as ChromeDevTools } from "@images/logo/chrome-devtools.svg"
+import { ReactComponent as Wappalyzer } from "@images/logo/wappalyzer.svg"
+import { ReactComponent as Pocket } from "@images/logo/pocket.svg"
+import { ReactComponent as LastPass } from "@images/logo/lastpass.svg"
+import { ReactComponent as Trello } from "@images/logo/trello.svg"
 
 const listTools = [
   {
@@ -117,7 +117,9 @@ const Tools = () => (
           <span className="rounded-full bg-white w-12 h-12 p-3 flex items-center content-center justify-center">
             {<tool.icon className="max-w-[28px] max-h-[24px] w-full" />}
           </span>
-          <h3 className="font-bold block my-3 text-lg lg:text-xl">{tool.title}</h3>
+          <h3 className="font-bold block my-3 text-lg lg:text-xl">
+            {tool.title}
+          </h3>
           <p className="leading-6 tracking-[0.2px]">{tool.description}</p>
         </li>
       ))}

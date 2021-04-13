@@ -1,8 +1,8 @@
 import React from "react"
 import Helmet from "react-helmet"
-import Seo from "../components/Commons/Seo"
-import useSiteMetaData from "../components/Hooks/useSiteMetaData"
-import ContactTemplate from "../components/Contact/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import ContactTemplate from "@components/Contact/Template"
 
 const ContactPage = () => {
   const { siteUrl, logo } = useSiteMetaData()

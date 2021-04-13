@@ -1,9 +1,9 @@
 import React from "react"
 import { Redirect } from "@reach/router"
 import Helmet from "react-helmet"
-import Seo from "../../components/Commons/Seo"
-import useSiteMetaData from "../../components/Hooks/useSiteMetaData"
-import MailSuccessTemplate from "../../components/Contact/MailSuccess/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import MailSuccessTemplate from "@components/Contact/MailSuccess/Template"
 
 const MailSuccessPage = ({ location }) => {
   const { showPage } = location.state || false

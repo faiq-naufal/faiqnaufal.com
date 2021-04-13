@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import { getImage, getSrc } from "gatsby-plugin-image"
 import Helmet from "react-helmet"
-import Seo from "../../components/Commons/Seo"
-import useSiteMetaData from "../../components/Hooks/useSiteMetaData"
-import DetailNoteTemplate from "../../components/Note/DetailNote/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import DetailNoteTemplate from "@components/Note/DetailNote/Template"
 
 const DetailNotePage = ({ data }) => {
   const {

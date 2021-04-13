@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { css } from "@linaria/core"
-import Container from "../Container"
-import Header from "../Header"
-import Navbar from "../NavBar"
-import Footer from "../Footer"
-import BgHome from "../../../images/bg_home.svg"
+import Container from "@components/Commons/Container"
+import Header from "@components/Commons/Header"
+import Navbar from "@components/Commons/NavBar"
+import Footer from "@components/Commons/Footer"
+import BgHome from "@images/bg_home.svg"
 
 const setDocHeight = () => {
   let vh = window.innerHeight * 0.01

@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Helmet from "react-helmet"
-import Seo from "../components/Commons/Seo"
-import useSiteMetaData from "../components/Hooks/useSiteMetaData"
-import NoteTemplate from "../components/Note/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import NoteTemplate from "@components/Note/Template"
 
 const NotePage = ({ data }) => {
   const notes = data.allMdx.edges

@@ -1,10 +1,10 @@
 import React from "react"
 import LazyLoad from "react-lazyload"
-import Section, { SectionTopBreak } from "../Commons/Section"
-import Heading, { HeadingOne } from "../Commons/Heading"
-import TopIllust from "../Commons/TopIllust"
-import { ReactComponent as IllustShowcase } from "../../images/landing_page.svg"
-import { ReactComponent as Number03 } from "../../images/03.svg"
+import Section, { SectionTopBreak } from "@components/Commons/Section"
+import Heading, { HeadingOne } from "@components/Commons/Heading"
+import TopIllust from "@components/Commons/TopIllust"
+import { ReactComponent as IllustShowcase } from "@images/landing_page.svg"
+import { ReactComponent as Number03 } from "@images/03.svg"
 import ShowcaseList from "./ShowcaseList"
 
 const ShowcaseTemplate = ({ projectsData }) => (

@@ -1,5 +1,5 @@
 import React from "react"
-import Section from "../../Commons/Section"
+import Section from "@components/Commons/Section"
 
 const Summary = () => (
   <Section>

@@ -2,7 +2,7 @@ import React from "react"
 import { BsBook } from "@react-icons/all-files/bs/BsBook"
 import { BsStar } from "@react-icons/all-files/bs/BsStar"
 import { BsGrid } from "@react-icons/all-files/bs/BsGrid"
-import Section from "../../Commons/Section"
+import Section from "@components/Commons/Section"
 
 const listValues = [
   {

@@ -1,9 +1,9 @@
 import React from "react"
 import { navigate } from "gatsby"
 import { useForm } from "react-hook-form"
-import Section from "../../Commons/Section"
-import TextField from "../../Commons/TextField"
-import { encodeFormData } from "../../../utils/utils"
+import Section from "@components/Commons/Section"
+import TextField from "@components/Commons/TextField"
+import encodeFormData from "@helpers/encodeFormData"
 
 const onSubmit = async data => {
   try {

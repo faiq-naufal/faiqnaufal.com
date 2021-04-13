@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GoMarkGithub } from "@react-icons/all-files/go/GoMarkGithub"
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin"
-import { ReactComponent as Logo } from "../../../images/logo/faiq_naufal_logo_full.svg"
+import { ReactComponent as Logo } from "@images/logo/faiq_naufal_logo_full.svg"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const Header = ({ children, ...others }) => {

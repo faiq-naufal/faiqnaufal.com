@@ -2,7 +2,7 @@ import React from "react"
 import { GoMarkGithub } from "@react-icons/all-files/go/GoMarkGithub"
 import { IoIosGlobe } from "@react-icons/all-files/io/IoIosGlobe"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import Section from "../../../components/Commons/Section"
+import Section from "@components/Commons/Section"
 
 const ShowcaseList = ({ projectsData }) => (
   <Section>

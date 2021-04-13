@@ -1,6 +1,7 @@
 const path = require(`path`)
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, loaders, stage }) => {
+  //webpack config
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -8,7 +9,10 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, loaders, stage }) => {
         react: "preact/compat",
         "react-dom/test-utils": "preact/test-utils",
         "react-dom": "preact/compat",
-        // Must be below test-utils
+        //path import aliases
+        "@components": path.resolve(__dirname, "src/components"),
+        "@images": path.resolve(__dirname, "src/images"),
+        "@helpers": path.resolve(__dirname, "src/helpers"),
       },
     },
   })

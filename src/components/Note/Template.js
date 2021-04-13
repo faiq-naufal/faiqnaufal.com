@@ -1,10 +1,10 @@
 import React from "react"
 import LazyLoad from "react-lazyload"
-import Section, { SectionTopBreak } from "../../components/Commons/Section"
-import Heading, { HeadingOne } from "../../components/Commons/Heading"
-import TopIllust from "../../components/Commons/TopIllust"
-import { ReactComponent as IllustDreaming } from "../../images/dream.svg"
-import { ReactComponent as Number05 } from "../../images/05.svg"
+import Section, { SectionTopBreak } from "@components/Commons/Section"
+import Heading, { HeadingOne } from "@components/Commons/Heading"
+import TopIllust from "@components/Commons/TopIllust"
+import { ReactComponent as IllustDreaming } from "@images/dream.svg"
+import { ReactComponent as Number05 } from "@images/05.svg"
 import NoteList from "./NoteList"
 
 const NoteTemplate = ({ notes }) => (

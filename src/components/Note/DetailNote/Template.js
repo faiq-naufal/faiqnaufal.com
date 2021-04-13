@@ -7,7 +7,7 @@ import { HiOutlineArrowLeft } from "@react-icons/all-files/hi/HiOutlineArrowLeft
 import { BsPerson } from "@react-icons/all-files/bs/BsPerson"
 import { AiOutlineFieldTime } from "@react-icons/all-files/ai/AiOutlineFieldTime"
 import { AiOutlineCalendar } from "@react-icons/all-files/ai/AiOutlineCalendar"
-import Section from "../../Commons/Section"
+import Section from "@components/Commons/Section"
 
 const DetailNoteTemplate = props => {
   const {

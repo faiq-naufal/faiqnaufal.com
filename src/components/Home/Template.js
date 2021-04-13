@@ -1,5 +1,5 @@
 import React from "react"
-import { LinkOutlined } from "../Commons/Button"
+import { LinkOutlined } from "@components/Commons/Button"
 
 const HomeTemplate = () => {
   return (

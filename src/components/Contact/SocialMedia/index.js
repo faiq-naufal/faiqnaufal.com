@@ -1,7 +1,7 @@
 import React from "react"
 import { css } from "@linaria/core"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-import Section from "../../Commons/Section"
+import Section from "@components/Commons/Section"
 
 const SocialMedia = () => (
   <Section>

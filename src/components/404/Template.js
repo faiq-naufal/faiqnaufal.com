@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { ReactComponent as Illust404 } from "../../images/404_page_not_found.svg"
+import { ReactComponent as Illust404 } from "@images/404_page_not_found.svg"
 
 const NotFoundTemplate = () => {
   return (

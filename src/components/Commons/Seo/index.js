@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import useSiteMetaData from "../../Hooks/useSiteMetaData"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
 
 export default function SEO({
   title,

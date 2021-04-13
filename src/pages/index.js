@@ -1,8 +1,8 @@
 import React from "react"
 import Helmet from "react-helmet"
-import Seo from "../components/Commons/Seo"
-import useSiteMetaData from "../components/Hooks/useSiteMetaData"
-import HomeTemplate from "../components/Home/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import HomeTemplate from "@components/Home/Template"
 
 const HomePage = () => {
   const { siteUrl, logo } = useSiteMetaData()

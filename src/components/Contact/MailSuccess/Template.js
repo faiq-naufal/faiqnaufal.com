@@ -1,7 +1,7 @@
 import React from "react"
 import { RiArrowGoBackLine } from "@react-icons/all-files/ri/RiArrowGoBackLine"
-import { ReactComponent as IllustSuccess } from "../../../images/achievement.svg"
-import { LinkOutlined } from "../../Commons/Button"
+import { ReactComponent as IllustSuccess } from "@images/achievement.svg"
+import { LinkOutlined } from "@components/Commons/Button"
 
 const MailSuccessTemplate = () => {
   return (

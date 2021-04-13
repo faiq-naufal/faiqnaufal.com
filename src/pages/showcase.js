@@ -1,12 +1,12 @@
 import React from "react"
 import Helmet from "react-helmet"
-import Seo from "../components/Commons/Seo"
-import useSiteMetaData from "../components/Hooks/useSiteMetaData"
-import FaiqNaufalLogo from "../images/logo/faiq_naufal_logo.svg"
-import TealChatLogo from "../images/logo/tealchat.svg"
-import PokeCatchLogo from "../images/logo/pokecatch.svg"
-import MovieQLogo from "../images/logo/movieq.png"
-import ShowcaseTemplate from "../components/Showcase/Template"
+import Seo from "@components/Commons/Seo"
+import useSiteMetaData from "@components/Hooks/useSiteMetaData"
+import FaiqNaufalLogo from "@images/logo/faiq_naufal_logo.svg"
+import TealChatLogo from "@images/logo/tealchat.svg"
+import PokeCatchLogo from "@images/logo/pokecatch.svg"
+import MovieQLogo from "@images/logo/movieq.png"
+import ShowcaseTemplate from "@components/Showcase/Template"
 
 const projectsData = [
   {
