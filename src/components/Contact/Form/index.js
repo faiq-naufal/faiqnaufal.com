@@ -18,7 +18,7 @@ const onSubmit = async data => {
 
         body: encodeFormData({
           ...data,
-          message: `Subject: ${data.subject}\n\nHello Faiq Naufal,\nMy name is ${data.name} and my contact email is ${data.email}.\nI have a message for you :\n${data.message}`,
+          message: `Subject: ${data.subject}\n\nHello Faiq Naufal,\nMy name is ${data.senderName} and my contact email is ${data.email}.\nI have a message for you :\n${data.message}`,
         }),
       }
     )
