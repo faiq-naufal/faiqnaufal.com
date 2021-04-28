@@ -8,7 +8,7 @@ import encodeFormData from "@helpers/encodeFormData"
 const onSubmit = async data => {
   try {
     const response = await fetch(
-      `https://formspree.io/f/${process.env.FORMSPREE_ENDPOINT}`,
+      `https://formspree.io/f/${process.env.GATSBY_FORMSPREE_ENDPOINT}`,
       {
         method: "POST",
         headers: {

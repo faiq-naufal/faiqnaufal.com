@@ -1,7 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const { NODE_ENV, GA_TRACKING_ID } = process.env
+const { NODE_ENV, GATSBY_GA_TRACKING_ID } = process.env
 
 module.exports = {
   siteMetadata: {
@@ -20,7 +20,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          GA_TRACKING_ID, // Google Analytics / GA
+          GATSBY_GA_TRACKING_ID, // Google Analytics / GA
         ],
         pluginConfig: {
           head: true,
