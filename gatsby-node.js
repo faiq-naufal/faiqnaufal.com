@@ -1,45 +1,22 @@
-const path = require(`path`)
+const path = require("path")
 
-exports.onCreateWebpackConfig = ({ actions, getConfig, loaders, stage }) => {
-  //webpack config
+exports.onCreateWebpackConfig = ({ actions }) => {
+  // webpack config
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        //preact config
-        react: "preact/compat",
-        "react-dom/test-utils": "preact/test-utils",
-        "react-dom": "preact/compat",
-        //path import aliases
+        // preact config
+        // react: "preact/compat",
+        // "react-dom/test-utils": "preact/test-utils",
+        // "react-dom": "preact/compat",
+        // path import aliases
         "@components": path.resolve(__dirname, "src/components"),
-        "@images": path.resolve(__dirname, "src/images"),
+        "@contexts": path.resolve(__dirname, "src/contexts"),
         "@helpers": path.resolve(__dirname, "src/helpers"),
+        "@hooks": path.resolve(__dirname, "src/hooks"),
+        "@images": path.resolve(__dirname, "src/images"),
+        "@pages": path.resolve(__dirname, "src/pages"),
       },
     },
   })
-
-  const config = getConfig()
-
-  //linaria config
-  config.module.rules = [
-    ...config.module.rules.filter(
-      rule => String(rule.test) !== String(/\.js?$/)
-    ),
-
-    {
-      ...loaders.js(),
-
-      test: /\.js?$/,
-      loader: "@linaria/webpack-loader",
-      options: {
-        sourceMap: stage.includes("develop"),
-        displayName: stage.includes("develop"),
-        babelOptions: {
-          presets: ["babel-preset-gatsby"],
-        },
-      },
-      exclude: /node_modules/,
-    },
-  ]
-
-  actions.replaceWebpackConfig(config)
 }

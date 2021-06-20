@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@components": ["src/components"],
-      "@images": ["src/images"],
-      "@helpers": ["src/helpers"]
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@images/*": ["src/images/*"],
+      "@pages/*": ["src/pages/*"]
     }
   }
 }

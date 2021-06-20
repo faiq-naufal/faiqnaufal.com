@@ -12,40 +12,112 @@
   }
 
   body {
-    @apply overflow-y-scroll text-base;
-    background-color: #fdfbfb;
+    font-family: "Inter", sans-serif;
+    @apply text-base bg-custom-white-1--light text-custom-black-1--light font-normal;
   }
 
-  img,
-  button {
-    @apply select-none;
+  .font-inter-500 {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+  }
+
+  .font-inter-600 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+
+  .font-inter-700 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+  }
+
+  .font-fraunces-600 {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+  }
+
+  .font-fraunces-700 {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+  }
+
+  /* variable fonts */
+  @supports (font-variation-settings: normal) {
+    body {
+      font-family: "InterVariable", sans-serif;
+      font-variation-settings: "wght" 400;
+    }
+
+    .font-inter-600 {
+      font-family: "InterVariable", sans-serif;
+      font-variation-settings: "wght" 600;
+    }
+
+    .font-inter-700 {
+      font-family: "InterVariable", sans-serif;
+      font-variation-settings: "wght" 700;
+    }
+
+    .font-fraunces-600 {
+      font-family: "FrauncesVariable", serif;
+      font-variation-settings: "wght" 600;
+    }
+
+    .font-fraunces-700 {
+      font-family: "FrauncesVariable", serif;
+      font-variation-settings: "wght" 700;
+    }
   }
 
   ::selection {
-    @apply bg-primaryGreen text-white;
-  }
-
-  button {
-    @apply border-none outline-none cursor-pointer;
+    @apply bg-custom-primary-green text-custom-white-2--light;
   }
 
   #nprogress .bar {
     @apply h-1;
   }
 
+  a svg.regular-icon {
+    @apply inline-block;
+  }
+
+  a svg.active-icon {
+    @apply hidden;
+  }
+
   a.active-link {
-    @apply text-primaryGreen text-opacity-100;
+    @apply text-custom-primary-green;
   }
 
-  @screen lg {
-    a.active-link::before {
-      @apply absolute -left-3 top-1/2 w-1 bg-primaryGreen transform -translate-y-1/2;
-      content: "";
-      height: calc(100% + 4px);
+  a.active-link svg.active-icon {
+    @apply inline-block;
+  }
+
+  a.active-link svg.regular-icon {
+    @apply hidden;
+  }
+
+  a.active-link .active-line {
+    @apply absolute bottom-0 left-0 bg-custom-primary-green inline-block h-[3px] w-full;
+  }
+
+  /* on desktop */
+  .navbar-mobile {
+    @apply hidden;
+  }
+
+  .navbar-desktop {
+    @apply flex;
+  }
+
+  /* on mobile */
+  @media (max-width: 1199px) and (orientation: portrait), (max-width: 959px) {
+    .navbar-mobile {
+      @apply block;
     }
-  }
 
-  a.active-link span {
-    @apply text-gray-700;
+    .navbar-desktop {
+      @apply hidden;
+    }
   }
 }
